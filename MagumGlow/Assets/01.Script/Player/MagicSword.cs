@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -5,9 +6,13 @@ public class MagicSword : MonoBehaviour
 {
     public MagicSwordStats swordStats;  // 마검 스탯 SO 참조
     public TextMeshProUGUI playerName;
+    public bool enemyIsFront;
+
+    public event Action<bool> AttackEvent;
 
     void Start()
     {
+        enemyIsFront = false;
         InitializeSword();
     }
 
@@ -19,6 +24,31 @@ public class MagicSword : MonoBehaviour
         {
             stat.currentValue = stat.baseValue;
         }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            enemyIsFront = true;
+        }else if (Input.GetKeyDown(KeyCode.Q))
+        {
+            enemyIsFront = false;
+        }
+
+        if (enemyIsFront)
+        {
+            Attacking(true);
+        }
+        else
+        {
+            Attacking(false);
+        }
+    }
+
+    private void Attacking(bool isAttacking)
+    {
+        AttackEvent?.Invoke(isAttacking);
     }
 
     public void LevelUpSword()
