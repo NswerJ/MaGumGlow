@@ -1,0 +1,1763 @@
+fileFormatVersion: 2
+guid: 986aa18ea27ee6b43928cdb7ac0c06bd
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Shielder_Frame_10
+    originalName: 
+    pivot: {x: 0.5138889, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 306
+      y: 148
+      width: 36
+      height: 34
+    spriteID: 9b3e3ccabf790cd438b8fe59199c32c4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 306, y: 148}
+  - name: Shielder_Frame_11
+    originalName: 
+    pivot: {x: 0.5731707, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 208
+      y: 148
+      width: 41
+      height: 35
+    spriteID: bd07d7e77baa5d3418ada2e944ddff95
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 208, y: 148}
+  - name: Shielder_Frame_12
+    originalName: 
+    pivot: {x: 0.6547619, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 108
+      y: 148
+      width: 42
+      height: 35
+    spriteID: 4a39e2cd8e03a6f499bf36cd5ab0c6ce
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 108, y: 148}
+  - name: Shielder_Frame_13
+    originalName: 
+    pivot: {x: 0.6860465, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 57
+      y: 148
+      width: 43
+      height: 35
+    spriteID: 8229eae591f296447816686e8e2273e7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 57, y: 148}
+  - name: Shielder_Frame_14
+    originalName: 
+    pivot: {x: 0.7023809, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 158
+      y: 148
+      width: 42
+      height: 35
+    spriteID: 41c6dd8f7ec7e31499ab83cef6894f4f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 158, y: 148}
+  - name: Shielder_Frame_15
+    originalName: 
+    pivot: {x: 0.72619045, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 191
+      width: 42
+      height: 36
+    spriteID: 6d53310f52105fd448a74e19795462e6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 191}
+  - name: Shielder_Frame_16
+    originalName: 
+    pivot: {x: 0.41780823, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 182
+      y: 98
+      width: 73
+      height: 36
+    spriteID: bf1b18bafe5432b4c8e8b3cc2ac82619
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 182, y: 98}
+  - name: Shielder_Frame_17
+    originalName: 
+    pivot: {x: 0.41780823, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 101
+      y: 98
+      width: 73
+      height: 37
+    spriteID: ce6490aa0d19dd54591cb8517c46f388
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 101, y: 98}
+  - name: Shielder_Frame_43
+    originalName: 
+    pivot: {x: 0.5138889, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 350
+      y: 148
+      width: 36
+      height: 34
+    spriteID: 7b81b3448e037494dbdd4114d155783a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 350, y: 148}
+  - name: Shielder_Frame_44
+    originalName: 
+    pivot: {x: 0.5731707, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 257
+      y: 148
+      width: 41
+      height: 35
+    spriteID: 879f8a0564f088448be7e0bca76758b9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 257, y: 148}
+  - name: Shielder_Frame_45
+    originalName: 
+    pivot: {x: 0.6111111, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 148
+      width: 45
+      height: 35
+    spriteID: 3d645c368fb7eda4fb7c74a984bf24f2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 148}
+  - name: Shielder_Frame_46
+    originalName: 
+    pivot: {x: 0.62765956, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 445
+      y: 98
+      width: 47
+      height: 35
+    spriteID: 03b54d633157ed044adb77ccdcd203f7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 445, y: 98}
+  - name: Shielder_Frame_0
+    originalName: 
+    pivot: {x: 0.48529413, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 432
+      y: 191
+      width: 34
+      height: 33
+    spriteID: 8043b8e5e9d46d349a5bd28372de3382
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 432, y: 191}
+  - name: Shielder_Frame_1
+    originalName: 
+    pivot: {x: 0.48529413, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 474
+      y: 191
+      width: 34
+      height: 33
+    spriteID: 3309ac846a340be4c80bc94188ca6b92
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 474, y: 191}
+  - name: Shielder_Frame_2
+    originalName: 
+    pivot: {x: 0.48529413, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 54
+      y: 191
+      width: 34
+      height: 34
+    spriteID: 52264d2d143cf77448edc9ba6310c1a0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 54, y: 191}
+  - name: Shielder_Frame_3
+    originalName: 
+    pivot: {x: 0.48529413, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 394
+      y: 148
+      width: 34
+      height: 35
+    spriteID: ab1248a2617d40a45a3701537b8e7cbb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 394, y: 148}
+  - name: Shielder_Frame_4
+    originalName: 
+    pivot: {x: 0.48529413, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 235
+      width: 34
+      height: 33
+    spriteID: 660bfda6cf2309840977ed4cf5a71fc6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 235}
+  - name: Shielder_Frame_5
+    originalName: 
+    pivot: {x: 0.48529413, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 96
+      y: 191
+      width: 34
+      height: 34
+    spriteID: 987b2d77ee2dfee48b1cdc05c595c787
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 96, y: 191}
+  - name: Shielder_Frame_6
+    originalName: 
+    pivot: {x: 0.48529413, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 436
+      y: 148
+      width: 34
+      height: 35
+    spriteID: a9ac23634632b1b4391f3028aede1696
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 436, y: 148}
+  - name: Shielder_Frame_7
+    originalName: 
+    pivot: {x: 0.48529413, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 138
+      y: 191
+      width: 34
+      height: 34
+    spriteID: 6b8a361cb60880b47983fd4cc28cfa70
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 138, y: 191}
+  - name: Shielder_Frame_8
+    originalName: 
+    pivot: {x: 0.48529413, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 180
+      y: 191
+      width: 34
+      height: 34
+    spriteID: 268ce96c6c70d1e49815c173da1b7bbd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 180, y: 191}
+  - name: Shielder_Frame_9
+    originalName: 
+    pivot: {x: 0.48529413, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 46
+      y: 235
+      width: 34
+      height: 33
+    spriteID: 90dc8f7195754654f8d45ae4f7aed4e2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 46, y: 235}
+  - name: Shielder_Frame_18
+    originalName: 
+    pivot: {x: 0.19811323, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 263
+      y: 98
+      width: 53
+      height: 37
+    spriteID: 5d0c6fcb226728d458eb93816d1cd7b4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 263, y: 98}
+  - name: Shielder_Frame_19
+    originalName: 
+    pivot: {x: 0.09374996, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 324
+      y: 98
+      width: 48
+      height: 38
+    spriteID: cc7c14ea6c120884a916193f301feab5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 324, y: 98}
+  - name: Shielder_Frame_20
+    originalName: 
+    pivot: {x: 0.0918367, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 407
+      y: 58
+      width: 49
+      height: 31
+    spriteID: 2a2b56661b3b0a64fad70c24e8c1f20e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 407, y: 58}
+  - name: Shielder_Frame_21
+    originalName: 
+    pivot: {x: 0.16037737, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 346
+      y: 58
+      width: 53
+      height: 31
+    spriteID: 3b1c6b04d2079e349a4bf104abd0bf43
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 346, y: 58}
+  - name: Shielder_Frame_22
+    originalName: 
+    pivot: {x: 0.21929821, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 380
+      y: 98
+      width: 57
+      height: 31
+    spriteID: 8251b82b755f2d24bad91dcbe5338cbf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 380, y: 98}
+  - name: Shielder_Frame_23
+    originalName: 
+    pivot: {x: 0.29069763, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 464
+      y: 58
+      width: 43
+      height: 31
+    spriteID: bd5378864ef0a1a4fbd498a8c83c552b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 464, y: 58}
+  - name: Shielder_Frame_24
+    originalName: 
+    pivot: {x: 0.48529413, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 222
+      y: 191
+      width: 34
+      height: 34
+    spriteID: 4e36b345adb791c43a46a79133cc498e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 222, y: 191}
+  - name: Shielder_Frame_25
+    originalName: 
+    pivot: {x: 0.48529413, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 264
+      y: 191
+      width: 34
+      height: 34
+    spriteID: 62e0c26cbd0adf246b7d3eb55c32091f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 264, y: 191}
+  - name: Shielder_Frame_26
+    originalName: 
+    pivot: {x: 0.48529413, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 88
+      y: 235
+      width: 34
+      height: 33
+    spriteID: 734b2c4c454cf254b98fb3adfffc3f52
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 88, y: 235}
+  - name: Shielder_Frame_27
+    originalName: 
+    pivot: {x: 0.48529413, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 306
+      y: 191
+      width: 34
+      height: 34
+    spriteID: 2106a6413fec039468e0f05e9a455361
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 306, y: 191}
+  - name: Shielder_Frame_28
+    originalName: 
+    pivot: {x: 0.45312497, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 476
+      y: 4
+      width: 32
+      height: 31
+    spriteID: 3d8596c6fa484a440b4853cc3484e1de
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 476, y: 4}
+  - name: Shielder_Frame_29
+    originalName: 
+    pivot: {x: 0.4354838, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 334
+      y: 235
+      width: 31
+      height: 31
+    spriteID: 8b597328a03abed4db1cb7630f50e4a0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 334, y: 235}
+  - name: Shielder_Frame_30
+    originalName: 
+    pivot: {x: 0.39062494, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 172
+      y: 235
+      width: 32
+      height: 31
+    spriteID: 28d61d9c608d76a47a0c70ac43f0e456
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 172, y: 235}
+  - name: Shielder_Frame_31
+    originalName: 
+    pivot: {x: 0.37878785, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 252
+      y: 235
+      width: 33
+      height: 30
+    spriteID: e50f6a752e1d51a4ca8a44dcef2f3ce5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 252, y: 235}
+  - name: Shielder_Frame_32
+    originalName: 
+    pivot: {x: 0.37878785, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 293
+      y: 235
+      width: 33
+      height: 30
+    spriteID: 394f4cbd6f82d644594eca400ee2ffdf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 293, y: 235}
+  - name: Shielder_Frame_33
+    originalName: 
+    pivot: {x: 0.4354838, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 373
+      y: 235
+      width: 31
+      height: 31
+    spriteID: ca9fc6782f659ff48842db2f60b32add
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 373, y: 235}
+  - name: Shielder_Frame_34
+    originalName: 
+    pivot: {x: 0.4354838, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 412
+      y: 235
+      width: 31
+      height: 31
+    spriteID: 245a861fea34bce4ca20bababa90e2f6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 412, y: 235}
+  - name: Shielder_Frame_35
+    originalName: 
+    pivot: {x: 0.4354838, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 451
+      y: 235
+      width: 31
+      height: 31
+    spriteID: 9f01fdb3cda393f4c8fe5eca10cac2a7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 451, y: 235}
+  - name: Shielder_Frame_36
+    originalName: 
+    pivot: {x: 0.4354838, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 276
+      width: 31
+      height: 31
+    spriteID: 6b05909403d477a4bba9f5548d6b602b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 276}
+  - name: Shielder_Frame_37
+    originalName: 
+    pivot: {x: 0.4354838, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 43
+      y: 276
+      width: 31
+      height: 31
+    spriteID: c909730e3f3415f4caa96f5cbc0fede9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 43, y: 276}
+  - name: Shielder_Frame_38
+    originalName: 
+    pivot: {x: 0.4354838, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 82
+      y: 276
+      width: 31
+      height: 31
+    spriteID: b0bdd153b1dc8f146b03eed50f1a1779
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 82, y: 276}
+  - name: Shielder_Frame_39
+    originalName: 
+    pivot: {x: 0.45312497, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 212
+      y: 235
+      width: 32
+      height: 31
+    spriteID: e900c813de4618841846efef46aa5b3a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 212, y: 235}
+  - name: Shielder_Frame_40
+    originalName: 
+    pivot: {x: 0.48529413, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 348
+      y: 191
+      width: 34
+      height: 34
+    spriteID: 777431a647394fb48a20b50df60486ed
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 348, y: 191}
+  - name: Shielder_Frame_41
+    originalName: 
+    pivot: {x: 0.48529413, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 390
+      y: 191
+      width: 34
+      height: 34
+    spriteID: 9ac6e026164ca7248be3f08dd64a7611
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 390, y: 191}
+  - name: Shielder_Frame_42
+    originalName: 
+    pivot: {x: 0.48529413, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 130
+      y: 235
+      width: 34
+      height: 33
+    spriteID: 97edb839ea871c24ba832078c223681f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 130, y: 235}
+  - name: Shielder_Frame_48
+    originalName: 
+    pivot: {x: 0.51123595, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 98
+      width: 89
+      height: 42
+    spriteID: 1f1374610037e824ea8920699b6554c1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 98}
+  - name: Shielder_Frame_49
+    originalName: 
+    pivot: {x: 0.51980203, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 367
+      y: 4
+      width: 101
+      height: 45
+    spriteID: e1da8b0c8c8cc3f42a77347c0fa874ba
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 367, y: 4}
+  - name: Shielder_Frame_50
+    originalName: 
+    pivot: {x: 0.48557693, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 255
+      y: 4
+      width: 104
+      height: 46
+    spriteID: c93817e5f15ecfe429b6c696b685179c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 255, y: 4}
+  - name: Shielder_Frame_51
+    originalName: 
+    pivot: {x: 0.49561402, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 114
+      height: 46
+    spriteID: 11aca363403dc274bb067b1f8e73b0d5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Shielder_Frame_52
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 126
+      y: 4
+      width: 121
+      height: 40
+    spriteID: 0a817c099b5d6ae4ba3aa33d278e422a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 126, y: 4}
+  - name: Shielder_Frame_53
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 58
+      width: 127
+      height: 32
+    spriteID: c1e590b0fec0ad846b4cfb43a3ef00b3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 58}
+  - name: Shielder_Frame_54
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 139
+      y: 58
+      width: 129
+      height: 27
+    spriteID: 8a8317d5125c63e44bce10ec8c86da45
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 139, y: 58}
+  - name: Shielder_Frame_55
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 121
+      y: 276
+      width: 129
+      height: 4
+    spriteID: cb9de42f368a86d408a35935e593f924
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 121, y: 276}
+  - name: Shielder_Frame_47
+    originalName: 
+    pivot: {x: 0.45967737, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 276
+      y: 58
+      width: 62
+      height: 32
+    spriteID: ce82ef82ef5e8dd459d7dc746fe35f87
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 276, y: 58}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 1839898300
+    name: Shielder
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Shielder_Frame_10
+      frameIndex: 10
+      additiveSortOrder: 0
+      cellRect:
+        x: 46
+        y: 0
+        width: 36
+        height: 34
+      spriteId: 9b3e3ccabf790cd438b8fe59199c32c4
+    - name: Shielder_Frame_11
+      frameIndex: 11
+      additiveSortOrder: 0
+      cellRect:
+        x: 41
+        y: 0
+        width: 41
+        height: 35
+      spriteId: bd07d7e77baa5d3418ada2e944ddff95
+    - name: Shielder_Frame_12
+      frameIndex: 12
+      additiveSortOrder: 0
+      cellRect:
+        x: 37
+        y: 0
+        width: 42
+        height: 35
+      spriteId: 4a39e2cd8e03a6f499bf36cd5ab0c6ce
+    - name: Shielder_Frame_13
+      frameIndex: 13
+      additiveSortOrder: 0
+      cellRect:
+        x: 35
+        y: 0
+        width: 43
+        height: 35
+      spriteId: 8229eae591f296447816686e8e2273e7
+    - name: Shielder_Frame_14
+      frameIndex: 14
+      additiveSortOrder: 0
+      cellRect:
+        x: 35
+        y: 0
+        width: 42
+        height: 35
+      spriteId: 41c6dd8f7ec7e31499ab83cef6894f4f
+    - name: Shielder_Frame_15
+      frameIndex: 15
+      additiveSortOrder: 0
+      cellRect:
+        x: 34
+        y: 0
+        width: 42
+        height: 36
+      spriteId: 6d53310f52105fd448a74e19795462e6
+    - name: Shielder_Frame_16
+      frameIndex: 16
+      additiveSortOrder: 0
+      cellRect:
+        x: 34
+        y: 0
+        width: 73
+        height: 36
+      spriteId: bf1b18bafe5432b4c8e8b3cc2ac82619
+    - name: Shielder_Frame_17
+      frameIndex: 17
+      additiveSortOrder: 0
+      cellRect:
+        x: 34
+        y: 0
+        width: 73
+        height: 37
+      spriteId: ce6490aa0d19dd54591cb8517c46f388
+    - name: Shielder_Frame_43
+      frameIndex: 43
+      additiveSortOrder: 0
+      cellRect:
+        x: 46
+        y: 0
+        width: 36
+        height: 34
+      spriteId: 7b81b3448e037494dbdd4114d155783a
+    - name: Shielder_Frame_44
+      frameIndex: 44
+      additiveSortOrder: 0
+      cellRect:
+        x: 41
+        y: 0
+        width: 41
+        height: 35
+      spriteId: 879f8a0564f088448be7e0bca76758b9
+    - name: Shielder_Frame_45
+      frameIndex: 45
+      additiveSortOrder: 0
+      cellRect:
+        x: 37
+        y: 0
+        width: 45
+        height: 35
+      spriteId: 3d645c368fb7eda4fb7c74a984bf24f2
+    - name: Shielder_Frame_46
+      frameIndex: 46
+      additiveSortOrder: 0
+      cellRect:
+        x: 35
+        y: 0
+        width: 47
+        height: 35
+      spriteId: 03b54d633157ed044adb77ccdcd203f7
+    - name: Shielder_Frame_0
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 48
+        y: 0
+        width: 34
+        height: 33
+      spriteId: 8043b8e5e9d46d349a5bd28372de3382
+    - name: Shielder_Frame_1
+      frameIndex: 1
+      additiveSortOrder: 0
+      cellRect:
+        x: 48
+        y: 0
+        width: 34
+        height: 33
+      spriteId: 3309ac846a340be4c80bc94188ca6b92
+    - name: Shielder_Frame_2
+      frameIndex: 2
+      additiveSortOrder: 0
+      cellRect:
+        x: 48
+        y: 0
+        width: 34
+        height: 34
+      spriteId: 52264d2d143cf77448edc9ba6310c1a0
+    - name: Shielder_Frame_3
+      frameIndex: 3
+      additiveSortOrder: 0
+      cellRect:
+        x: 48
+        y: 0
+        width: 34
+        height: 35
+      spriteId: ab1248a2617d40a45a3701537b8e7cbb
+    - name: Shielder_Frame_4
+      frameIndex: 4
+      additiveSortOrder: 0
+      cellRect:
+        x: 48
+        y: 0
+        width: 34
+        height: 33
+      spriteId: 660bfda6cf2309840977ed4cf5a71fc6
+    - name: Shielder_Frame_5
+      frameIndex: 5
+      additiveSortOrder: 0
+      cellRect:
+        x: 48
+        y: 0
+        width: 34
+        height: 34
+      spriteId: 987b2d77ee2dfee48b1cdc05c595c787
+    - name: Shielder_Frame_6
+      frameIndex: 6
+      additiveSortOrder: 0
+      cellRect:
+        x: 48
+        y: 0
+        width: 34
+        height: 35
+      spriteId: a9ac23634632b1b4391f3028aede1696
+    - name: Shielder_Frame_7
+      frameIndex: 7
+      additiveSortOrder: 0
+      cellRect:
+        x: 48
+        y: 0
+        width: 34
+        height: 34
+      spriteId: 6b8a361cb60880b47983fd4cc28cfa70
+    - name: Shielder_Frame_8
+      frameIndex: 8
+      additiveSortOrder: 0
+      cellRect:
+        x: 48
+        y: 0
+        width: 34
+        height: 34
+      spriteId: 268ce96c6c70d1e49815c173da1b7bbd
+    - name: Shielder_Frame_9
+      frameIndex: 9
+      additiveSortOrder: 0
+      cellRect:
+        x: 48
+        y: 0
+        width: 34
+        height: 33
+      spriteId: 90dc8f7195754654f8d45ae4f7aed4e2
+    - name: Shielder_Frame_18
+      frameIndex: 18
+      additiveSortOrder: 0
+      cellRect:
+        x: 54
+        y: 0
+        width: 53
+        height: 37
+      spriteId: 5d0c6fcb226728d458eb93816d1cd7b4
+    - name: Shielder_Frame_19
+      frameIndex: 19
+      additiveSortOrder: 0
+      cellRect:
+        x: 60
+        y: 0
+        width: 48
+        height: 38
+      spriteId: cc7c14ea6c120884a916193f301feab5
+    - name: Shielder_Frame_20
+      frameIndex: 20
+      additiveSortOrder: 0
+      cellRect:
+        x: 60
+        y: 0
+        width: 49
+        height: 31
+      spriteId: 2a2b56661b3b0a64fad70c24e8c1f20e
+    - name: Shielder_Frame_21
+      frameIndex: 21
+      additiveSortOrder: 0
+      cellRect:
+        x: 56
+        y: 0
+        width: 53
+        height: 31
+      spriteId: 3b1c6b04d2079e349a4bf104abd0bf43
+    - name: Shielder_Frame_22
+      frameIndex: 22
+      additiveSortOrder: 0
+      cellRect:
+        x: 52
+        y: 0
+        width: 57
+        height: 31
+      spriteId: 8251b82b755f2d24bad91dcbe5338cbf
+    - name: Shielder_Frame_23
+      frameIndex: 23
+      additiveSortOrder: 0
+      cellRect:
+        x: 52
+        y: 0
+        width: 43
+        height: 31
+      spriteId: bd5378864ef0a1a4fbd498a8c83c552b
+    - name: Shielder_Frame_24
+      frameIndex: 24
+      additiveSortOrder: 0
+      cellRect:
+        x: 48
+        y: 0
+        width: 34
+        height: 34
+      spriteId: 4e36b345adb791c43a46a79133cc498e
+    - name: Shielder_Frame_25
+      frameIndex: 25
+      additiveSortOrder: 0
+      cellRect:
+        x: 48
+        y: 0
+        width: 34
+        height: 34
+      spriteId: 62e0c26cbd0adf246b7d3eb55c32091f
+    - name: Shielder_Frame_26
+      frameIndex: 26
+      additiveSortOrder: 0
+      cellRect:
+        x: 48
+        y: 0
+        width: 34
+        height: 33
+      spriteId: 734b2c4c454cf254b98fb3adfffc3f52
+    - name: Shielder_Frame_27
+      frameIndex: 27
+      additiveSortOrder: 0
+      cellRect:
+        x: 48
+        y: 0
+        width: 34
+        height: 34
+      spriteId: 2106a6413fec039468e0f05e9a455361
+    - name: Shielder_Frame_28
+      frameIndex: 28
+      additiveSortOrder: 0
+      cellRect:
+        x: 50
+        y: 0
+        width: 32
+        height: 31
+      spriteId: 3d8596c6fa484a440b4853cc3484e1de
+    - name: Shielder_Frame_29
+      frameIndex: 29
+      additiveSortOrder: 0
+      cellRect:
+        x: 51
+        y: 0
+        width: 31
+        height: 31
+      spriteId: 8b597328a03abed4db1cb7630f50e4a0
+    - name: Shielder_Frame_30
+      frameIndex: 30
+      additiveSortOrder: 0
+      cellRect:
+        x: 52
+        y: 0
+        width: 32
+        height: 31
+      spriteId: 28d61d9c608d76a47a0c70ac43f0e456
+    - name: Shielder_Frame_31
+      frameIndex: 31
+      additiveSortOrder: 0
+      cellRect:
+        x: 52
+        y: 0
+        width: 33
+        height: 30
+      spriteId: e50f6a752e1d51a4ca8a44dcef2f3ce5
+    - name: Shielder_Frame_32
+      frameIndex: 32
+      additiveSortOrder: 0
+      cellRect:
+        x: 52
+        y: 0
+        width: 33
+        height: 30
+      spriteId: 394f4cbd6f82d644594eca400ee2ffdf
+    - name: Shielder_Frame_33
+      frameIndex: 33
+      additiveSortOrder: 0
+      cellRect:
+        x: 51
+        y: 0
+        width: 31
+        height: 31
+      spriteId: ca9fc6782f659ff48842db2f60b32add
+    - name: Shielder_Frame_34
+      frameIndex: 34
+      additiveSortOrder: 0
+      cellRect:
+        x: 51
+        y: 0
+        width: 31
+        height: 31
+      spriteId: 245a861fea34bce4ca20bababa90e2f6
+    - name: Shielder_Frame_35
+      frameIndex: 35
+      additiveSortOrder: 0
+      cellRect:
+        x: 51
+        y: 0
+        width: 31
+        height: 31
+      spriteId: 9f01fdb3cda393f4c8fe5eca10cac2a7
+    - name: Shielder_Frame_36
+      frameIndex: 36
+      additiveSortOrder: 0
+      cellRect:
+        x: 51
+        y: 0
+        width: 31
+        height: 31
+      spriteId: 6b05909403d477a4bba9f5548d6b602b
+    - name: Shielder_Frame_37
+      frameIndex: 37
+      additiveSortOrder: 0
+      cellRect:
+        x: 51
+        y: 0
+        width: 31
+        height: 31
+      spriteId: c909730e3f3415f4caa96f5cbc0fede9
+    - name: Shielder_Frame_38
+      frameIndex: 38
+      additiveSortOrder: 0
+      cellRect:
+        x: 51
+        y: 0
+        width: 31
+        height: 31
+      spriteId: b0bdd153b1dc8f146b03eed50f1a1779
+    - name: Shielder_Frame_39
+      frameIndex: 39
+      additiveSortOrder: 0
+      cellRect:
+        x: 50
+        y: 0
+        width: 32
+        height: 31
+      spriteId: e900c813de4618841846efef46aa5b3a
+    - name: Shielder_Frame_40
+      frameIndex: 40
+      additiveSortOrder: 0
+      cellRect:
+        x: 48
+        y: 0
+        width: 34
+        height: 34
+      spriteId: 777431a647394fb48a20b50df60486ed
+    - name: Shielder_Frame_41
+      frameIndex: 41
+      additiveSortOrder: 0
+      cellRect:
+        x: 48
+        y: 0
+        width: 34
+        height: 34
+      spriteId: 9ac6e026164ca7248be3f08dd64a7611
+    - name: Shielder_Frame_42
+      frameIndex: 42
+      additiveSortOrder: 0
+      cellRect:
+        x: 48
+        y: 0
+        width: 34
+        height: 33
+      spriteId: 97edb839ea871c24ba832078c223681f
+    - name: Shielder_Frame_48
+      frameIndex: 48
+      additiveSortOrder: 0
+      cellRect:
+        x: 19
+        y: 0
+        width: 89
+        height: 42
+      spriteId: 1f1374610037e824ea8920699b6554c1
+    - name: Shielder_Frame_49
+      frameIndex: 49
+      additiveSortOrder: 0
+      cellRect:
+        x: 12
+        y: 0
+        width: 101
+        height: 45
+      spriteId: e1da8b0c8c8cc3f42a77347c0fa874ba
+    - name: Shielder_Frame_50
+      frameIndex: 50
+      additiveSortOrder: 0
+      cellRect:
+        x: 14
+        y: 0
+        width: 104
+        height: 46
+      spriteId: c93817e5f15ecfe429b6c696b685179c
+    - name: Shielder_Frame_51
+      frameIndex: 51
+      additiveSortOrder: 0
+      cellRect:
+        x: 8
+        y: 0
+        width: 114
+        height: 46
+      spriteId: 11aca363403dc274bb067b1f8e73b0d5
+    - name: Shielder_Frame_52
+      frameIndex: 52
+      additiveSortOrder: 0
+      cellRect:
+        x: 4
+        y: 0
+        width: 121
+        height: 40
+      spriteId: 0a817c099b5d6ae4ba3aa33d278e422a
+    - name: Shielder_Frame_53
+      frameIndex: 53
+      additiveSortOrder: 0
+      cellRect:
+        x: 1
+        y: 0
+        width: 127
+        height: 32
+      spriteId: c1e590b0fec0ad846b4cfb43a3ef00b3
+    - name: Shielder_Frame_54
+      frameIndex: 54
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 129
+        height: 27
+      spriteId: 8a8317d5125c63e44bce10ec8c86da45
+    - name: Shielder_Frame_55
+      frameIndex: 55
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 129
+        height: 4
+      spriteId: cb9de42f368a86d408a35935e593f924
+    - name: Shielder_Frame_47
+      frameIndex: 47
+      additiveSortOrder: 0
+      cellRect:
+        x: 36
+        y: 0
+        width: 62
+        height: 32
+      spriteId: ce82ef82ef5e8dd459d7dc746fe35f87
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 129, y: 46}
