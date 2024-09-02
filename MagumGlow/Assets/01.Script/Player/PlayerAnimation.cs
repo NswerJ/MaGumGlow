@@ -16,6 +16,7 @@ public class PlayerAnimation : MonoBehaviour
 
         // AttackEvent를 구독하여 애니메이션 제어
         magicSword.AttackEvent += PlayerAttack;
+        magicSword.DieEvent += PlayerDie;
     }
 
     private void OnDestroy()
@@ -24,6 +25,7 @@ public class PlayerAnimation : MonoBehaviour
         if (magicSword != null)
         {
             magicSword.AttackEvent -= PlayerAttack;
+            magicSword.DieEvent -= PlayerDie;
         }
     }
 

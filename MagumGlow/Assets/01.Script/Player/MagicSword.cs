@@ -4,22 +4,26 @@ using UnityEngine;
 
 public class MagicSword : MonoBehaviour
 {
-    public MagicSwordStats swordStats;  // 마검 스탯 SO 참조
+    public MagicSwordStats swordStats;  
     public TextMeshProUGUI playerName;
-    public bool enemyIsFront;
+
+    public LayerMask enemyLayer; 
+    public float detectionRange = 2f; 
 
     public event Action<bool> AttackEvent;
+    public event Action<bool> DieEvent;
+
+    private bool enemyIsFront = false;
+    private bool isDie = false;
 
     void Start()
     {
-        enemyIsFront = false;
         InitializeSword();
     }
 
     void InitializeSword()
     {
         playerName.text = swordStats.playerName;
-        // 마검 초기화 시, 스탯을 기본 값으로 설정
         foreach (var stat in swordStats.stats)
         {
             stat.currentValue = stat.baseValue;
@@ -28,13 +32,7 @@ public class MagicSword : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            enemyIsFront = true;
-        }else if (Input.GetKeyDown(KeyCode.Q))
-        {
-            enemyIsFront = false;
-        }
+        CheckForEnemy();
 
         if (enemyIsFront)
         {
@@ -44,11 +42,38 @@ public class MagicSword : MonoBehaviour
         {
             Attacking(false);
         }
+
+        if (isDie || Input.GetButtonDown("Jump"))
+        {
+            DieEvent?.Invoke(true);
+        }
+    }
+
+    private void CheckForEnemy()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right + new Vector2(0,1f), detectionRange, enemyLayer);
+
+        enemyIsFront = hit.collider != null;
     }
 
     private void Attacking(bool isAttacking)
     {
         AttackEvent?.Invoke(isAttacking);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+
+        Vector2 origin = transform.position + new Vector3(0, 1f);
+        Vector2 direction = Vector2.right;
+
+        Gizmos.DrawLine(origin, origin + direction * detectionRange);
+
+        if (enemyIsFront)
+        {
+            Gizmos.DrawSphere(origin + direction * detectionRange, 0.1f);
+        }
     }
 
     public void LevelUpSword()
