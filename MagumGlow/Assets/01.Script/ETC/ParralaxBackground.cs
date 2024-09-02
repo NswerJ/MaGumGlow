@@ -1,12 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum BGState
+{
+    environment,
+    speedAffected
+}
+
 public class ParralaxBackground : MonoBehaviour
 {
-    private float _length, _startPos;
-    public GameObject cam;
+    private float _length, _startPos, test;
     public float parralaxEffect;
+
+    public BGState bgState;
+
+    public bool isStop;
 
     void Start()
     {
@@ -14,14 +24,20 @@ public class ParralaxBackground : MonoBehaviour
         _length = GetComponent<SpriteRenderer>().bounds.size.x;
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        float temp = (cam.transform.position.x * (1 - parralaxEffect));
-        float dist = (cam.transform.position.x * parralaxEffect);
-            
-        transform.position = new Vector3(_startPos + dist, transform.position.y, transform.position.z);
+        if (bgState == BGState.environment)
+            test += Time.deltaTime * -2 * parralaxEffect;
+        else
+        {
+            if (!isStop)
+            {
+                test += Time.deltaTime * -100 * parralaxEffect;
+            }
+        }
 
-        if (temp > _startPos + _length) _startPos += _length;
-        else if (temp < _startPos - _length) _startPos -= _length;
+        transform.position = new Vector3(_startPos + test, transform.position.y, transform.position.z);
+
+        if (transform.position.x <= _startPos - _length || transform.position.x >= _startPos + 20) test = 0;
     }
 }
