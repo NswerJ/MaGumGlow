@@ -38,6 +38,6 @@ public class ParralaxBackground : MonoBehaviour
 
         transform.position = new Vector3(_startPos + test, transform.position.y, transform.position.z);
 
-        if (transform.position.x <= _startPos - _length || transform.position.x >= _startPos + 20) test = 0;
+        if (transform.position.x <= _startPos - _length || transform.position.x >= _startPos + _length) test = 0;
     }
 }
