@@ -1,8 +1,10 @@
+using TMPro;
 using UnityEngine;
 
 public class MagicSword : MonoBehaviour
 {
     public MagicSwordStats swordStats;  // 마검 스탯 SO 참조
+    public TextMeshProUGUI playerName;
 
     void Start()
     {
@@ -11,6 +13,7 @@ public class MagicSword : MonoBehaviour
 
     void InitializeSword()
     {
+        playerName.text = swordStats.playerName;
         // 마검 초기화 시, 스탯을 기본 값으로 설정
         foreach (var stat in swordStats.stats)
         {

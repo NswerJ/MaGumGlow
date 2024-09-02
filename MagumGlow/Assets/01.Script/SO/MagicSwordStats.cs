@@ -7,6 +7,7 @@ public class MagicSwordStats : ScriptableObject
     public List<Stat> stats;  // 마검의 다양한 스탯 목록
     public int level;  // 현재 마검의 레벨
     public int maxLevel;  // 최대 레벨
+    public string playerName;  // 플레이어 설정 이름
 
     public void LevelUp()
     {

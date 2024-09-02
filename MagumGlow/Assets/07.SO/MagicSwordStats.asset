@@ -15,6 +15,7 @@ MonoBehaviour:
   stats:
   - statName: "\uACF5\uACA9"
     baseValue: 2
-    currentValue: 0
-  level: 0
+    currentValue: 6
+  level: 3
   maxLevel: 10
+  playerName: "\uC6B0\uB108\uC900"
