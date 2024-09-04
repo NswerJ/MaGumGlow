@@ -2,10 +2,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.UI;
 
 public class IntroUIManager : MonoBehaviour
 {
-    public TMP_InputField playerName;  // 플레이어 이름 입력 필드
+    public InputField playerName;  // 플레이어 이름 입력 필드
     public GameObject playerNameButton;  // 플레이어 이름 입력 필드 부모
     public TMP_Text warningText;  // 경고 메시지를 표시할 텍스트
     
