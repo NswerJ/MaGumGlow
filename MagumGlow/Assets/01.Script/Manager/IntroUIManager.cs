@@ -6,6 +6,7 @@ using System.Collections;
 public class IntroUIManager : MonoBehaviour
 {
     public TMP_InputField playerName;  // 플레이어 이름 입력 필드
+    public GameObject playerNameButton;  // 플레이어 이름 입력 필드 부모
     public TMP_Text warningText;  // 경고 메시지를 표시할 텍스트
     
     private Coroutine fadeCoroutine;  // 현재 실행 중인 페이드 아웃 코루틴을 관리하기 위한 참조
@@ -13,13 +14,13 @@ public class IntroUIManager : MonoBehaviour
 
     private void Awake()
     {
-        playerName.gameObject.SetActive(false);
+        playerNameButton.SetActive(false);
         warningText.gameObject.SetActive(false);  
     }
 
     public void EnableNameInput()
     {
-        playerName.gameObject.SetActive(true);
+        playerNameButton.SetActive(true);
     }
 
     public void SceneChange(string sceneName)
