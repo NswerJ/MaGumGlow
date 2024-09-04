@@ -15,6 +15,4 @@ public class MonsterVisual : MonoBehaviour, IMonsterComponent
 
         _spriteRenderer.sprite = monster.GetCompo<MonsterGetSO>().SO.Sprite;
     }
-
-    //DMG EFFECT 
 }
