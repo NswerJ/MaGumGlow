@@ -51,7 +51,7 @@ public class MagicSword : MonoBehaviour
 
     private void CheckForEnemy()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right + new Vector2(0,1f), detectionRange, enemyLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, 1f, 0), Vector2.right , detectionRange, enemyLayer);
 
         enemyIsFront = hit.collider != null;
     }
@@ -65,7 +65,7 @@ public class MagicSword : MonoBehaviour
     {
         Gizmos.color = Color.red;
 
-        Vector2 origin = transform.position + new Vector3(0, 1f);
+        Vector2 origin = transform.position + new Vector3(0f, 1f);
         Vector2 direction = Vector2.right;
 
         Gizmos.DrawLine(origin, origin + direction * detectionRange);
@@ -78,7 +78,7 @@ public class MagicSword : MonoBehaviour
 
     public void LevelUpSword()
     {
-        swordStats.LevelUp();
+        //swordStats.LevelUp();
         // 이후 마검의 스탯을 UI 등에 반영
     }
 
