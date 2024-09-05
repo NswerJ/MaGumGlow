@@ -8,7 +8,8 @@ public class MagicSword : MonoBehaviour
     public TextMeshProUGUI playerName;
 
     public LayerMask enemyLayer; 
-    public float detectionRange = 2f; 
+    public float detectionRange = 2f;  
+    public float playerHealth;  
 
     public event Action<bool> AttackEvent;
     public event Action<bool> DieEvent;
@@ -47,6 +48,13 @@ public class MagicSword : MonoBehaviour
         {
             DieEvent?.Invoke(true);
         }
+
+
+    }
+
+    private void PlayerHealthUpdate(float health)
+    {
+        playerHealth = health;
     }
 
     private void CheckForEnemy()
