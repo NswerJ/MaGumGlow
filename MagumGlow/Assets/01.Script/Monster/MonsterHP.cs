@@ -11,33 +11,50 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
     private int _hp;
     private bool _isDead;
 
-    public UnityEvent Hit = null;
-    public UnityEvent Dead = null;
+    public Action Hit;
+    public Action Dead;
 
     public void Initialize(Monster monster)
     {
+
         _monster = monster;
         _isDead = false;
 
         _hp = monster.GetCompo<MonsterGetSO>().SO.MonsterHP;
+
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            OnDamage(5);    
+        }
     }
 
     public void OnDamage(int dmg)
     {
+
         if (_isDead) return;
 
-        // GGAMBBACK
         _hp -= dmg;
         Hit?.Invoke();
+        // GGAMBBACK
         //UI UPDATE
 
         if (_hp <= 0) DeadProcess();
+
     }
 
     private void DeadProcess()
     {
+    
         _isDead = true;
-        Dead?.Invoke();
         //Player Run & Next Monster
+
+
+        Dead?.Invoke();
+        //Drop Coin
+        
     }
 }
