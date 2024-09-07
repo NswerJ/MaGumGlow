@@ -6,7 +6,7 @@ using UnityEngine;
 public class Monster : MonoBehaviour
 {
     private Dictionary<Type, IMonsterComponent> _components;
-
+    
     private void Awake()
     {
         _components = new Dictionary<Type, IMonsterComponent>();

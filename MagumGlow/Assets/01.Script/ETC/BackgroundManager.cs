@@ -8,28 +8,11 @@ public class BackgroundManager : MonoBehaviour
         
     private void Awake()
     {
-    
         _backgrounds.AddRange(GetComponentsInChildren<ParralaxBackground>());
-
-        //Dead += Running;
-
     }
 
-    public void Running()
+    public void Running(bool IsDetected)
     {
-
-        StartCoroutine(RunningCoroutine());
-        
-    }
-
-    private IEnumerator RunningCoroutine()
-    {
-
-        _backgrounds.ForEach(b => b.isStop = false);
-
-        yield return new WaitForSeconds(1f);
-        
-        _backgrounds.ForEach(b => b.isStop = true);
-
+        _backgrounds.ForEach(b => b.isStop = IsDetected);
     }
 }
