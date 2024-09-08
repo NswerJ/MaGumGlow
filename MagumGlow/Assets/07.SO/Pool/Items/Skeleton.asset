@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Skeleton
   m_EditorClassIdentifier: 
   poolType: {fileID: 11400000, guid: 201994c0f7ec3f248897ba77b6d27f3f, type: 2}
-  prefab: {fileID: 0}
+  prefab: {fileID: 3612828838943797327, guid: 47328be0b02fa3f43be1950dd73e6ad8, type: 3}
   initCount: 10

@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private PoolManagerSO _poolManager;
+    [SerializeField] private PoolManagerSO _monsterPoolManager;
+
+    [SerializeField] private Transform _monsterTransform;
 
     private void Awake()
     {
-        _poolManager.InitializePool(transform);
+        _monsterPoolManager.InitializePool(_monsterTransform);
     }
 }
