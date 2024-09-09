@@ -13,6 +13,11 @@ public class MonsterVisual : MonoBehaviour, IMonsterComponent
         _monster = monster;
         _spriteRenderer = GetComponent<SpriteRenderer>();
 
-        _spriteRenderer.sprite = monster.GetCompo<MonsterGetSO>().SO.Sprite;
+        UpdateSprite();
+    }
+
+    public void UpdateSprite()
+    {
+        _spriteRenderer.sprite = _monster.GetCompo<MonsterGetSO>().SO.Sprite;
     }
 }

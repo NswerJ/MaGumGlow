@@ -34,11 +34,10 @@ public class ParralaxBackground : MonoBehaviour
         {
             if (!isStop)
             {
-                _td += Time.deltaTime * -100 * parralaxEffect;
 
                 if (bgState == BGState.monster)
                 {
-                    if (_monsterSpeed < -1)
+                    if (_monsterSpeed < -.1f)
                         _monsterSpeed = 0;
 
                     _monsterSpeed += Time.deltaTime * parralaxEffect;
@@ -46,6 +45,7 @@ public class ParralaxBackground : MonoBehaviour
                 }
                 else
                 {
+                    _td += Time.deltaTime * -100 * parralaxEffect;
                     transform.position = new Vector3(_startPos + _td, transform.position.y, transform.position.z);
 
                     if (transform.position.x <= _startPos - _length || transform.position.x >= _startPos + _length) _td = 0;

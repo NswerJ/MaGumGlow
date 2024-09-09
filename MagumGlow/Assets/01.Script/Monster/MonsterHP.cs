@@ -14,6 +14,9 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
 
     private float _hp;
     private float _maxHp;
+
+    private float _LV = 1;
+
     private bool _isDead;
 
     public Action Hit;
@@ -67,30 +70,24 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
     #region юс╫ц
     private void TempResetMonster()
     {
-        //_monster.GetCompo<ParralaxBackground>().enabled = false;
+        _monster.GetComponent<ParralaxBackground>().enabled = false;
         StartCoroutine(DelayReset());
     }
 
     private IEnumerator DelayReset()
     {
         transform.position = _startPos.position;
-        _maxHp += 20;
+        _LV++;
+        _maxHp += _LV * 10000;
         _hp = _maxHp;
 
-        if (_maxHp >= 500)
-            _monsterGetSO.SO.Sprite = _monsterSprites[4];
-        else if (_maxHp >= 400)
-            _monsterGetSO.SO.Sprite = _monsterSprites[3];
-        else if (_maxHp >= 300) 
-            _monsterGetSO.SO.Sprite = _monsterSprites[2];
-        else if (_maxHp >= 200)
-            _monsterGetSO.SO.Sprite = _monsterSprites[1];
-        else if (_maxHp >= 100)
-            _monsterGetSO.SO.Sprite = _monsterSprites[0];
+        int index = Math.Min((int)(_maxHp / 1000000), 5);
+        _monsterGetSO.SO.Sprite = _monsterSprites[index];
+        _monster.GetCompo<MonsterVisual>().UpdateSprite();
 
 
         yield return new WaitForSeconds(1);
-        //_monster.GetCompo<ParralaxBackground>().enabled = true;
+        _monster.GetComponent<ParralaxBackground>().enabled = true;
         _isDead = false;
     }
     #endregion
