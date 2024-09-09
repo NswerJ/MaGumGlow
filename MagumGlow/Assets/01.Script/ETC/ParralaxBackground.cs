@@ -43,7 +43,7 @@ public class ParralaxBackground : MonoBehaviour
                 }
                 else
                 {
-                    _td += Time.deltaTime * -50 * parralaxEffect;
+                    _td += Time.deltaTime * -75 * parralaxEffect;
                     transform.position = new Vector3(_startPos + _td, transform.position.y, transform.position.z);
 
                     if (transform.position.x <= _startPos - _length || transform.position.x >= _startPos + _length) _td = 0;
