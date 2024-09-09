@@ -12,14 +12,14 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
 
     public List<Sprite> _monsterSprites;
 
-    private int _hp;
-    private int _maxHp;
+    private float _hp;
+    private float _maxHp;
     private bool _isDead;
 
     public Action Hit;
     public Action Dead;
 
-    private Transform _startPos;
+    public Transform _startPos;
 
 
     public void Initialize(Monster monster)
@@ -34,13 +34,11 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
 
         _hp = _maxHp;
 
-        _startPos = transform;
-
     }
 
 
 
-    public void OnDamage(int dmg)
+    public void OnDamage(float dmg)
     {
 
         if (_isDead) return;
@@ -69,7 +67,7 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
     #region юс╫ц
     private void TempResetMonster()
     {
-        _monster.GetCompo<ParralaxBackground>().enabled = false;
+        //_monster.GetCompo<ParralaxBackground>().enabled = false;
         StartCoroutine(DelayReset());
     }
 
@@ -92,7 +90,7 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
 
 
         yield return new WaitForSeconds(1);
-        _monster.GetCompo<ParralaxBackground>().enabled = true;
+        //_monster.GetCompo<ParralaxBackground>().enabled = true;
         _isDead = false;
     }
     #endregion

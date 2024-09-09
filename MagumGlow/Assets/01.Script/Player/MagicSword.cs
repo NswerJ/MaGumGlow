@@ -59,10 +59,39 @@ public class MagicSword : MonoBehaviour
 
     private void CheckForEnemy()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, 1f, 0), Vector2.right , detectionRange, enemyLayer);
+        // 적을 감지하기 위한 Raycast
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, 1f, 0), Vector2.right, detectionRange, enemyLayer);
 
-        enemyIsFront = hit.collider != null;
+        if (hit.collider != null)
+        {
+            enemyIsFront = true;
+
+            // 적의 MonsterHP 컴포넌트 가져오기
+            MonsterHP enemyHp = hit.collider.GetComponent<MonsterHP>();
+
+            if (enemyHp != null)
+            {
+                // swordStats에서 공격력 스탯을 찾음
+                Stat attackPowerStat = swordStats.stats.Find(stat => stat.statName == "공격력");
+
+                if (attackPowerStat != null)
+                {
+                    enemyHp.OnDamage(attackPowerStat.currentValue);
+                    Debug.Log($"공격력이 {attackPowerStat.currentValue}만큼 적용됨.");
+                }
+                else
+                {
+                    Debug.LogWarning("공격력 스탯을 찾을 수 없습니다.");
+                }
+            }
+        }
+        else
+        {
+            enemyIsFront = false;
+        }
     }
+
+
 
     private void Attacking(bool isAttacking)
     {

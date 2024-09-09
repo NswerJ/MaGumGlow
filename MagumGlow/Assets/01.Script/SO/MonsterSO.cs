@@ -8,8 +8,8 @@ public class MonsterSO : ScriptableObject
     //[SerializeField] private Sprite _sprite;
     public Sprite Sprite;
 
-    [SerializeField] private int _monsterHP;
-    public int MonsterHP => _monsterHP;
+    //[SerializeField] private float _monsterHP;
+    public float MonsterHP;
 
     [SerializeField] private int _dropGold;
     public int DropGold => _dropGold;

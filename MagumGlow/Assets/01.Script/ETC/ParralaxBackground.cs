@@ -38,6 +38,9 @@ public class ParralaxBackground : MonoBehaviour
 
                 if (bgState == BGState.monster)
                 {
+                    if (_monsterSpeed < -1)
+                        _monsterSpeed = 0;
+
                     _monsterSpeed += Time.deltaTime * parralaxEffect;
                     transform.position = new Vector3(transform.position.x + _monsterSpeed, transform.position.y, transform.position.z);
                 }
