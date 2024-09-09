@@ -105,7 +105,7 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
 
         _monster.GetComponent<ParralaxBackground>().monsterSpeed = 0;
 
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(.5f);
         _monster.GetComponent<ParralaxBackground>().enabled = true;
         _isDead = false;
     }
