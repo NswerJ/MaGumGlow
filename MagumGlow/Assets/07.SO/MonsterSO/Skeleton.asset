@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0792cd187823e0f418f66f30a7f60fa2, type: 3}
   m_Name: Skeleton
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: 7dcb00d114d004eb998385deef59ae4d, type: 3}
+  Sprite: {fileID: 21300000, guid: 7dcb00d114d004eb998385deef59ae4d, type: 3}
   _monsterHP: 20
   _dropGold: 10
