@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2bd07fee71b5184d8e589191042f4f7, type: 3}
-  m_Name: PoolManager
+  m_Name: MonsterPoolManager
   m_EditorClassIdentifier: 
-  poolingItems: []
+  poolingItems:
+  - {fileID: 11400000, guid: dc5ad855a609cf74aabbc67523dc2b42, type: 2}
   _rootTrm: {fileID: 0}

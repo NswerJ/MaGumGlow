@@ -28,7 +28,7 @@ public class CustomPoolManagerSO : Editor
     {
         List<PoolingItemSO> loadedItems = new List<PoolingItemSO>();
 
-        string[] assetGUIDs = AssetDatabase.FindAssets("", new[] { "Assets/08SO/Pool/Items" });
+        string[] assetGUIDs = AssetDatabase.FindAssets("", new[] { "Assets/07.SO/Pool/Items" });
 
         foreach (string guid in assetGUIDs)
         {
