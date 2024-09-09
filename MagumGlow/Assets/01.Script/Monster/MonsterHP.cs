@@ -57,6 +57,7 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
 
         GameObject damageUI = Instantiate(damageTextPrefab) as GameObject;
         damageUI.transform.SetParent(transform.Find("DamageCanvas"), false);
+        //damageUI.transform.position = new Vector3(-90, -150, 0);    
 
         if (_hp <= 0)
         {
