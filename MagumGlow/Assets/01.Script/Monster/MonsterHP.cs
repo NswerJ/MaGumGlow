@@ -84,9 +84,9 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
         int index = Math.Min((int)(_maxHp / 1000000), 5);
         _monsterGetSO.SO.Sprite = _monsterSprites[index];
         _monster.GetCompo<MonsterVisual>().UpdateSprite();
+        _monster.GetComponent<ParralaxBackground>().monsterSpeed = 0;
 
-
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(.25f);
         _monster.GetComponent<ParralaxBackground>().enabled = true;
         _isDead = false;
     }
