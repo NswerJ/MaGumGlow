@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -91,5 +92,15 @@ public class MagicSwordUI : MonoBehaviour
     {
         playerHealthSlider.maxValue = currentValue;
         playerHealthSlider.value = currentValue;
+    }
+
+
+    public void GameQuit()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit(); 
+#endif
     }
 }

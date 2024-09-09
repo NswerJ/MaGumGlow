@@ -37,7 +37,7 @@ public class MagicSwordStats : ScriptableObject
         foreach (var stat in stats)
         {
             stat.statLevel = 1;
-            stat.currentValue = 0;
+            stat.currentValue = stat.baseValue;
         }
         Debug.Log("모든 스탯이 초기화되었습니다.");
     }
