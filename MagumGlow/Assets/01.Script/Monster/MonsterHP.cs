@@ -14,13 +14,15 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
     private float _hp;
     private float _maxHp;
     private float _LV = 1;
-    private bool _isDead;
+    private bool _isDead, _isDamage;
 
     public Action Hit;
     public Action Dead;
 
     public Transform _startPos;
     private MagicSwordStats magicSwordStats;  // 마검 스탯을 참조할 변수
+
+    [SerializeField] private GameObject damageTextPrefab;
 
     public void Initialize(MagicSwordStats stats)
     {
@@ -31,7 +33,7 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
     {
         _monster = monster;
         _isDead = false;
-      
+
         _monsterGetSO = _monster.GetCompo<MonsterGetSO>();
 
         _maxHp = _monsterGetSO.SO.MonsterHP;
@@ -42,13 +44,25 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
     {
         if (_isDead) return;
 
+        if (!_isDamage)
+            StartCoroutine(DamageDelay(dmg));
+    }
+
+    private IEnumerator DamageDelay(float dmg)
+    {
+        _isDamage = true;
+        yield return new WaitForSeconds(.2f);
         _hp -= dmg;
         Hit?.Invoke();  // 몬스터가 데미지를 받을 때 실행될 액션 호출
+
+        GameObject damageUI = Instantiate(damageTextPrefab) as GameObject;
+        damageUI.transform.SetParent(transform.Find("DamageCanvas"), false);
 
         if (_hp <= 0)
         {
             DeadProcess();
         }
+        _isDamage = false;
     }
 
     private void DeadProcess()

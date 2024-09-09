@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using TMPro;
@@ -7,6 +8,7 @@ public class MagicSword : MonoBehaviour
 {
     public MagicSwordStats swordStats;  
     public TextMeshProUGUI playerName;
+    public TextMeshProUGUI damageViewer;
 
     public LayerMask enemyLayer; 
     public float detectionRange = 2f;  
@@ -89,7 +91,7 @@ public class MagicSword : MonoBehaviour
         if (attackPowerStat != null)
         {
             enemyHp.OnDamage(attackPowerStat.currentValue);
-            Debug.Log($"공격력이 {attackPowerStat.currentValue}만큼 적용됨.");
+            Debug.Log($"공격력이 {attackPowerStat.currentValue}만큼 적용됨.");           
         }
         else
         {
