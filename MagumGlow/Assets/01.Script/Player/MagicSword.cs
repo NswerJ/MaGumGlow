@@ -70,6 +70,7 @@ public class MagicSword : MonoBehaviour
 
             if (enemyHp != null)
             {
+                enemyHp.Initialize(swordStats);
                 StartCoroutine(DealDamageAfterDelay(enemyHp));
             }
         }
