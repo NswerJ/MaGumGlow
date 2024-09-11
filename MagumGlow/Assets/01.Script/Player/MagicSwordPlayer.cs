@@ -4,7 +4,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
-public class MagicSword : MonoBehaviour
+public class MagicSwordPlayer : MonoBehaviour
 {
     public MagicSwordStats swordStats;  
     public TextMeshProUGUI playerName;

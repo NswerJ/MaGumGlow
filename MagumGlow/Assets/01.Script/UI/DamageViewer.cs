@@ -8,7 +8,7 @@ public class DamageViewer : MonoBehaviour
 {
     [HideInInspector] public TextMeshProUGUI textMP;
 
-    private MagicSword _magicSword;
+    private MagicSwordPlayer _magicSword;
 
     public float textUpSpeed, alphaSpeed, destroyTime;
 
@@ -16,7 +16,7 @@ public class DamageViewer : MonoBehaviour
     {
         textMP = GetComponent<TextMeshProUGUI>();
 
-        _magicSword = GameObject.Find("Player").GetComponent<MagicSword>();
+        _magicSword = GameObject.Find("Player").GetComponent<MagicSwordPlayer>();
 
         textMP.text = _magicSword.swordStats.stats.Find(stat => stat.statName == "°ø°Ý·Â").currentValue.ToString();
 

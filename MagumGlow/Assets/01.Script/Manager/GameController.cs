@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public MagicSword magicSword;  // 게임에 배치된 마검 참조
+    public MagicSwordPlayer magicSword;  // 게임에 배치된 마검 참조
 
     void Update()
     {

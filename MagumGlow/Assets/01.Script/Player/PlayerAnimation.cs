@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour
 {
     private Animator anim;
-    private MagicSword magicSword;
+    private MagicSwordPlayer magicSword;
 
     private readonly int _runningHash = Animator.StringToHash("isRun");
     private readonly int _attackingHash = Animator.StringToHash("isAttack");
@@ -12,7 +12,7 @@ public class PlayerAnimation : MonoBehaviour
     private void Awake()
     {
         anim = GetComponent<Animator>();
-        magicSword = GetComponentInParent<MagicSword>();
+        magicSword = GetComponentInParent<MagicSwordPlayer>();
 
         // AttackEvent를 구독하여 애니메이션 제어
         magicSword.AttackEvent += PlayerAttack;

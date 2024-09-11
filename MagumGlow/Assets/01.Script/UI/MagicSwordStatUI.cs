@@ -1,17 +1,24 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MagicSwordUI : MonoBehaviour
+public class MagicSwordStatUI : MonoBehaviour
 {
-    public MagicSwordStats magicSwordStats;  // 마검 스탯 SO 참조
-    public Button attackPowerButton;  // 공격력 증가 버튼
-    public Button healthButton;  // 생명력 증가 버튼
-    public Button criticalPowerButton;  // 치명타 데미지 증가 버튼
-    public Button criticalPercentButton;  // 치명타 확률 증가 버튼
-    public TMP_Text playerNameText;  // 플레이어 이름을 표시할 텍스트 필드
-    public TMP_Text playerGoldText;   // 플레이어의 골드를 표시할 텍스트 필드
-    public Slider playerHealthSlider; // 플레이어 체력 Slider
+    public MagicSwordStats magicSwordStats;
+    public Button attackPowerButton;
+    public Button healthButton;
+    public Button criticalPowerButton;
+    public Button criticalPercentButton;
+    public TMP_Text playerNameText;
+    public TMP_Text playerGoldText;
+    public Slider playerHealthSlider;
+    public List<string> statNameList;
+
+    private const string AttackPower = "공격력";
+    private const string Health = "생명력";
+    private const string CriticalPower = "치명타데미지";
+    private const string CriticalPercent = "치명타확률";
 
     void Start()
     {
@@ -28,23 +35,20 @@ public class MagicSwordUI : MonoBehaviour
 
     void AssignButtonListeners()
     {
-        attackPowerButton.onClick.AddListener(() => LevelUpStat("공격력"));
-        healthButton.onClick.AddListener(() => LevelUpStat("생명력"));
-        criticalPowerButton.onClick.AddListener(() => LevelUpStat("치명타데미지"));
-        criticalPercentButton.onClick.AddListener(() => LevelUpStat("치명타확률"));
+        attackPowerButton.onClick.AddListener(() => LevelUpStat(AttackPower));
+        healthButton.onClick.AddListener(() => LevelUpStat(Health));
+        criticalPowerButton.onClick.AddListener(() => LevelUpStat(CriticalPower));
+        criticalPercentButton.onClick.AddListener(() => LevelUpStat(CriticalPercent));
     }
 
     void InitializeUI()
     {
-        UpdateUI("공격력");
-        UpdateUI("생명력");
-        UpdateUI("치명타데미지");
-        UpdateUI("치명타확률");
-        UpdateCostUI("공격력");
-        UpdateCostUI("생명력");
-        UpdateCostUI("치명타데미지");
-        UpdateCostUI("치명타확률");
-        UpdateGoldUI();  // 골드 표시 업데이트
+        foreach (string statName in statNameList)
+        {
+            UpdateUI(statName);
+            UpdateCostUI(statName);
+        }
+        UpdateGoldUI();
     }
 
     void LevelUpStat(string statName)
@@ -52,37 +56,30 @@ public class MagicSwordUI : MonoBehaviour
         magicSwordStats.LevelUpStat(statName);
         UpdateUI(statName);
         UpdateCostUI(statName);
-        // 레벨업 후 골드 UI 업데이트
-    }
-    private void Update()
-    {
         UpdateGoldUI();
     }
 
     void UpdateCostUI(string statName)
     {
         Transform statParent = GetStatParent(statName);
-
-
         if (statParent == null)
         {
             Debug.LogWarning($"{statName}에 대한 부모 오브젝트를 찾을 수 없습니다.");
             return;
         }
-        TMP_Text costText = statParent.Find("Goldtext").GetComponent<TMP_Text>();
-        Stat stat = magicSwordStats.stats.Find(s => s.statName == statName);
 
-        if(stat != null) {
+        TMP_Text costText = statParent.Find("Goldtext").GetComponent<TMP_Text>();
+        Stat stat = GetStat(statName);
+
+        if (stat != null)
+        {
             costText.text = $"필요 골드 : {NumberFormatter.FormatWithUnit(stat.levelUpCost)}";
         }
-
-        Debug.Log($"{statName} 스탯 코스트 UI가 갱신되었습니다.");
     }
 
     void UpdateUI(string statName)
     {
         Transform statParent = GetStatParent(statName);
-
         if (statParent == null)
         {
             Debug.LogWarning($"{statName}에 대한 부모 오브젝트를 찾을 수 없습니다.");
@@ -92,19 +89,17 @@ public class MagicSwordUI : MonoBehaviour
         TMP_Text levelStatText = statParent.Find("LevelStat").GetComponent<TMP_Text>();
         TMP_Text increaseStatText = statParent.Find("IncreaseStat").GetComponent<TMP_Text>();
 
-        Stat stat = magicSwordStats.stats.Find(s => s.statName == statName);
+        Stat stat = GetStat(statName);
         if (stat != null)
         {
             levelStatText.text = $"레벨: {stat.statLevel}";
             increaseStatText.text = $"수치: {NumberFormatter.FormatWithUnit(stat.currentValue)}";
 
-            if (statName == "생명력")
+            if (statName == Health)
             {
                 UpdateHealthSlider(stat.currentValue);
             }
         }
-
-        Debug.Log($"{statName} 스탯 UI가 갱신되었습니다.");
     }
 
     void UpdateGoldUI()
@@ -116,12 +111,17 @@ public class MagicSwordUI : MonoBehaviour
     {
         return statName switch
         {
-            "공격력" => attackPowerButton.transform.parent,
-            "생명력" => healthButton.transform.parent,
-            "치명타데미지" => criticalPowerButton.transform.parent,
-            "치명타확률" => criticalPercentButton.transform.parent,
+            AttackPower => attackPowerButton.transform.parent,
+            Health => healthButton.transform.parent,
+            CriticalPower => criticalPowerButton.transform.parent,
+            CriticalPercent => criticalPercentButton.transform.parent,
             _ => null
         };
+    }
+
+    Stat GetStat(string statName)
+    {
+        return magicSwordStats.stats.Find(s => s.statName == statName);
     }
 
     void UpdateHealthSlider(float currentValue)
