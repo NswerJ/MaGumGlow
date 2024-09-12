@@ -11,6 +11,6 @@ public class MonsterSO : ScriptableObject
     //[SerializeField] private float _monsterHP;
     public float MonsterHP;
 
-    [SerializeField] private int _dropGold;
-    public int DropGold => _dropGold;
+    [SerializeField] private float _dropGold;
+    public float DropGold => _dropGold;
 }

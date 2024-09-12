@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
@@ -8,6 +9,8 @@ public class PlayerAnimation : MonoBehaviour
     private readonly int _runningHash = Animator.StringToHash("isRun");
     private readonly int _attackingHash = Animator.StringToHash("isAttack");
     private readonly int _dyingHash = Animator.StringToHash("isDie");
+
+    public event Action DamageTextEvent;
 
     private void Awake()
     {
@@ -40,5 +43,10 @@ public class PlayerAnimation : MonoBehaviour
         anim.SetBool(_runningHash, !isDie);
         anim.SetBool(_attackingHash, isDie);
         anim.SetBool(_dyingHash, isDie);
+    }
+
+    public void SlashHit()
+    {
+        DamageTextEvent?.Invoke();
     }
 }

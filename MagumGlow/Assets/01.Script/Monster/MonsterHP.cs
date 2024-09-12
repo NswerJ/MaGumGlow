@@ -7,26 +7,39 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
 {
     private Monster _monster;
     private MonsterGetSO _monsterGetSO;
+    private MagicSwordStats magicSwordStats;  // 마검 스탯을 참조할 변수
+    private PlayerAnimation _playerAnim; // 어떻게 바꿀까
 
-    public float goldReward = 50f;  // 몬스터를 처치했을 때 주는 골드
+    #region Absolutely needs to be fixed
     public List<Sprite> _monsterSprites;
+    public Transform _startPos;
+    #endregion
 
+
+    #region Stat
     private float _hp;
     private float _maxHp;
     private float _LV = 1;
     private bool _isDead, _isDamage;
+    #endregion
 
-    public Action Hit;
-    public Action Dead;
 
-    public Transform _startPos;
-    private MagicSwordStats magicSwordStats;  // 마검 스탯을 참조할 변수
+    #region Event
+    public event Action Hit;
+    public event Action Dead;
+    //쓸진 모르겟다
+    #endregion
+
 
     [SerializeField] private GameObject damageTextPrefab;
+    private GameObject damageTextClone;
 
     public void Initialize(MagicSwordStats stats)
     {
         magicSwordStats = stats;  // 마검 스탯 할당
+        _playerAnim = GameObject.Find("Player").GetComponentInChildren<PlayerAnimation>();
+
+        _playerAnim.DamageTextEvent += SlashHit;
     }
 
     public void Initialize(Monster monster)
@@ -44,26 +57,23 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
     {
         if (_isDead) return;
 
-        if (!_isDamage)
-            StartCoroutine(DamageDelay(dmg));
-    }
-
-    private IEnumerator DamageDelay(float dmg)
-    {
-        _isDamage = true;
-        yield return new WaitForSeconds(.2f);
         _hp -= dmg;
         Hit?.Invoke();  // 몬스터가 데미지를 받을 때 실행될 액션 호출
+    }
 
-        GameObject damageUI = Instantiate(damageTextPrefab) as GameObject;
-        damageUI.transform.SetParent(transform.Find("DamageCanvas"), false);
-        //damageUI.transform.position = new Vector3(-90, -150, 0);    
-
-        if (_hp <= 0)
+    public void SlashHit()
+    {
+        if (damageTextClone == null)
         {
-            DeadProcess();
+            damageTextClone = Instantiate(damageTextPrefab);
+            damageTextClone.transform.SetParent(transform.Find("DamageCanvas"), false);
+            
+            //자연스럽게 보이게
+            if (_hp <= 0)
+            {
+                DeadProcess();
+            }
         }
-        _isDamage = false;
     }
 
     private void DeadProcess()
@@ -73,8 +83,8 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
         // 마검 스탯이 존재할 경우 골드 추가
         if (magicSwordStats != null)
         {
-            magicSwordStats.AddGold(goldReward);  // 몬스터 처치 시 골드 획득
-            Debug.Log($"골드 {goldReward} 추가됨. 총 골드: {magicSwordStats.playerGold}");
+            magicSwordStats.AddGold(_monsterGetSO.SO.DropGold);  // 몬스터 처치 시 골드 획득
+            Debug.Log($"골드 {_monsterGetSO.SO.DropGold} 추가됨. 총 골드: {magicSwordStats.playerGold}");
         }
         else
         {
