@@ -6,17 +6,17 @@ using UnityEngine.UI;
 
 public class IntroUIManager : MonoBehaviour
 {
-    public InputField playerName;  // 플레이어 이름 입력 필드
+    public TMP_InputField playerName;  // 플레이어 이름 입력 필드
     public GameObject playerNameButton;  // 플레이어 이름 입력 필드 부모
     public TMP_Text warningText;  // 경고 메시지를 표시할 텍스트
-    
+
     private Coroutine fadeCoroutine;  // 현재 실행 중인 페이드 아웃 코루틴을 관리하기 위한 참조
-    
 
     private void Awake()
     {
+        playerName.characterLimit = 10;  // 입력 글자수 제한 (10글자)
         playerNameButton.SetActive(false);
-        warningText.gameObject.SetActive(false);  
+        warningText.gameObject.SetActive(false);
     }
 
     public void EnableNameInput()
@@ -49,7 +49,7 @@ public class IntroUIManager : MonoBehaviour
 
     private IEnumerator FadeOutWarningText()
     {
-        float duration = 2.0f; 
+        float duration = 2.0f;
         float elapsedTime = 0f;
 
         Color originalColor = warningText.color;
@@ -62,6 +62,6 @@ public class IntroUIManager : MonoBehaviour
             yield return null;
         }
 
-        warningText.gameObject.SetActive(false);  
+        warningText.gameObject.SetActive(false);
     }
 }
