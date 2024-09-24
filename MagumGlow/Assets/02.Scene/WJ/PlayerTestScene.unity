@@ -1438,7 +1438,7 @@ PrefabInstance:
     - target: {fileID: 4533652783795844040, guid: 47328be0b02fa3f43be1950dd73e6ad8, type: 3}
       propertyPath: damageTextPrefab
       value: 
-      objectReference: {fileID: 692291498500665650, guid: aae4d3f558cb5ce4f935a4e3f41a6fbd, type: 3}
+      objectReference: {fileID: 1282766809371548223, guid: a398f03c6cea0e741adf14d80b5fe3e1, type: 3}
     - target: {fileID: 4533652783795844040, guid: 47328be0b02fa3f43be1950dd73e6ad8, type: 3}
       propertyPath: _monsterSprites.Array.size
       value: 6
