@@ -66,7 +66,6 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
         if (damageTextClone == null)
         {
             damageTextClone = Instantiate(damageTextPrefab);
-            damageTextClone.transform.SetParent(transform.Find("DamageCanvas"), false);
             
             //자연스럽게 보이게
             if (_hp <= 0)

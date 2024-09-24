@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class DamageViewer : MonoBehaviour
 {
-    [HideInInspector] public TextMeshProUGUI textMP;
+    [HideInInspector] public TextMeshPro textMP;
 
     private MagicSwordPlayer _magicSword;
 
@@ -14,7 +14,7 @@ public class DamageViewer : MonoBehaviour
 
     private void Start()
     {
-        textMP = GetComponent<TextMeshProUGUI>();
+        textMP = GetComponent<TextMeshPro>();
 
         _magicSword = GameObject.Find("Player").GetComponent<MagicSwordPlayer>();
 
