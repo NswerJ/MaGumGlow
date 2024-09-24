@@ -519,11 +519,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1427672290834808295, guid: 96428de39ade8494b8ca88c70a40dc8a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: QuitUiOpen
+      value: QuitUiClose
       objectReference: {fileID: 0}
     - target: {fileID: 1427672290834808295, guid: 96428de39ade8494b8ca88c70a40dc8a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
-      value: QuitUiClose
+      value: QuitUiOpen
       objectReference: {fileID: 0}
     - target: {fileID: 1427672290834808295, guid: 96428de39ade8494b8ca88c70a40dc8a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
