@@ -10,11 +10,6 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
     private MagicSwordStats magicSwordStats;  // 마검 스탯을 참조할 변수
     private PlayerAnimation _playerAnim; // 어떻게 바꿀까
 
-    #region Absolutely needs to be fixed
-    public List<Sprite> _monsterSprites;
-    public Transform _startPos;
-    #endregion
-
 
     #region Stat
     private float _hp;
@@ -49,7 +44,7 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
 
         _monsterGetSO = _monster.GetCompo<MonsterGetSO>();
 
-        _maxHp = _monsterGetSO.SO.MonsterHP;
+        _maxHp = _monsterGetSO.SO.stats.Find(stat => stat.statName == "체력").baseValue;
         _hp = _maxHp;
     }
 
@@ -82,8 +77,8 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
         // 마검 스탯이 존재할 경우 골드 추가
         if (magicSwordStats != null)
         {
-            magicSwordStats.AddGold(_monsterGetSO.SO.DropGold);  // 몬스터 처치 시 골드 획득
-            Debug.Log($"골드 {_monsterGetSO.SO.DropGold} 추가됨. 총 골드: {magicSwordStats.playerGold}");
+            //magicSwordStats.AddGold(_monsterGetSO.SO.DropGold);  // 몬스터 처치 시 골드 획득
+            //Debug.Log($"골드 {_monsterGetSO.SO.DropGold} 추가됨. 총 골드: {magicSwordStats.playerGold}");
             
         }
         else
@@ -92,34 +87,34 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
         }
 
         Dead?.Invoke();  // 몬스터가 죽을 때 실행될 액션 호출
-        TempResetMonster();  // 몬스터를 리셋하는 임시 처리
+        //TempResetMonster();  // 몬스터를 리셋하는 임시 처리
     }
 
     #region 임시
-    private void TempResetMonster()
-    {
-        _monster.GetComponent<ParralaxBackground>().enabled = false;
-        StartCoroutine(DelayReset());
-    }
+    //private void TempResetMonster()
+    //{
+    //    _monster.GetComponent<ParralaxBackground>().enabled = false;
+    //    StartCoroutine(DelayReset());
+    //}
 
-    private IEnumerator DelayReset()
-    {
-        transform.position = _startPos.position;
-        _LV++;  // 몬스터 레벨 증가
-        _maxHp += _LV * 10000;  // 몬스터 체력 증가
-        _hp = _maxHp;
+    //private IEnumerator DelayReset()
+    //{
+    //    transform.position = _startPos.position;
+    //    _LV++;  // 몬스터 레벨 증가
+    //    _maxHp += _LV * 10000;  // 몬스터 체력 증가
+    //    _hp = _maxHp;
 
-        // 몬스터의 체력에 따라 스프라이트 변경
-        int index = Math.Min((int)(_maxHp / 1000000), _monsterSprites.Count - 1);
-        _monsterGetSO.SO.Sprite = _monsterSprites[index];
-        _monster.GetCompo<MonsterVisual>().UpdateSprite();
+    //    // 몬스터의 체력에 따라 스프라이트 변경
+    //    int index = Math.Min((int)(_maxHp / 1000000), _monsterSprites.Count - 1);
+    //    _monsterGetSO.SO.Sprite = _monsterSprites[index];
+    //    _monster.GetCompo<MonsterVisual>().UpdateSprite();
 
-        _monster.GetComponent<ParralaxBackground>().monsterSpeed = 0;
+    //    _monster.GetComponent<ParralaxBackground>().monsterSpeed = 0;
 
-        yield return new WaitForSeconds(.5f);
-        _monster.GetComponent<ParralaxBackground>().enabled = true;
-        _isDead = false;
-    }
+    //    yield return new WaitForSeconds(.5f);
+    //    _monster.GetComponent<ParralaxBackground>().enabled = true;
+    //    _isDead = false;
+    //}
 
 
     #endregion

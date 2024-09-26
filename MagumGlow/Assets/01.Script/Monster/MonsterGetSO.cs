@@ -6,7 +6,7 @@ public class MonsterGetSO : MonoBehaviour, IMonsterComponent
 {
     private Monster _monster;
 
-    public MonsterSO SO;
+    public MonsterStats SO;
 
     public void Initialize(Monster monster)
     {

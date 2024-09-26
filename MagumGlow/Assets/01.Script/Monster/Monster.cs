@@ -3,14 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Monster : MonoBehaviour, IPoolable
+public class Monster : MonoBehaviour
 {
     private Dictionary<Type, IMonsterComponent> _components;
-
-    [SerializeField] private PoolTypeSO _poolType;
-    public PoolTypeSO PoolType => _poolType;
-
-    public GameObject GameObject => gameObject;
 
     private void Awake()
     {
@@ -33,15 +28,5 @@ public class Monster : MonoBehaviour, IPoolable
         if (_components.TryGetValue(typeof(T), out IMonsterComponent compo))
             return compo as T;
         return default;
-    }
-
-    public void SetUpPool(Pool pool)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void ResetItem()
-    {
-        throw new NotImplementedException();
     }
 }
