@@ -28,10 +28,10 @@ public class MagicSwordPlayer : MonoBehaviour
     void InitializeSword()
     {
         playerName.text = swordStats.playerName;
-        foreach (var stat in swordStats.stats)
+        /*foreach (var stat in swordStats.stats)
         {
             stat.currentValue = stat.baseValue;
-        }
+        }*/
     }
 
     private void Update()
