@@ -26,7 +26,6 @@ public class MagicSwordStatUI : MonoBehaviour
         AssignButtonListeners();
         InitializeUI();
     }
-
     void SetPlayerName()
     {
         magicSwordStats.playerName = PlayerPrefs.GetString("playerName", "Unknown Player");
