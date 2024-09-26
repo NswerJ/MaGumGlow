@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class StageManager : MonoBehaviour
 {
     public Slider stageSlider;
     public float enemiesPerBoss = 20f; // 확장성을 위해 적 처치 수 설정
+    [SerializeField] private List<MonsterSO> enemies;
     public List<Stage> stages = new List<Stage>();
     public List<Toggle> bossStages = new List<Toggle>(); // 보스 토글 리스트
 
@@ -37,6 +39,7 @@ public class StageManager : MonoBehaviour
     {
         LoadStageData();
         SetupStage(stages[currentStageIndex]);
+        SpawnMonster();
     }
 
     private void Update()
@@ -85,6 +88,20 @@ public class StageManager : MonoBehaviour
         {
             SpawnFinalBoss();
         }
+    }
+
+    //몬스터 소환
+    private void SpawnMonster()
+    {
+        StartCoroutine(SpawnCoroutine());
+    }
+
+    private IEnumerator SpawnCoroutine()
+    {
+        //대기시간
+        yield return new WaitForSeconds(1);
+
+
     }
 
     // 중간 보스 소환

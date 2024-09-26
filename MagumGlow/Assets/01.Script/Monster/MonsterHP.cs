@@ -6,6 +6,7 @@ using UnityEngine;
 public class MonsterHP : MonoBehaviour, IMonsterComponent
 {
     private Monster _monster;
+
     private MonsterSO _monsterSO;
     private MonsterStat HP;
 
@@ -46,6 +47,10 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
 
         _monster = monster;
         _isDead = false;
+
+
+        _monsterSO = _monster.SO;
+
         HP = _monsterSO.StatSO.Stats.Find(stat => stat.statName == "Ã¼·Â");
         _LV = _monsterSO.MonsterLV;
 

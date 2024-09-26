@@ -16,6 +16,6 @@ public class TestBackground : MonoBehaviour
 
     private void Update()
     {
-        material.SetTextureOffset("_MainTex", Vector2.right * moveSpeed * Time.time);
+        material.SetTextureOffset("_MainTex", moveSpeed * Time.time * Vector2.right);
     }
 }

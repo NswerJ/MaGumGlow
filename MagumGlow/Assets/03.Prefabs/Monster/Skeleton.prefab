@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 8372619503276619986}
   - component: {fileID: 4533652783795844040}
   - component: {fileID: 910269993927438462}
-  - component: {fileID: 9049592417399923410}
   m_Layer: 6
   m_Name: Skeleton
   m_TagString: Untagged
@@ -123,6 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bed6d78641aec34e9c430d582ebdc0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SO: {fileID: 11400000, guid: 40946e64e848af64ab42bced0a5e5e8b, type: 2}
 --- !u!114 &4533652783795844040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,22 +152,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _detectRange: 2
---- !u!114 &9049592417399923410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3612828838943797327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fe0d5858800215499f83fe7178fd447, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parralaxEffect: -1
-  monsterSpeed: 0
-  bgState: 2
-  isStop: 1
 --- !u!1 &6557003859841719652
 GameObject:
   m_ObjectHideFlags: 0

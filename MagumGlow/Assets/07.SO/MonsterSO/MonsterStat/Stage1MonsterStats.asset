@@ -12,14 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d58e369075039444ad96e3bb0b449f7, type: 3}
   m_Name: Stage1MonsterStats
   m_EditorClassIdentifier: 
-  stats:
+  Stats:
   - statName: "\uACF5\uACA9\uB825"
-    baseValue: 0
-    currentValue: 0
-    maxValue: 0
-    statLevel: 0
+    baseValue: 20000
+    currentValue: 20000
+    maxValue: 200000
   - statName: "\uCCB4\uB825"
-    baseValue: 0
-    currentValue: 0
-    maxValue: 0
-    statLevel: 0
+    baseValue: 20000
+    currentValue: 20000
+    maxValue: 200000

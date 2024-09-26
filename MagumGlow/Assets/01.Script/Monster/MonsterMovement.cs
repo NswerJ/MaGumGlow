@@ -7,14 +7,21 @@ public class MonsterMovement : MonoBehaviour, IMonsterComponent
     private Monster _monster;
 
     public LayerMask playerLayer;
+    public float _detectRange = 3;
 
-    public float _detectRange= 3;
+    private Rigidbody2D _rb;
+    private float _currentSpeed;
 
     private BackgroundManager _backgroundManager;
 
     public void Initialize(Monster monster)
     {
         _monster = monster;
+    }
+
+    private void Start()
+    {
+        _rb = GetComponent<Rigidbody2D>();
         _backgroundManager = GameObject.Find("LevelManager").GetComponent<BackgroundManager>();
     }
 
@@ -26,11 +33,14 @@ public class MonsterMovement : MonoBehaviour, IMonsterComponent
 
         if (hit.collider != null)
         {
-            _backgroundManager.Running(true);
+            _backgroundManager.Running(false);
+            _currentSpeed = 0;
         }
         else
         {
-            _backgroundManager.Running(false);
+            _backgroundManager.Running(true);
+            _currentSpeed = -20;
         }
+        _rb.velocity = new Vector2(_currentSpeed, 0);
     }
 }

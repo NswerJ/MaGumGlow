@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sprite: {fileID: 21300000, guid: 7dcb00d114d004eb998385deef59ae4d, type: 3}
   StatSO: {fileID: 11400000, guid: e06ca94d59e5a4f4881bbdeb8b204039, type: 2}
-  MonsterLV: 0
+  MonsterLV: 1
   DropGold: 50

@@ -7,6 +7,8 @@ public class Monster : MonoBehaviour
 {
     private Dictionary<Type, IMonsterComponent> _components;
 
+    public MonsterSO SO;
+
     private void Awake()
     {
         _components = new Dictionary<Type, IMonsterComponent>();

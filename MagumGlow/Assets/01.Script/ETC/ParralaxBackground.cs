@@ -3,52 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum BGState
-{
-    environment,
-    speedAffected,
-    monster
-}
-
 public class ParralaxBackground : MonoBehaviour
 {
-    private float _length, _startPos, _td;
-    
-    public float parralaxEffect, monsterSpeed;
-
-    public BGState bgState;
+    [SerializeField]
+    [Range(-1f, 2f)]
+    private float moveSpeed = .1f;
+    private Material material;
 
     public bool isStop;
 
-    void Start()
+    private void Awake()
     {
-        _startPos = transform.position.x;
-        if (bgState != BGState.monster)
-            _length = GetComponent<SpriteRenderer>().bounds.size.x;
+        material = GetComponent<MeshRenderer>().material;
     }
 
-    void Update()
+    private void Update()
     {
-        if (bgState == BGState.environment)
-            _td += Time.deltaTime * -2 * parralaxEffect;
-        else
-        {
-            if (!isStop)
-            {
-
-                if (bgState == BGState.monster)
-                {
-                    monsterSpeed += Time.deltaTime * parralaxEffect;
-                    transform.position = new Vector3(transform.position.x + monsterSpeed, transform.position.y, transform.position.z);
-                }
-                else
-                {
-                    _td += Time.deltaTime * -75 * parralaxEffect;
-                    transform.position = new Vector3(_startPos + _td, transform.position.y, transform.position.z);
-
-                    if (transform.position.x <= _startPos - _length || transform.position.x >= _startPos + _length) _td = 0;
-                }
-            }
-        }
+        if (!isStop)
+            material.SetTextureOffset("_MainTex", moveSpeed * Time.time * Vector2.right);
     }
 }

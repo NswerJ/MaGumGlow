@@ -13,6 +13,6 @@ public class BackgroundManager : MonoBehaviour
 
     public void Running(bool IsDetected)
     {
-        _backgrounds.ForEach(b => b.isStop = IsDetected);
+        _backgrounds.ForEach(b => b.isStop = !IsDetected);
     }
 }

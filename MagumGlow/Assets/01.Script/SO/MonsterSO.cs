@@ -9,7 +9,7 @@ public class MonsterSO : ScriptableObject
 
     public MonsterStats StatSO;
 
-    public int MonsterLV;
+    public int MonsterLV = 1;
 
     public float DropGold;
 
