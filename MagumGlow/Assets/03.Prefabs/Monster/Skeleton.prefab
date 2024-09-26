@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8221120359179945261}
   - component: {fileID: 3084783639152941025}
   - component: {fileID: 8372619503276619986}
-  - component: {fileID: 6089779710798848463}
   - component: {fileID: 4533652783795844040}
   - component: {fileID: 910269993927438462}
   - component: {fileID: 9049592417399923410}
@@ -124,20 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bed6d78641aec34e9c430d582ebdc0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _poolType: {fileID: 11400000, guid: 201994c0f7ec3f248897ba77b6d27f3f, type: 2}
---- !u!114 &6089779710798848463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3612828838943797327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de070834ce82b744ea98f461b26db4c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SO: {fileID: 11400000, guid: 40946e64e848af64ab42bced0a5e5e8b, type: 2}
 --- !u!114 &4533652783795844040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,12 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da13192dc0133934fa1d9cfeca3ca5a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _monsterSprites:
-  - {fileID: 21300000, guid: 642035d1ad6054d4c81d469682e27df3, type: 3}
-  - {fileID: 21300000, guid: 0aa09f06c69024e5a9c50f1f11a807c7, type: 3}
-  - {fileID: 21300000, guid: d66b1b50975144cc48c093d58375112f, type: 3}
-  - {fileID: 21300000, guid: a4be9ad3c7b764e4298bd0d18ca01521, type: 3}
-  - {fileID: 21300000, guid: 74ee93ef735444ff19f6c259e9841675, type: 3}
+  damageTextPrefab: {fileID: 1282766809371548223, guid: a398f03c6cea0e741adf14d80b5fe3e1, type: 3}
 --- !u!114 &910269993927438462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,6 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parralaxEffect: -1
+  monsterSpeed: 0
   bgState: 2
   isStop: 1
 --- !u!1 &6557003859841719652

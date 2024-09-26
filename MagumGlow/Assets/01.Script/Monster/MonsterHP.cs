@@ -6,15 +6,17 @@ using UnityEngine;
 public class MonsterHP : MonoBehaviour, IMonsterComponent
 {
     private Monster _monster;
-    private MonsterGetSO _monsterGetSO;
+    private MonsterSO _monsterSO;
+    private MonsterStat HP;
+
     private MagicSwordStats magicSwordStats;  // 마검 스탯을 참조할 변수
     private PlayerAnimation _playerAnim; // 어떻게 바꿀까
 
 
     #region Stat
-    private float _hp;
-    private float _maxHp;
-    private float _LV = 1;
+    private float _currentHP;
+    private float _maxHP;
+    private int _LV;
     private bool _isDead, _isDamage;
     #endregion
 
@@ -31,55 +33,73 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
 
     public void Initialize(MagicSwordStats stats)
     {
+
         magicSwordStats = stats;  // 마검 스탯 할당
         _playerAnim = GameObject.Find("Player").GetComponentInChildren<PlayerAnimation>();
 
         _playerAnim.DamageTextEvent += SlashHit;
+
     }
 
     public void Initialize(Monster monster)
     {
+
         _monster = monster;
         _isDead = false;
+        HP = _monsterSO.StatSO.Stats.Find(stat => stat.statName == "체력");
+        _LV = _monsterSO.MonsterLV;
 
-        _monsterGetSO = _monster.GetCompo<MonsterGetSO>();
+        //따로 계산식을 해야할듯?
+        _maxHP = CalculateHP();
 
-        _maxHp = _monsterGetSO.SO.stats.Find(stat => stat.statName == "체력").baseValue;
-        _hp = _maxHp;
+        _currentHP = _maxHP;
+
+    }
+
+    private float CalculateHP()
+    {
+
+        return HP.currentValue = Mathf.Min(HP.currentValue + HP.baseValue * _LV, HP.maxValue);
+
     }
 
     public void OnDamage(float dmg)
     {
+
         if (_isDead) return;
 
-        _hp -= dmg;
+        _currentHP -= dmg;
         Hit?.Invoke();  // 몬스터가 데미지를 받을 때 실행될 액션 호출
+
     }
 
+    //몬스터가 칼에 맞을 때 호출
     public void SlashHit()
     {
+
         if (damageTextClone == null)
         {
             damageTextClone = Instantiate(damageTextPrefab);
-            
+
             //자연스럽게 보이게
-            if (_hp <= 0)
+            if (_currentHP <= 0)
             {
                 DeadProcess();
             }
         }
+
     }
 
     private void DeadProcess()
     {
+
         _isDead = true;
 
         // 마검 스탯이 존재할 경우 골드 추가
         if (magicSwordStats != null)
         {
-            //magicSwordStats.AddGold(_monsterGetSO.SO.DropGold);  // 몬스터 처치 시 골드 획득
-            //Debug.Log($"골드 {_monsterGetSO.SO.DropGold} 추가됨. 총 골드: {magicSwordStats.playerGold}");
-            
+            magicSwordStats.AddGold(_monsterSO.DropGold);  // 몬스터 처치 시 골드 획득
+            Debug.Log($"골드 {_monsterSO.DropGold} 추가됨. 총 골드: {magicSwordStats.playerGold}");
         }
         else
         {
@@ -87,7 +107,8 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
         }
 
         Dead?.Invoke();  // 몬스터가 죽을 때 실행될 액션 호출
-        //TempResetMonster();  // 몬스터를 리셋하는 임시 처리
+                         //TempResetMonster();  // 몬스터를 리셋하는 임시 처리
+
     }
 
     #region 임시

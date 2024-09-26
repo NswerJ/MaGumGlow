@@ -5,12 +5,16 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "SO/MonsterData")]
 public class MonsterSO : ScriptableObject
 {
-    //[SerializeField] private Sprite _sprite;
     public Sprite Sprite;
 
-    //[SerializeField] private float _monsterHP;
-    public float MonsterHP;
+    public MonsterStats StatSO;
 
-    [SerializeField] private float _dropGold;
-    public float DropGold => _dropGold;
+    public int MonsterLV;
+
+    public float DropGold;
+
+    public void LevelUP()
+    {
+        MonsterLV++;
+    }
 }
