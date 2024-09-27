@@ -10,6 +10,8 @@ public class ParralaxBackground : MonoBehaviour
     private float moveSpeed = .1f;
     private Material material;
 
+    private Vector2 calcSpeed;
+
     public bool isStop;
 
     private void Awake()
@@ -20,6 +22,10 @@ public class ParralaxBackground : MonoBehaviour
     private void Update()
     {
         if (!isStop)
-            material.SetTextureOffset("_MainTex", moveSpeed * Time.time * Vector2.right);
+        {
+            calcSpeed += moveSpeed * Time.deltaTime * Vector2.right;
+        }
+
+        material.SetTextureOffset("_MainTex", calcSpeed);
     }
 }

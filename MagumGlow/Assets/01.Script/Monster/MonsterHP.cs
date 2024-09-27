@@ -18,7 +18,8 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
     private float _currentHP;
     private float _maxHP;
     private int _LV;
-    private bool _isDead, _isDamage;
+
+    public bool IsDead;
     #endregion
 
 
@@ -46,7 +47,7 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
     {
 
         _monster = monster;
-        _isDead = false;
+        IsDead = false;
 
 
         _monsterSO = _monster.SO;
@@ -55,26 +56,32 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
         _LV = _monsterSO.MonsterLV;
 
         //따로 계산식을 해야할듯?
-        _maxHP = CalculateHP();
+        CalculateHP();
 
-        _currentHP = _maxHP;
+        Dead += CalculateHP;
 
     }
 
-    private float CalculateHP()
+    private void CalculateHP()
     {
 
-        return HP.currentValue = Mathf.Min(HP.currentValue + HP.baseValue * _LV, HP.maxValue);
+        //임시로 레벨업 (스테이지 단계에 따라서 올릴 예정)
+        _LV++;
+
+        _maxHP = HP.currentValue = Mathf.Min(HP.currentValue + HP.baseValue * _LV, HP.maxValue);
+
+        _currentHP = _maxHP;
 
     }
 
     public void OnDamage(float dmg)
     {
 
-        if (_isDead) return;
+        if (IsDead) return;
 
         _currentHP -= dmg;
-        Hit?.Invoke();  // 몬스터가 데미지를 받을 때 실행될 액션 호출
+        Hit?.Invoke();  // 몬스터가 데미지를 받을 때 실행될 액션 호출 (맞는 이펙트 / 빨갛게 깜빡임 등)
+
 
     }
 
@@ -98,7 +105,7 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
     private void DeadProcess()
     {
 
-        _isDead = true;
+        IsDead = true;
 
         // 마검 스탯이 존재할 경우 골드 추가
         if (magicSwordStats != null)
@@ -112,36 +119,13 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
         }
 
         Dead?.Invoke();  // 몬스터가 죽을 때 실행될 액션 호출
-                         //TempResetMonster();  // 몬스터를 리셋하는 임시 처리
+
+        Invoke(nameof(Respawn), 1);
 
     }
-
-    #region 임시
-    //private void TempResetMonster()
-    //{
-    //    _monster.GetComponent<ParralaxBackground>().enabled = false;
-    //    StartCoroutine(DelayReset());
-    //}
-
-    //private IEnumerator DelayReset()
-    //{
-    //    transform.position = _startPos.position;
-    //    _LV++;  // 몬스터 레벨 증가
-    //    _maxHp += _LV * 10000;  // 몬스터 체력 증가
-    //    _hp = _maxHp;
-
-    //    // 몬스터의 체력에 따라 스프라이트 변경
-    //    int index = Math.Min((int)(_maxHp / 1000000), _monsterSprites.Count - 1);
-    //    _monsterGetSO.SO.Sprite = _monsterSprites[index];
-    //    _monster.GetCompo<MonsterVisual>().UpdateSprite();
-
-    //    _monster.GetComponent<ParralaxBackground>().monsterSpeed = 0;
-
-    //    yield return new WaitForSeconds(.5f);
-    //    _monster.GetComponent<ParralaxBackground>().enabled = true;
-    //    _isDead = false;
-    //}
-
-
-    #endregion
+    
+    private void Respawn()
+    {
+        IsDead = false;
+    }
 }

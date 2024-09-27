@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ public class MagicSwordStats : ScriptableObject
     public List<Stat> stats;  // 마검의 다양한 스탯 목록
     public string playerName;  // 플레이어 설정 이름
     public float playerGold;  // 플레이어가 소유한 골드
+
+    public event Action GetGold;
 
     public void LevelUpStat(string statName)
     {
@@ -46,6 +49,7 @@ public class MagicSwordStats : ScriptableObject
     {
         playerGold += amount;
         Debug.Log($"플레이어가 {amount} 골드를 얻었습니다. 현재 골드: {playerGold}");
+        GetGold?.Invoke();
     }
 
     // 모든 스탯을 초기화하는 메서드

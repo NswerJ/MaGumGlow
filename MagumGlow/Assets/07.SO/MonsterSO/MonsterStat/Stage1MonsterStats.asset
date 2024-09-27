@@ -20,4 +20,4 @@ MonoBehaviour:
   - statName: "\uCCB4\uB825"
     baseValue: 20000
     currentValue: 20000
-    maxValue: 200000
+    maxValue: 2000000

@@ -22,6 +22,8 @@ public class MagicSwordStatUI : MonoBehaviour
 
     void Start()
     {
+        magicSwordStats.GetGold += UpdateGoldUI;
+
         SetPlayerName();
         AssignButtonListeners();
         InitializeUI();

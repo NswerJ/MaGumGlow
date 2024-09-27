@@ -9,7 +9,7 @@ public class StageManager : MonoBehaviour
 {
     public Slider stageSlider;
     public float enemiesPerBoss = 20f; // 확장성을 위해 적 처치 수 설정
-    [SerializeField] private List<MonsterSO> enemies;
+    public Monster monster;
     public List<Stage> stages = new List<Stage>();
     public List<Toggle> bossStages = new List<Toggle>(); // 보스 토글 리스트
 
@@ -33,13 +33,16 @@ public class StageManager : MonoBehaviour
         {
             Destroy(gameObject); // 이미 존재하는 StageManager가 있을 경우 새로 만든 오브젝트를 파괴
         }
+
+
+        //Event Add
+        monster.GetCompo<MonsterHP>().Dead += OnEnemyKilled;
     }
 
     private void Start()
     {
         LoadStageData();
         SetupStage(stages[currentStageIndex]);
-        SpawnMonster();
     }
 
     private void Update()
@@ -65,6 +68,7 @@ public class StageManager : MonoBehaviour
     public void OnEnemyKilled()
     {
         Debug.Log("적 처치");
+        //팝 아니면 그냥 뒤로 땡겨?
         enemyKillCount++;
         UpdateSlider();
 
@@ -90,19 +94,19 @@ public class StageManager : MonoBehaviour
         }
     }
 
-    //몬스터 소환
-    private void SpawnMonster()
-    {
-        StartCoroutine(SpawnCoroutine());
-    }
+    ////몬스터 소환 (풀매니저 쓸까?)
+    //private void SpawnMonster()
+    //{
+    //    StartCoroutine(SpawnCoroutine());
+    //}
 
-    private IEnumerator SpawnCoroutine()
-    {
-        //대기시간
-        yield return new WaitForSeconds(1);
+    //private IEnumerator SpawnCoroutine()
+    //{
+    //    //대기시간
+    //    yield return new WaitForSeconds(1);
 
 
-    }
+    //}
 
     // 중간 보스 소환
     private void SpawnMidBoss()
@@ -171,6 +175,7 @@ public class StageManager : MonoBehaviour
 public class Stage
 {
     public string StageName;
+    public List<MonsterSO> monsters;
     public int TotalSliderSteps = 10; // 슬라이더 단계 수 (보스 소환 구간)
 
     // 중간 보스 소환 구간인지 체크
