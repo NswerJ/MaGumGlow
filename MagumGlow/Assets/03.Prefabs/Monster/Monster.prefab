@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 3084783639152941025}
   - component: {fileID: 8372619503276619986}
   - component: {fileID: 4533652783795844040}
+  - component: {fileID: 5387223032197067011}
   - component: {fileID: 910269993927438462}
+  - component: {fileID: 8124757947482175834}
   m_Layer: 6
   m_Name: Monster
   m_TagString: Untagged
@@ -134,7 +136,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da13192dc0133934fa1d9cfeca3ca5a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsDead: 0
   damageTextPrefab: {fileID: 1282766809371548223, guid: a398f03c6cea0e741adf14d80b5fe3e1, type: 3}
+--- !u!114 &5387223032197067011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3612828838943797327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79a9d5f3a40ab6b46b9c963f01f89b64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  detectRange: 2
+  IsDetected: 0
 --- !u!114 &910269993927438462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,10 +167,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a09d8a392ffcc14891bd1f4335c1269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  _detectRange: 2
+--- !u!114 &8124757947482175834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3612828838943797327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 100545783e9db974ea775f5c6a6d8e3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6557003859841719652
 GameObject:
   m_ObjectHideFlags: 0

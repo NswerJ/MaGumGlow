@@ -94,20 +94,6 @@ public class StageManager : MonoBehaviour
         }
     }
 
-    ////몬스터 소환 (풀매니저 쓸까?)
-    //private void SpawnMonster()
-    //{
-    //    StartCoroutine(SpawnCoroutine());
-    //}
-
-    //private IEnumerator SpawnCoroutine()
-    //{
-    //    //대기시간
-    //    yield return new WaitForSeconds(1);
-
-
-    //}
-
     // 중간 보스 소환
     private void SpawnMidBoss()
     {

@@ -7,8 +7,7 @@ public class MonsterMovement : MonoBehaviour, IMonsterComponent
 {
     private Monster _monster;
 
-    public LayerMask playerLayer;
-    public float _detectRange = 3;
+    private MonsterRaycast _monsterRay;
 
     private Rigidbody2D _rb;
     private float _currentSpeed;
@@ -19,7 +18,9 @@ public class MonsterMovement : MonoBehaviour, IMonsterComponent
     {
 
         _monster = monster;
+
         _monster.GetCompo<MonsterHP>().Dead += HandleResetPos;
+        _monsterRay = _monster.GetCompo<MonsterRaycast>();
 
     }
 
@@ -28,33 +29,26 @@ public class MonsterMovement : MonoBehaviour, IMonsterComponent
 
         _rb = GetComponent<Rigidbody2D>();
         _backgroundManager = GameObject.Find("LevelManager").GetComponent<BackgroundManager>();
-    
+
     }
 
     private void HandleResetPos()
     {
 
         transform.position = transform.parent.position;
-    
+
     }
 
     private void Update()
     {
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.right, _detectRange, playerLayer);
+        _backgroundManager.Running(!_monsterRay.IsDetected);
 
-        Debug.DrawRay(transform.position, -Vector2.right * _detectRange, Color.red);
-
-        if (hit.collider != null)
-        {
-            _backgroundManager.Running(false);
+        if (_monsterRay.IsDetected)
             _currentSpeed = 0;
-        }
         else
-        {
-            _backgroundManager.Running(true);
             _currentSpeed = -20;
-        }
+
         _rb.velocity = new Vector2(_currentSpeed, 0);
 
     }

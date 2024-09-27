@@ -66,7 +66,7 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
     {
 
         //임시로 레벨업 (스테이지 단계에 따라서 올릴 예정)
-        _LV++;
+        _monsterSO.LevelUP();
 
         _maxHP = HP.currentValue = Mathf.Min(HP.currentValue + HP.baseValue * _LV, HP.maxValue);
 
