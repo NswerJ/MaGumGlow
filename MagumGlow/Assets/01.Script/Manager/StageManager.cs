@@ -68,7 +68,7 @@ public class StageManager : MonoBehaviour
     public void OnEnemyKilled()
     {
         Debug.Log("적 처치");
-        //팝 아니면 그냥 뒤로 땡겨?
+        //팝 아니면 그냥 뒤로 땡겨? 풀 없어서 일단 뒤로 땡겼어
         enemyKillCount++;
         UpdateSlider();
 

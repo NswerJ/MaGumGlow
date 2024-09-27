@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//보스랑도 같이 쓰려면 어떻게 구성해야될까;;; 어렵다 증말.
 public class MonsterHP : MonoBehaviour, IMonsterComponent
 {
     private Monster _monster;
