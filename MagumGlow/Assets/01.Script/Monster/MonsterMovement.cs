@@ -52,4 +52,9 @@ public class MonsterMovement : MonoBehaviour, IMonsterComponent
         _rb.velocity = new Vector2(_currentSpeed, 0);
 
     }
+
+    private void OnDisable()
+    {
+        _monster.GetCompo<MonsterHP>().Dead -= HandleResetPos;
+    }
 }
