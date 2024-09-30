@@ -36,12 +36,13 @@ public class StageManager : MonoBehaviour
 
 
         //Event Add
-        monster.GetCompo<MonsterHP>().Dead += OnEnemyKilled;
+        //monster.GetCompo<MonsterHP>().Dead += OnEnemyKilled;
     }
 
     private void Start()
     {
-        LoadStageData();
+        //LoadStageData();
+        Debug.Log(currentStageIndex);
         SetupStage(stages[currentStageIndex]);
     }
 
@@ -50,6 +51,7 @@ public class StageManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             OnEnemyKilled();
+            //OnStageComplete();
         }
     }
 
@@ -57,6 +59,7 @@ public class StageManager : MonoBehaviour
     private void SetupStage(Stage stage)
     {
         currentStage = stage;
+        Debug.Log(currentStage.StageName);
         enemyKillCount = 0f;
         midBossIndex = 0; // 새로운 스테이지 시작 시 인덱스 초기화
         sliderIncrementPerKill = (10f / 6) / enemiesPerBoss;
@@ -67,7 +70,6 @@ public class StageManager : MonoBehaviour
     // 적 처치 시 호출되는 함수
     public void OnEnemyKilled()
     {
-        Debug.Log("적 처치");
         //팝 아니면 그냥 뒤로 땡겨? 풀 없어서 일단 뒤로 땡겼어
         enemyKillCount++;
         UpdateSlider();
@@ -118,8 +120,9 @@ public class StageManager : MonoBehaviour
         currentStageIndex++;
         if (currentStageIndex < stages.Count)
         {
-            SaveStageData(); // 진행 상태 저장
+            //SaveStageData(); // 진행 상태 저장
             SetupStage(stages[currentStageIndex]);
+            SceneManager.LoadScene(stages[currentStageIndex].StageName);
         }
         else
         {

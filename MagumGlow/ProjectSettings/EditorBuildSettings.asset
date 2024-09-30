@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/02.Scene/WJ/IntroScene.unity
     guid: 8dfa56d13368aac498750ba25965a6e5
   - enabled: 1
-    path: Assets/02.Scene/WJ/FirstStage.unity
+    path: Assets/02.Scene/WJ/Forest.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/02.Scene/WJ/Ground.unity
+    guid: 1a9dc1041d9d0b04482675df8d951723
   m_configObjects: {}
