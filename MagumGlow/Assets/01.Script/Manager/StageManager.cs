@@ -36,7 +36,7 @@ public class StageManager : MonoBehaviour
 
 
         //Event Add
-        monster.GetCompo<MonsterHP>().Dead += OnEnemyKilled;
+        //monster.GetCompo<MonsterHP>().Dead += OnEnemyKilled;
     }
 
     private void Start()
