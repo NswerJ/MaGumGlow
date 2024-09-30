@@ -34,9 +34,6 @@ public class StageManager : MonoBehaviour
             Destroy(gameObject); // 이미 존재하는 StageManager가 있을 경우 새로 만든 오브젝트를 파괴
         }
 
-
-        //Event Add
-        //monster.GetCompo<MonsterHP>().Dead += OnEnemyKilled;
     }
 
     private void Start()
@@ -44,6 +41,9 @@ public class StageManager : MonoBehaviour
         //LoadStageData();
         Debug.Log(currentStageIndex);
         SetupStage(stages[currentStageIndex]);
+
+        //Event Add
+        monster.GetCompo<MonsterHP>().Dead += OnEnemyKilled;
     }
 
     private void Update()
