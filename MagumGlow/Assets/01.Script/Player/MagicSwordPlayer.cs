@@ -6,19 +6,19 @@ using UnityEngine;
 
 public class MagicSwordPlayer : MonoBehaviour
 {
-    public MagicSwordStats swordStats;  
-    public TextMeshProUGUI playerName;
-    public TextMeshProUGUI damageViewer;
+    public MagicSwordStats swordStats;
+    public TextMeshProUGUI playerName;  // 플레이어 이름 UI
+    public TextMeshProUGUI damageViewer; // 데미지 표시 UI
 
-    public LayerMask enemyLayer; 
-    public float detectionRange = 2f;  
-    public float playerHealth;  
+    public LayerMask enemyLayer; // 적 레이어
+    public float detectionRange = 2f;  // 적 탐지 범위
+    public float playerHealth;  // 플레이어 체력
 
     public event Action<bool> AttackEvent;
     public event Action<bool> DieEvent;
 
-    private bool enemyIsFront = false;
-    private bool isDie = false;
+    private bool enemyIsFront = false;  // 적이 앞에 있는지 여부
+    private bool isDie = false;  // 죽음 상태 체크
 
     void Start()
     {
@@ -27,7 +27,10 @@ public class MagicSwordPlayer : MonoBehaviour
 
     void InitializeSword()
     {
-        playerName.text = swordStats.playerName;
+        // GameManager에서 플레이어 이름을 가져와서 UI에 반영
+        playerName.text = GameManager.Instance.playerData.playerName;
+
+        // 마검 스탯 초기화 (필요하면 사용)
         /*foreach (var stat in swordStats.stats)
         {
             stat.currentValue = stat.baseValue;
@@ -36,28 +39,26 @@ public class MagicSwordPlayer : MonoBehaviour
 
     private void Update()
     {
-        CheckForEnemy();
+        CheckForEnemy();  // 적 탐지
 
         if (enemyIsFront)
         {
-            Attacking(true);
+            Attacking(true);  // 공격 상태
         }
         else
         {
-            Attacking(false);
+            Attacking(false);  // 비공격 상태
         }
 
         if (isDie || Input.GetButtonDown("Jump"))
         {
-            DieEvent?.Invoke(true);
+            DieEvent?.Invoke(true);  // 죽음 이벤트 발생
         }
-
-
     }
 
     private void PlayerHealthUpdate(float health)
     {
-        playerHealth = health;
+        playerHealth = health;  // 플레이어 체력 업데이트
     }
 
     private void CheckForEnemy()
@@ -73,7 +74,7 @@ public class MagicSwordPlayer : MonoBehaviour
             if (enemyHp != null)
             {
                 enemyHp.Initialize(swordStats);
-                StartCoroutine(DealDamageAfterDelay(enemyHp));
+                StartCoroutine(DealDamageAfterDelay(enemyHp));  // 딜레이 후 데미지 처리
             }
         }
         else
@@ -84,14 +85,13 @@ public class MagicSwordPlayer : MonoBehaviour
 
     private IEnumerator DealDamageAfterDelay(MonsterHP enemyHp)
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.3f);  // 공격 딜레이
 
         Stat attackPowerStat = swordStats.stats.Find(stat => stat.statName == "공격력");
 
         if (attackPowerStat != null)
         {
-            enemyHp.OnDamage(attackPowerStat.currentValue);
-            Debug.Log($"공격력이 {attackPowerStat.currentValue}만큼 적용됨.");           
+            enemyHp.OnDamage(attackPowerStat.currentValue);  // 적에게 데미지 적용
         }
         else
         {
@@ -99,22 +99,18 @@ public class MagicSwordPlayer : MonoBehaviour
         }
     }
 
-
-
-
     private void Attacking(bool isAttacking)
     {
-        AttackEvent?.Invoke(isAttacking);
+        AttackEvent?.Invoke(isAttacking);  // 공격 이벤트 발생
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-
         Vector2 origin = transform.position + new Vector3(0f, 1f);
         Vector2 direction = Vector2.right;
 
-        Gizmos.DrawLine(origin, origin + direction * detectionRange);
+        Gizmos.DrawLine(origin, origin + direction * detectionRange);  // 적 탐지 영역 표시
 
         if (enemyIsFront)
         {
