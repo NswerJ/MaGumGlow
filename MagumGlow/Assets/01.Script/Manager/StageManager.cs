@@ -46,6 +46,11 @@ public class StageManager : MonoBehaviour
         monster.GetCompo<MonsterHP>().Dead += OnEnemyKilled;
     }
 
+    private void OnDisable()
+    {
+        monster.GetCompo<MonsterHP>().Dead -= OnEnemyKilled;   
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

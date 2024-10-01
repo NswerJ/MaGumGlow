@@ -63,6 +63,13 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
 
     }
 
+    private void OnDisable()
+    {
+        //구독 취소
+        _playerAnim.DamageTextEvent -= SlashHit;
+        Dead -= CalculateHP;
+    }
+
     private void CalculateHP()
     {
 
@@ -124,7 +131,7 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
         Invoke(nameof(Respawn), 1);
 
     }
-    
+
     private void Respawn()
     {
         IsDead = false;
