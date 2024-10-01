@@ -36,7 +36,7 @@ public class LevelManager : MonoBehaviour
     public void LevelSetting()
     {
 
-        enemies[currentStage].MonsterLV = currentLevel;
+        //enemies[currentStage].MonsterLV = currentLevel;
 
         if(currentLevel != levelIndex)
         {
