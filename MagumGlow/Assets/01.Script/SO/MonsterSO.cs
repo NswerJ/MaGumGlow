@@ -9,12 +9,7 @@ public class MonsterSO : ScriptableObject
 
     public MonsterStats StatSO;
 
-    public int MonsterLV = 1;
+    public int MonsterLV;
 
     public float DropGold;
-
-    public void LevelUP()
-    {
-        MonsterLV++;
-    }
 }

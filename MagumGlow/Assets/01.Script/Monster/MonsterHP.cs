@@ -16,9 +16,9 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
 
 
     #region Stat
-    private float _currentHP;
-    private float _maxHP;
-    private int _LV;
+    public float currentHP;
+    public float maxHP;
+    public int LV;
 
     public bool IsDead;
     #endregion
@@ -54,31 +54,35 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
         _monsterSO = _monster.SO;
 
         HP = _monsterSO.StatSO.Stats.Find(stat => stat.statName == "체력");
-        _LV = _monsterSO.MonsterLV;
 
-        //따로 계산식을 해야할듯?
+        maxHP = HP.baseValue;
+        LV = _monsterSO.MonsterLV;
+
+    }
+
+    private void Start()
+    {
+
+        //HP.currentValue = HP.baseValue;
+     
+
         CalculateHP();
 
         Dead += CalculateHP;
-
+    
     }
 
-    private void OnDisable()
-    {
-        //구독 취소
-        _playerAnim.DamageTextEvent -= SlashHit;
-        Dead -= CalculateHP;
-    }
-
+   
     private void CalculateHP()
     {
 
-        //임시로 레벨업 (스테이지 단계에 따라서 올릴 예정)
-        _monsterSO.LevelUP();
+        Debug.Log("WLWLWLWLWLWLL");
+        LV = _monsterSO.MonsterLV;
 
-        _maxHP = HP.currentValue = Mathf.Min(HP.currentValue + HP.baseValue * _LV, HP.maxValue);
+        maxHP = Mathf.Min(maxHP + HP.baseValue * LV, HP.maxValue);
+        //_maxHP = HP.currentValue = Mathf.Min(HP.currentValue + HP.baseValue * _LV, HP.maxValue);
 
-        _currentHP = _maxHP;
+        currentHP = maxHP;
 
     }
 
@@ -87,7 +91,7 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
 
         if (IsDead) return;
 
-        _currentHP -= dmg;
+        currentHP -= dmg;
         Hit?.Invoke();  // 몬스터가 데미지를 받을 때 실행될 액션 호출 (맞는 이펙트 / 빨갛게 깜빡임 등)
 
 
@@ -102,7 +106,7 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
             damageTextClone = Instantiate(damageTextPrefab);
 
             //자연스럽게 보이게
-            if (_currentHP <= 0)
+            if (currentHP <= 0)
             {
                 DeadProcess();
             }

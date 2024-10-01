@@ -10,11 +10,14 @@ public class StageManager : MonoBehaviour
     public Slider stageSlider;
     public float enemiesPerBoss = 20f; // 확장성을 위해 적 처치 수 설정
     public Monster monster;
+    public List<MonsterSO> monsterData = new();
+
     public List<Stage> stages = new List<Stage>();
     public List<Toggle> bossStages = new List<Toggle>(); // 보스 토글 리스트
 
     private int currentStageIndex = 0;
     private float enemyKillCount = 0f;
+    
     private float sliderIncrementPerKill;
     private Stage currentStage;
     private int midBossIndex = 0; // 중간 보스 순서 관리 인덱스
@@ -44,6 +47,10 @@ public class StageManager : MonoBehaviour
 
         //Event Add
         monster.GetCompo<MonsterHP>().Dead += OnEnemyKilled;
+
+        //Monster Setup
+        monster.SO = monsterData[currentStageIndex];
+        monster.SO.MonsterLV = (int)enemyKillCount + 1;
     }
 
     private void OnDisable()
@@ -76,9 +83,14 @@ public class StageManager : MonoBehaviour
     public void OnEnemyKilled()
     {
         //팝 아니면 그냥 뒤로 땡겨? 풀 없어서 일단 뒤로 땡겼어
+        
         enemyKillCount++;
         UpdateSlider();
 
+
+        monster.SO.MonsterLV = (int)enemyKillCount;
+
+        
         if (enemyKillCount >= enemiesPerBoss)
         {
             enemyKillCount = 0f;
@@ -123,6 +135,10 @@ public class StageManager : MonoBehaviour
     {
         Debug.Log("Stage Complete");
         currentStageIndex++;
+     
+        //Monster SO Change
+        monster.SO = monsterData[currentStageIndex];
+        
         if (currentStageIndex < stages.Count)
         {
             //SaveStageData(); // 진행 상태 저장

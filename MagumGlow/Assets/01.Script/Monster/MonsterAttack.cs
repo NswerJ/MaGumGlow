@@ -25,6 +25,8 @@ public class MonsterAttack : MonoBehaviour, IMonsterComponent
 
     private void Update()
     {
-        
+
+        if (_monsterRay.IsDetected) /*어떻게공격을받을까*/;
+
     }
 }
