@@ -22,15 +22,18 @@ public class MagicSwordStatUI : MonoBehaviour
 
     void Start()
     {
+        // Load the player data from JSON
+        GameManager.Instance.LoadPlayerData();
+
         magicSwordStats.GetGold += UpdateGoldUI;
 
         SetPlayerName();
         AssignButtonListeners();
         InitializeUI();
     }
+
     void SetPlayerName()
     {
-        magicSwordStats.playerName = PlayerPrefs.GetString("playerName", "Unknown Player");
         playerNameText.text = magicSwordStats.playerName;
     }
 
@@ -58,6 +61,9 @@ public class MagicSwordStatUI : MonoBehaviour
         UpdateUI(statName);
         UpdateCostUI(statName);
         UpdateGoldUI();
+
+        // Save player data after stat level up
+        GameManager.Instance.SavePlayerData();
     }
 
     void UpdateCostUI(string statName)

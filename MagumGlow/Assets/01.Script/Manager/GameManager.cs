@@ -1,57 +1,57 @@
-using UnityEngine;
 using System.IO;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance { get; private set; }
+    public static GameManager Instance;
+    public MagicSwordStats playerData;
 
-    public string playerName;
-    private string savePath;
+    private string saveFilePath;
 
     private void Awake()
     {
-        // Ensure there's only one GameManager instance (Singleton pattern)
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);  // Persist across scenes
-            savePath = Path.Combine(Application.persistentDataPath, "saveData.json");
-            LoadPlayerData();
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
+
+        saveFilePath = Path.Combine(Application.dataPath, "PlayerData.json");
+        LoadPlayerData();
     }
 
     public void SavePlayerData()
     {
-        PlayerData data = new PlayerData
-        {
-            playerName = playerName
-        };
-
-        string json = JsonUtility.ToJson(data);
-        File.WriteAllText(savePath, json);
+        string json = JsonUtility.ToJson(playerData, true);
+        File.WriteAllText(saveFilePath, json);
+        Debug.Log("Player data saved.");
     }
 
     public void LoadPlayerData()
     {
-        if (File.Exists(savePath))
+        if (File.Exists(saveFilePath))
         {
-            string json = File.ReadAllText(savePath);
-            PlayerData data = JsonUtility.FromJson<PlayerData>(json);
-            playerName = data.playerName;
+            string json = File.ReadAllText(saveFilePath);
+            JsonUtility.FromJsonOverwrite(json, playerData);
+            Debug.Log("Player data loaded.");
         }
         else
         {
-            playerName = null; // No saved name
+            Debug.LogWarning("No save file found. Creating new data.");
+            SavePlayerData();
         }
+    }
+
+    // 플레이어 이름 설정 메서드
+    public void SetPlayerName(string name)
+    {
+        playerData.playerName = name;
+        SavePlayerData(); // 이름 저장 후 JSON 파일로 저장
+        Debug.Log($"Player name set to {name}");
     }
 }
 
-[System.Serializable]
-public class PlayerData
-{
-    public string playerName;
-}

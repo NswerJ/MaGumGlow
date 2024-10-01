@@ -21,11 +21,11 @@ public class MagicSwordStats : ScriptableObject
             {
                 if (playerGold >= targetStat.levelUpCost)
                 {
-                    playerGold -= targetStat.levelUpCost; 
+                    playerGold -= targetStat.levelUpCost;
                     targetStat.currentValue = Mathf.Min(targetStat.currentValue + targetStat.baseValue * (targetStat.statLevel + 1), targetStat.maxValue);
                     targetStat.statLevel++;
 
-                    targetStat.levelUpCost *= 1.2f;  
+                    targetStat.levelUpCost *= 1.2f;
 
                     Debug.Log($"{statName} 스탯이 레벨업 되었습니다. 새로운 값: {targetStat.currentValue}, 남은 골드: {playerGold}");
                 }
@@ -48,7 +48,6 @@ public class MagicSwordStats : ScriptableObject
     public void AddGold(float amount)
     {
         playerGold += amount;
-        //Debug.Log($"플레이어가 {amount} 골드를 얻었습니다. 현재 골드: {playerGold}");
         GetGold?.Invoke();
     }
 
@@ -60,8 +59,8 @@ public class MagicSwordStats : ScriptableObject
             stat.statLevel = 1;
             stat.currentValue = stat.baseValue;
             stat.levelUpCost = stat.baseCost;
-            playerGold = 0;
         }
+        playerGold = 0;
         Debug.Log("모든 스탯이 초기화되었습니다.");
     }
 }
