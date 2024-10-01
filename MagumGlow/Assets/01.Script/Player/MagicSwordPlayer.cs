@@ -19,6 +19,7 @@ public class MagicSwordPlayer : MonoBehaviour
 
     private bool enemyIsFront = false;  // 적이 앞에 있는지 여부
     private bool isDie = false;  // 죽음 상태 체크
+    private Coroutine damageCoroutine;  // 적에게 데미지를 주기 위한 코루틴
 
     void Start()
     {
@@ -29,12 +30,6 @@ public class MagicSwordPlayer : MonoBehaviour
     {
         // GameManager에서 플레이어 이름을 가져와서 UI에 반영
         playerName.text = GameManager.Instance.playerData.playerName;
-
-        // 마검 스탯 초기화 (필요하면 사용)
-        /*foreach (var stat in swordStats.stats)
-        {
-            stat.currentValue = stat.baseValue;
-        }*/
     }
 
     private void Update()
@@ -48,6 +43,13 @@ public class MagicSwordPlayer : MonoBehaviour
         else
         {
             Attacking(false);  // 비공격 상태
+
+            // 적이 없을 경우 데미지 코루틴 중지
+            if (damageCoroutine != null)
+            {
+                StopCoroutine(damageCoroutine);
+                damageCoroutine = null;  // 코루틴 참조를 null로 설정
+            }
         }
 
         if (isDie || Input.GetButtonDown("Jump"))
@@ -74,7 +76,12 @@ public class MagicSwordPlayer : MonoBehaviour
             if (enemyHp != null)
             {
                 enemyHp.Initialize(swordStats);
-                StartCoroutine(DealDamageAfterDelay(enemyHp));  // 딜레이 후 데미지 처리
+
+                // 적에게 데미지를 주는 코루틴이 이미 실행 중이지 않으면 시작
+                if (damageCoroutine == null)
+                {
+                    damageCoroutine = StartCoroutine(DealDamageAfterDelay(enemyHp));  // 딜레이 후 데미지 처리
+                }
             }
         }
         else
@@ -85,17 +92,21 @@ public class MagicSwordPlayer : MonoBehaviour
 
     private IEnumerator DealDamageAfterDelay(MonsterHP enemyHp)
     {
-        yield return new WaitForSeconds(0.3f);  // 공격 딜레이
-
-        Stat attackPowerStat = swordStats.stats.Find(stat => stat.statName == "공격력");
-
-        if (attackPowerStat != null)
+        while (true)  // 반복적으로 데미지를 주기 위한 루프
         {
-            enemyHp.OnDamage(attackPowerStat.currentValue);  // 적에게 데미지 적용
-        }
-        else
-        {
-            Debug.LogWarning("공격력 스탯을 찾을 수 없습니다.");
+
+            Stat attackPowerStat = swordStats.stats.Find(stat => stat.statName == "공격력");
+
+            if (attackPowerStat != null)
+            {
+                enemyHp.OnDamage(attackPowerStat.currentValue);  // 적에게 데미지 적용
+                Debug.Log($"적에게 {attackPowerStat.currentValue} 데미지를 입혔습니다.");
+            }
+            else
+            {
+                Debug.LogWarning("공격력 스탯을 찾을 수 없습니다.");
+            }
+            yield return new WaitForSeconds(0.65f);  // 0.65f초 대기
         }
     }
 

@@ -3,11 +3,11 @@
         {
             "statName": "공격력",
             "baseValue": 10000.0,
-            "currentValue": 100000.0,
+            "currentValue": 280000.0,
             "maxValue": 9999999980506448000.0,
-            "statLevel": 4.0,
+            "statLevel": 7.0,
             "baseCost": 30.0,
-            "levelUpCost": 51.840003967285159
+            "levelUpCost": 89.57953643798828
         },
         {
             "statName": "생명력",
@@ -38,5 +38,5 @@
         }
     ],
     "playerName": "황원준 검사",
-    "playerGold": 15.800003051757813
+    "playerGold": 27.102378845214845
 }
