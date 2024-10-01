@@ -91,7 +91,7 @@ public class MagicSwordPlayer : MonoBehaviour
         if (attackPowerStat != null)
         {
             enemyHp.OnDamage(attackPowerStat.currentValue);
-            Debug.Log($"공격력이 {attackPowerStat.currentValue}만큼 적용됨.");           
+            //Debug.Log($"공격력이 {attackPowerStat.currentValue}만큼 적용됨.");           
         }
         else
         {

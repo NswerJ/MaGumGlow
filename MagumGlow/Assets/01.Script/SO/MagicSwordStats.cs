@@ -48,7 +48,7 @@ public class MagicSwordStats : ScriptableObject
     public void AddGold(float amount)
     {
         playerGold += amount;
-        Debug.Log($"플레이어가 {amount} 골드를 얻었습니다. 현재 골드: {playerGold}");
+        //Debug.Log($"플레이어가 {amount} 골드를 얻었습니다. 현재 골드: {playerGold}");
         GetGold?.Invoke();
     }
 

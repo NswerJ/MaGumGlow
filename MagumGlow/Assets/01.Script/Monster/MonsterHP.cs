@@ -112,7 +112,7 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
         if (magicSwordStats != null)
         {
             magicSwordStats.AddGold(_monsterSO.DropGold);  // ¸ó½ºÅÍ Ã³Ä¡ ½Ã °ñµå È¹µæ
-            Debug.Log($"°ñµå {_monsterSO.DropGold} Ãß°¡µÊ. ÃÑ °ñµå: {magicSwordStats.playerGold}");
+            //Debug.Log($"°ñµå {_monsterSO.DropGold} Ãß°¡µÊ. ÃÑ °ñµå: {magicSwordStats.playerGold}");
         }
         else
         {
