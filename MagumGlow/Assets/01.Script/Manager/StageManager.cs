@@ -94,7 +94,6 @@ public class StageManager : MonoBehaviour
         if (enemyKillCount >= enemiesPerBoss)
         {
             enemyKillCount = 0f;
-            OnStageComplete();
         }
     }
 
@@ -128,10 +127,11 @@ public class StageManager : MonoBehaviour
     private void SpawnFinalBoss()
     {
         Debug.Log("Final Boss Spawned");
+        OnStageComplete();
     }
 
     // 스테이지 완료 시 호출
-    private void OnStageComplete()
+    public void OnStageComplete()
     {
         Debug.Log("Stage Complete");
         currentStageIndex++;
@@ -197,6 +197,6 @@ public class Stage
     // 최종 보스 소환 구간인지 체크
     public bool IsFinalBossStage(float sliderValue)
     {
-        return sliderValue == 10f;
+        return sliderValue == TotalSliderSteps;
     }
 }

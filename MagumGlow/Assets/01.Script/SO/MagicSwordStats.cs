@@ -59,6 +59,7 @@ public class MagicSwordStats : ScriptableObject
             stat.statLevel = 1;
             stat.currentValue = stat.baseValue;
             stat.levelUpCost = stat.baseCost;
+            playerName = null;
         }
         playerGold = 0;
         Debug.Log("모든 스탯이 초기화되었습니다.");
