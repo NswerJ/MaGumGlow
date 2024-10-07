@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.IO;
 
 public class StageManager : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class StageManager : MonoBehaviour
 
     private static StageManager instance;
 
+    private string saveFilePath;
+
     private void Awake()
     {
         // 다른 씬에서도 이 오브젝트가 유지되도록 설정
@@ -37,6 +40,8 @@ public class StageManager : MonoBehaviour
             Destroy(gameObject); // 이미 존재하는 StageManager가 있을 경우 새로 만든 오브젝트를 파괴
         }
 
+        saveFilePath = Path.Combine(Application.dataPath, "StageData.json");
+        LoadStageData();
     }
 
     private void Start()
@@ -151,23 +156,27 @@ public class StageManager : MonoBehaviour
         }
     }
 
-    // 스테이지 데이터 저장 (PlayerPrefs 사용)
-    private void SaveStageData()
+    // 스테이지 데이터 저장 (Json 사용)
+    public void SaveStageData()
     {
-        PlayerPrefs.SetInt("CurrentStageIndex", currentStageIndex);
-        PlayerPrefs.SetFloat("SliderValue", stageSlider.value);
-        PlayerPrefs.SetFloat("EnemyKillCount", enemyKillCount);
-        PlayerPrefs.Save(); // 저장
+        string json = JsonUtility.ToJson(currentStage, true);
+        File.WriteAllText(saveFilePath, json);
+        Debug.Log("Stage data saved.");
     }
 
     // 스테이지 데이터 불러오기
-    private void LoadStageData()
+    public void LoadStageData()
     {
-        if (PlayerPrefs.HasKey("CurrentStageIndex"))
+        if (File.Exists(saveFilePath))
         {
-            currentStageIndex = PlayerPrefs.GetInt("CurrentStageIndex");
-            stageSlider.value = PlayerPrefs.GetFloat("SliderValue");
-            enemyKillCount = PlayerPrefs.GetFloat("EnemyKillCount");
+            string json = File.ReadAllText(saveFilePath);
+            JsonUtility.FromJsonOverwrite(json, currentStage);
+            Debug.Log("Stage data loaded.");
+        }
+        else
+        {
+            Debug.LogWarning("No save file found. Creating new data.");
+            SaveStageData();
         }
     }
 
