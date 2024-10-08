@@ -142,10 +142,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageSlider
       objectReference: {fileID: 0}
-    - target: {fileID: 3891996481178786684, guid: 0b91e91e6999add469e130251718b871, type: 3}
-      propertyPath: m_text
-      value: "\uC232"
-      objectReference: {fileID: 0}
     - target: {fileID: 5840743671756201297, guid: 0b91e91e6999add469e130251718b871, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2226,10 +2222,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 36719618399939094, guid: 563da51ce3c4261478fef15267ccb977, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.000059127808
-      objectReference: {fileID: 0}
     - target: {fileID: 690386181659946043, guid: 563da51ce3c4261478fef15267ccb977, type: 3}
       propertyPath: m_Name
       value: Menu
@@ -2254,6 +2246,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -491.78998
       objectReference: {fileID: 0}
+    - target: {fileID: 4185786945802734134, guid: 563da51ce3c4261478fef15267ccb977, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 997090589}
     - target: {fileID: 6548541310870864566, guid: 563da51ce3c4261478fef15267ccb977, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -2300,14 +2296,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8103868134250198323, guid: 563da51ce3c4261478fef15267ccb977, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8103868134250198323, guid: 563da51ce3c4261478fef15267ccb977, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8103868134771153604, guid: 563da51ce3c4261478fef15267ccb977, type: 3}
-      propertyPath: m_Value
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8112528086128294910, guid: 563da51ce3c4261478fef15267ccb977, type: 3}

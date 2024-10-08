@@ -36,21 +36,30 @@ public class StageManager : MonoBehaviour
         }
 
         saveFilePath = Path.Combine(Application.dataPath, "StageData.json");
+        
         LoadStageData();
     }
 
     private void Start()
     {
-        //LoadStageData();
+        // LoadStageData(); // 이미 호출되므로 주석 처리
         Debug.Log(curStageData.currentStageIndex);
+        if (curStageData.currentStageIndex >= stages.Count) // >=로 수정
+        {
+            curStageData.currentStageIndex = 0;
+        }
+
         SetupStage(stages[curStageData.currentStageIndex]);
 
-        //Event Add
+        // 슬라이더 값을 로드
+        stageSlider.value = curStageData.stageSliderValue;
+
+        // Event Add
         monster.GetCompo<MonsterHP>().Dead += OnEnemyKilled;
 
-        //Monster Setup
-        //monster.SO = monsterData[currentStageIndex];
-        //monster.SO.MonsterLV = (int)enemyKillCount + 1;
+        // Monster Setup
+        // monster.SO = monsterData[currentStageIndex];
+        // monster.SO.MonsterLV = (int)enemyKillCount + 1;
     }
 
     private void Update()
@@ -77,21 +86,19 @@ public class StageManager : MonoBehaviour
     // 적 처치 시 호출되는 함수
     public void OnEnemyKilled()
     {
-        //팝 아니면 그냥 뒤로 땡겨? 풀 없어서 일단 뒤로 땡겼어
-
         curStageData.enemyKillCount++;
+        curStageData.sliderEnemyCount++;
         UpdateSlider();
-
 
         monster.SO.MonsterLV = (int)curStageData.enemyKillCount;
 
-
+        // 적 처치 수가 보스 수와 같아지면 카운트를 리셋
         if (curStageData.enemyKillCount >= curStageData.enemiesPerBoss)
         {
             curStageData.enemyKillCount = 0f;
         }
 
-        //Json 저장
+        // Json 저장
         SaveStageData();
     }
 
@@ -99,6 +106,7 @@ public class StageManager : MonoBehaviour
     private void UpdateSlider()
     {
         stageSlider.value = Mathf.Round((stageSlider.value + sliderIncrementPerKill) * 10f) / 10f;
+        curStageData.stageSliderValue = stageSlider.value; // 슬라이더 값 저장
 
         if (curStageData.IsMidBossStage(stageSlider.value))
         {
@@ -109,6 +117,7 @@ public class StageManager : MonoBehaviour
             SpawnFinalBoss();
         }
     }
+
 
     // 중간 보스 소환
     private void SpawnMidBoss()

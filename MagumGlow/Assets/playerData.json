@@ -3,11 +3,11 @@
         {
             "statName": "공격력",
             "baseValue": 10000.0,
-            "currentValue": 30000.0,
+            "currentValue": 60000.0,
             "maxValue": 9999999980506448000.0,
-            "statLevel": 2.0,
+            "statLevel": 3.0,
             "baseCost": 30.0,
-            "levelUpCost": 36.0
+            "levelUpCost": 43.20000076293945
         },
         {
             "statName": "생명력",
@@ -38,5 +38,5 @@
         }
     ],
     "playerName": "asd",
-    "playerGold": 20.0
+    "playerGold": 34.0
 }

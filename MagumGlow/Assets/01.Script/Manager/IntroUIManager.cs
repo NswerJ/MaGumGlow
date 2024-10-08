@@ -63,13 +63,13 @@ public class IntroUIManager : MonoBehaviour
         {
             // 플레이어 이름을 저장하고 씬을 변경
             GameManager.Instance.SetPlayerName(playerNameInputField.text);
-            SceneManager.LoadScene(sceneName);
+            LoadingSceneController.Instance.LoadScene(sceneName);
         }
     }
 
     public void OriginGameSceneChange(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        LoadingSceneController.Instance.LoadScene(sceneName);
     }
 
     private IEnumerator FadeOutWarningText()
