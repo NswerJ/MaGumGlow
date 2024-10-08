@@ -28,7 +28,7 @@ public class MonsterMovement : MonoBehaviour, IMonsterComponent
     {
 
         _rb = GetComponent<Rigidbody2D>();
-        _backgroundManager = GameObject.Find("LevelManager").GetComponent<BackgroundManager>();
+        _backgroundManager = GameObject.Find("UIManager").GetComponent<BackgroundManager>();
 
     }
 
@@ -51,10 +51,5 @@ public class MonsterMovement : MonoBehaviour, IMonsterComponent
 
         _rb.velocity = new Vector2(_currentSpeed, 0);
 
-    }
-
-    private void OnDisable()
-    {
-        _monster.GetCompo<MonsterHP>().Dead -= HandleResetPos;
     }
 }

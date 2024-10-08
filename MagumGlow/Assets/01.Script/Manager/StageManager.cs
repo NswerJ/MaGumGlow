@@ -53,10 +53,6 @@ public class StageManager : MonoBehaviour
         monster.SO.MonsterLV = (int)enemyKillCount + 1;
     }
 
-    private void OnDisable()
-    {
-        monster.GetCompo<MonsterHP>().Dead -= OnEnemyKilled;   
-    }
 
     private void Update()
     {
