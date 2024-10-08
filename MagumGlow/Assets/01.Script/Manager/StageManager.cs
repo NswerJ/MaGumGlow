@@ -5,23 +5,18 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.IO;
+using UnityEditor.U2D.Aseprite;
 
 public class StageManager : MonoBehaviour
 {
     public Slider stageSlider;
-    public float enemiesPerBoss = 20f; // 확장성을 위해 적 처치 수 설정
     public Monster monster;
 
     public List<Stage> stages = new List<Stage>();
     public List<Toggle> bossStages = new List<Toggle>(); // 보스 토글 리스트
 
-    private int currentStageIndex = 0;
-    private float enemyKillCount = 0f;
-
     private float sliderIncrementPerKill;
-    private Stage currentStage;
-    private StageData StageData = new StageData();
-    private int midBossIndex = 0; // 중간 보스 순서 관리 인덱스
+    public Stage curStageData;
 
     private static StageManager instance;
 
@@ -47,15 +42,15 @@ public class StageManager : MonoBehaviour
     private void Start()
     {
         //LoadStageData();
-        Debug.Log(currentStageIndex);
-        SetupStage(stages[currentStageIndex]);
+        Debug.Log(curStageData.currentStageIndex);
+        SetupStage(stages[curStageData.currentStageIndex]);
 
         //Event Add
         monster.GetCompo<MonsterHP>().Dead += OnEnemyKilled;
 
         //Monster Setup
         //monster.SO = monsterData[currentStageIndex];
-        monster.SO.MonsterLV = (int)enemyKillCount + 1;
+        //monster.SO.MonsterLV = (int)enemyKillCount + 1;
     }
 
     private void Update()
@@ -70,11 +65,11 @@ public class StageManager : MonoBehaviour
     // 스테이지 설정
     private void SetupStage(Stage stage)
     {
-        currentStage = stage;
-        Debug.Log(currentStage.StageName);
-        enemyKillCount = 0f;
-        midBossIndex = 0; // 새로운 스테이지 시작 시 인덱스 초기화
-        sliderIncrementPerKill = (10f / 6) / enemiesPerBoss;
+        curStageData = stage;
+        Debug.Log(curStageData.StageName);
+        curStageData.enemyKillCount = 0f;
+        curStageData.midBossIndex = 0; // 새로운 스테이지 시작 시 인덱스 초기화
+        sliderIncrementPerKill = (10f / 6) / curStageData.enemiesPerBoss;
         stageSlider.value = 0f;
         ResetBossToggles(); // 토글 리셋
     }
@@ -84,17 +79,20 @@ public class StageManager : MonoBehaviour
     {
         //팝 아니면 그냥 뒤로 땡겨? 풀 없어서 일단 뒤로 땡겼어
 
-        enemyKillCount++;
+        curStageData.enemyKillCount++;
         UpdateSlider();
 
 
-        monster.SO.MonsterLV = (int)enemyKillCount;
+        monster.SO.MonsterLV = (int)curStageData.enemyKillCount;
 
 
-        if (enemyKillCount >= enemiesPerBoss)
+        if (curStageData.enemyKillCount >= curStageData.enemiesPerBoss)
         {
-            enemyKillCount = 0f;
+            curStageData.enemyKillCount = 0f;
         }
+
+        //Json 저장
+        SaveStageData();
     }
 
     // 슬라이더 업데이트 및 보스 소환 체크
@@ -102,11 +100,11 @@ public class StageManager : MonoBehaviour
     {
         stageSlider.value = Mathf.Round((stageSlider.value + sliderIncrementPerKill) * 10f) / 10f;
 
-        if (currentStage.IsMidBossStage(stageSlider.value))
+        if (curStageData.IsMidBossStage(stageSlider.value))
         {
             SpawnMidBoss();
         }
-        else if (currentStage.IsFinalBossStage(stageSlider.value))
+        else if (curStageData.IsFinalBossStage(stageSlider.value))
         {
             SpawnFinalBoss();
         }
@@ -115,11 +113,11 @@ public class StageManager : MonoBehaviour
     // 중간 보스 소환
     private void SpawnMidBoss()
     {
-        if (midBossIndex < bossStages.Count)
+        if (curStageData.midBossIndex < bossStages.Count)
         {
             Debug.Log("Mid Boss Spawned");
-            bossStages[midBossIndex].isOn = true; // 해당 인덱스의 토글을 활성화
-            midBossIndex++; // 인덱스 증가
+            bossStages[curStageData.midBossIndex].isOn = true; // 해당 인덱스의 토글을 활성화
+            curStageData.midBossIndex++; // 인덱스 증가
         }
     }
 
@@ -134,16 +132,16 @@ public class StageManager : MonoBehaviour
     public void OnStageComplete()
     {
         Debug.Log("Stage Complete");
-        currentStageIndex++;
+        curStageData.currentStageIndex++;
 
         //Monster SO Change
         //monster.SO = monsterData[currentStageIndex];
 
-        if (currentStageIndex < stages.Count)
+        if (curStageData.currentStageIndex < stages.Count)
         {
             //SaveStageData(); // 진행 상태 저장
-            SetupStage(stages[currentStageIndex]);
-            SceneManager.LoadScene(stages[currentStageIndex].StageName);
+            SetupStage(stages[curStageData.currentStageIndex]);
+            SceneManager.LoadScene(stages[curStageData.currentStageIndex].StageName);
         }
         else
         {
@@ -154,7 +152,7 @@ public class StageManager : MonoBehaviour
     // 스테이지 데이터 저장 (Json 사용)
     public void SaveStageData()
     {
-        string json = JsonUtility.ToJson(StageData, true);
+        string json = JsonUtility.ToJson(curStageData, true);
         File.WriteAllText(saveFilePath, json);
         Debug.Log("Stage data saved.");
     }
@@ -165,7 +163,7 @@ public class StageManager : MonoBehaviour
         if (File.Exists(saveFilePath))
         {
             string json = File.ReadAllText(saveFilePath);
-            JsonUtility.FromJsonOverwrite(json, StageData);
+            JsonUtility.FromJsonOverwrite(json, curStageData);
             Debug.Log("Stage data loaded.");
         }
         else
@@ -183,29 +181,4 @@ public class StageManager : MonoBehaviour
             toggle.isOn = false;
         }
     }
-}
-
-[Serializable]
-public class Stage
-{
-    public string StageName;
-    public List<MonsterSO> monsters;
-    public int TotalSliderSteps = 10; // 슬라이더 단계 수 (보스 소환 구간)
-
-    // 중간 보스 소환 구간인지 체크
-    public bool IsMidBossStage(float sliderValue)
-    {
-        return sliderValue == 1.7f || sliderValue == 3.4f || sliderValue == 5f || sliderValue == 6.7f || sliderValue == 8.4f;
-    }
-
-    // 최종 보스 소환 구간인지 체크
-    public bool IsFinalBossStage(float sliderValue)
-    {
-        return sliderValue == TotalSliderSteps;
-    }
-}
-
-public class StageData
-{
-
 }
