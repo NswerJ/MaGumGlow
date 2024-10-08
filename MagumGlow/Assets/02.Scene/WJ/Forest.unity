@@ -373,19 +373,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageSlider: {fileID: 706398271}
-  enemiesPerBoss: 20
   monster: {fileID: 1243532812}
-  monsterData:
-  - {fileID: 11400000, guid: 40946e64e848af64ab42bced0a5e5e8b, type: 2}
-  - {fileID: 11400000, guid: 9284387088906bd4aba63e49f2d1789f, type: 2}
-  - {fileID: 11400000, guid: 775c00e11a10b804fbd215745d15ead6, type: 2}
   stages:
-  - StageName: Forest
-    monsters: []
-    TotalSliderSteps: 10
-  - StageName: Ground
-    monsters: []
-    TotalSliderSteps: 10
+  - {fileID: 11400000, guid: ad6f362d9fd92cf42bb206687d5c5c2d, type: 2}
   bossStages:
   - {fileID: 2076861115}
   - {fileID: 1480125173}
@@ -393,6 +383,7 @@ MonoBehaviour:
   - {fileID: 1109996828}
   - {fileID: 1530651601}
   - {fileID: 627024910}
+  curStageData: {fileID: 11400000, guid: ad6f362d9fd92cf42bb206687d5c5c2d, type: 2}
 --- !u!114 &627024910 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7728081701794698469, guid: 0b91e91e6999add469e130251718b871, type: 3}
