@@ -11,16 +11,16 @@ public class StageManager : MonoBehaviour
     public Slider stageSlider;
     public float enemiesPerBoss = 20f; // 확장성을 위해 적 처치 수 설정
     public Monster monster;
-    public List<MonsterSO> monsterData = new();
 
     public List<Stage> stages = new List<Stage>();
     public List<Toggle> bossStages = new List<Toggle>(); // 보스 토글 리스트
 
     private int currentStageIndex = 0;
     private float enemyKillCount = 0f;
-    
+
     private float sliderIncrementPerKill;
     private Stage currentStage;
+    private StageData StageData = new StageData();
     private int midBossIndex = 0; // 중간 보스 순서 관리 인덱스
 
     private static StageManager instance;
@@ -54,13 +54,13 @@ public class StageManager : MonoBehaviour
         monster.GetCompo<MonsterHP>().Dead += OnEnemyKilled;
 
         //Monster Setup
-        monster.SO = monsterData[currentStageIndex];
+        //monster.SO = monsterData[currentStageIndex];
         monster.SO.MonsterLV = (int)enemyKillCount + 1;
     }
 
     private void OnDisable()
     {
-        monster.GetCompo<MonsterHP>().Dead -= OnEnemyKilled;   
+        monster.GetCompo<MonsterHP>().Dead -= OnEnemyKilled;
     }
 
     private void Update()
@@ -88,14 +88,14 @@ public class StageManager : MonoBehaviour
     public void OnEnemyKilled()
     {
         //팝 아니면 그냥 뒤로 땡겨? 풀 없어서 일단 뒤로 땡겼어
-        
+
         enemyKillCount++;
         UpdateSlider();
 
 
         monster.SO.MonsterLV = (int)enemyKillCount;
 
-        
+
         if (enemyKillCount >= enemiesPerBoss)
         {
             enemyKillCount = 0f;
@@ -140,10 +140,10 @@ public class StageManager : MonoBehaviour
     {
         Debug.Log("Stage Complete");
         currentStageIndex++;
-     
+
         //Monster SO Change
-        monster.SO = monsterData[currentStageIndex];
-        
+        //monster.SO = monsterData[currentStageIndex];
+
         if (currentStageIndex < stages.Count)
         {
             //SaveStageData(); // 진행 상태 저장
@@ -159,7 +159,7 @@ public class StageManager : MonoBehaviour
     // 스테이지 데이터 저장 (Json 사용)
     public void SaveStageData()
     {
-        string json = JsonUtility.ToJson(currentStage, true);
+        string json = JsonUtility.ToJson(StageData, true);
         File.WriteAllText(saveFilePath, json);
         Debug.Log("Stage data saved.");
     }
@@ -170,7 +170,7 @@ public class StageManager : MonoBehaviour
         if (File.Exists(saveFilePath))
         {
             string json = File.ReadAllText(saveFilePath);
-            JsonUtility.FromJsonOverwrite(json, currentStage);
+            JsonUtility.FromJsonOverwrite(json, StageData);
             Debug.Log("Stage data loaded.");
         }
         else
@@ -208,4 +208,9 @@ public class Stage
     {
         return sliderValue == TotalSliderSteps;
     }
+}
+
+public class StageData
+{
+
 }
