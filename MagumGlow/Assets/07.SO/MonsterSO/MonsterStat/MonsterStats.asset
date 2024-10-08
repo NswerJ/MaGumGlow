@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Stats:
   - statName: "\uACF5\uACA9\uB825"
-    baseValue: 20000
-    maxValue: 200000
+    baseValue: 200
+    currentValue: 200
+    maxValue: 20000
   - statName: "\uCCB4\uB825"
     baseValue: 20000
+    currentValue: 0
     maxValue: 2e+9

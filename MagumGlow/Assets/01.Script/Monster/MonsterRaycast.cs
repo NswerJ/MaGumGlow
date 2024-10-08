@@ -13,7 +13,7 @@ public class MonsterRaycast : MonoBehaviour, IMonsterComponent
 
     public void Initialize(Monster monster)
     {
-        _monster = monster; 
+        _monster = monster;
     }
 
     void Update()
