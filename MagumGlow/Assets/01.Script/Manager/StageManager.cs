@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class StageManager : MonoBehaviour
 {
@@ -9,11 +10,14 @@ public class StageManager : MonoBehaviour
     public Monster monster;
     public List<Stage> stages = new List<Stage>();
     public List<Toggle> bossStages = new List<Toggle>(); // ∫∏Ω∫ ≈‰±€ ∏ÆΩ∫∆Æ
+    public TextMeshProUGUI collectionGoldTxt;
 
     private float sliderIncrementPerKill;
 
+
     private void Start()
     {
+        collectionGoldTxt.text = GameManager.Instance.collectionGold.ToString() + "∞ÒµÂ∏¶\n»πµÊ «œºÃΩ¿¥œ¥Ÿ.";
         Debug.Log("Persistent Data Path: " + Application.persistentDataPath);
         var curStageData = GameManager.Instance.curStageData; // Get stage data from GameManager
         Debug.Log(curStageData.currentStageIndex);
@@ -24,11 +28,8 @@ public class StageManager : MonoBehaviour
         }
 
         SetupStage(stages[curStageData.currentStageIndex]);
-        if (string.IsNullOrEmpty(GameManager.Instance.playerData.playerName))
-        {
-            curStageData.stageSliderValue = 0f;
-        }
-        // Load slider value from the stage data
+
+        // Slider value initialization
         stageSlider.value = curStageData.stageSliderValue;
 
         // Event Add
@@ -38,7 +39,7 @@ public class StageManager : MonoBehaviour
     private void SetupStage(Stage stage)
     {
         var curStageData = GameManager.Instance.curStageData;
-        curStageData = stage;
+        curStageData = stage; // Setting the current stage data
         Debug.Log(curStageData.StageName);
         curStageData.enemyKillCount = 0f;
         curStageData.midBossIndex = 0;
@@ -90,6 +91,10 @@ public class StageManager : MonoBehaviour
             bossStages[curStageData.midBossIndex].isOn = true;
             curStageData.midBossIndex++;
         }
+    }
+    public void CollectionGold()
+    {
+        GameManager.Instance.GameStartGold();
     }
 
     private void SpawnFinalBoss()
