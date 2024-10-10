@@ -22,18 +22,18 @@ MonoBehaviour:
     levelUpCost: 30
   - statName: "\uC0DD\uBA85\uB825"
     baseValue: 100000
-    currentValue: 100000
+    currentValue: 94000
     maxValue: 1e+23
     statLevel: 1
     baseCost: 50
     levelUpCost: 50
   - statName: "\uCE58\uBA85\uD0C0\uD655\uB960"
     baseValue: 0.1
-    currentValue: 0.1
+    currentValue: 46.5
     maxValue: 100
-    statLevel: 1
+    statLevel: 30
     baseCost: 100
-    levelUpCost: 100
+    levelUpCost: 19781.385
   - statName: "\uCE58\uBA85\uD0C0\uB370\uBBF8\uC9C0"
     baseValue: 20
     currentValue: 20
@@ -41,5 +41,5 @@ MonoBehaviour:
     statLevel: 1
     baseCost: 75
     levelUpCost: 75
-  playerName: d
-  playerGold: 0
+  playerName: XS
+  playerGold: 1943.1074
