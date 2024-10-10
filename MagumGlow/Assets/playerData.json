@@ -3,11 +3,11 @@
         {
             "statName": "공격력",
             "baseValue": 10000.0,
-            "currentValue": 1360000.0,
+            "currentValue": 280000.0,
             "maxValue": 9999999980506448000.0,
-            "statLevel": 16.0,
+            "statLevel": 7.0,
             "baseCost": 30.0,
-            "levelUpCost": 462.2109069824219
+            "levelUpCost": 89.57953643798828
         },
         {
             "statName": "생명력",
@@ -30,13 +30,13 @@
         {
             "statName": "치명타데미지",
             "baseValue": 20.0,
-            "currentValue": 20.0,
+            "currentValue": 60.0,
             "maxValue": 1000000.0,
-            "statLevel": 1.0,
+            "statLevel": 2.0,
             "baseCost": 75.0,
-            "levelUpCost": 75.0
+            "levelUpCost": 90.0
         }
     ],
-    "playerName": "안녕",
-    "playerGold": 138.946044921875
+    "playerName": "asd",
+    "playerGold": 27.102371215820314
 }

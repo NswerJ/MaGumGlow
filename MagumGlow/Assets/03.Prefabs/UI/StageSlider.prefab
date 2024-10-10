@@ -272,7 +272,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD3C9\uC6D0"
+  m_text: "\uC232"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e17a73f703a50e944a284c0c5e2318cd, type: 2}
   m_sharedMaterial: {fileID: -5126338989706947517, guid: e17a73f703a50e944a284c0c5e2318cd, type: 2}

@@ -14,6 +14,9 @@ public class Stage : ScriptableObject
 
     public int currentStageIndex = 0;
     public float enemyKillCount = 0f;
+    public float sliderEnemyCount = 0f;
+
+    public float stageSliderValue; // 슬라이더 값을 저장할 변수 추가
 
     public int midBossIndex = 0; // 중간 보스 순서 관리 인덱스
 
