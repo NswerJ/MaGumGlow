@@ -12,4 +12,10 @@ public class MonsterSO : ScriptableObject
     public int MonsterLV;
 
     public float DropGold;
+
+    public void ResetSO()
+    {
+        MonsterLV = 1;
+        DropGold = 50;
+    }
 }
