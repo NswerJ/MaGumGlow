@@ -1297,6 +1297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 7cdcaf9e345bf904fae9749114d4f47d, type: 2}
+  curStageData: {fileID: 11400000, guid: ad6f362d9fd92cf42bb206687d5c5c2d, type: 2}
 --- !u!4 &905528068
 Transform:
   m_ObjectHideFlags: 0

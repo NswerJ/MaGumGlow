@@ -379,7 +379,6 @@ MonoBehaviour:
   - {fileID: 1109996828}
   - {fileID: 1530651601}
   - {fileID: 627024910}
-  curStageData: {fileID: 11400000, guid: ad6f362d9fd92cf42bb206687d5c5c2d, type: 2}
 --- !u!114 &627024910 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7728081701794698469, guid: 0b91e91e6999add469e130251718b871, type: 3}

@@ -48,7 +48,7 @@ public class MagicSwordStats : ScriptableObject
     public void AddGold(float amount)
     {
         playerGold += amount;
-        GetGold?.Invoke();
+        GetGold?.Invoke(); // 골드 추가 후 UI 업데이트 이벤트 호출
     }
 
     // 모든 스탯을 초기화하는 메서드
