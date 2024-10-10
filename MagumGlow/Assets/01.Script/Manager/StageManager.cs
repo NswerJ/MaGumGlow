@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class StageManager : MonoBehaviour
 {
@@ -9,11 +10,14 @@ public class StageManager : MonoBehaviour
     public Monster monster;
     public List<Stage> stages = new List<Stage>();
     public List<Toggle> bossStages = new List<Toggle>(); // 보스 토글 리스트
+    public TextMeshProUGUI collectionGoldTxt;
 
     private float sliderIncrementPerKill;
 
+
     private void Start()
     {
+        collectionGoldTxt.text = GameManager.Instance.collectionGold.ToString() + "골드를\n획득 하셨습니다.";
         Debug.Log("Persistent Data Path: " + Application.persistentDataPath);
         var curStageData = GameManager.Instance.curStageData; // Get stage data from GameManager
         Debug.Log(curStageData.currentStageIndex);
@@ -24,12 +28,14 @@ public class StageManager : MonoBehaviour
         }
 
         SetupStage(stages[curStageData.currentStageIndex]);
+
+        // Slider value initialization
         if (string.IsNullOrEmpty(GameManager.Instance.playerData.playerName))
         {
-            curStageData.stageSliderValue = 0f;
+            curStageData.stageSliderValue = 0;
+            Debug.Log("슬라이더 초기화");
         }
-        // Load slider value from the stage data
-        stageSlider.value = curStageData.stageSliderValue;
+
 
         // Event Add
         monster.GetCompo<MonsterHP>().Dead += OnEnemyKilled;
@@ -38,7 +44,7 @@ public class StageManager : MonoBehaviour
     private void SetupStage(Stage stage)
     {
         var curStageData = GameManager.Instance.curStageData;
-        curStageData = stage;
+        curStageData = stage; // Setting the current stage data
         Debug.Log(curStageData.StageName);
         curStageData.enemyKillCount = 0f;
         curStageData.midBossIndex = 0;
@@ -91,6 +97,10 @@ public class StageManager : MonoBehaviour
             bossStages[curStageData.midBossIndex].isOn = true;
             curStageData.midBossIndex++;
         }
+    }
+    public void CollectionGold()
+    {
+        GameManager.Instance.GameStartGold();
     }
 
     private void SpawnFinalBoss()
