@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MagicSwordPlayer : MonoBehaviour
 {
@@ -12,7 +13,9 @@ public class MagicSwordPlayer : MonoBehaviour
 
     public LayerMask enemyLayer; // 적 레이어
     public float detectionRange = 2f;  // 적 탐지 범위
+    public Slider hpUI;
     public float playerHealth;  // 플레이어 체력
+    private Stat hpStat;
 
     public event Action<bool> AttackEvent;
     public event Action<bool> DieEvent;
@@ -23,6 +26,8 @@ public class MagicSwordPlayer : MonoBehaviour
 
     void Start()
     {
+        hpStat = swordStats.stats.Find(stat => stat.statName == "생명력");
+
         InitializeSword();
     }
 
@@ -58,9 +63,23 @@ public class MagicSwordPlayer : MonoBehaviour
         }
     }
 
-    private void PlayerHealthUpdate(float health)
+    public void OnDamage(float damage)
     {
-        playerHealth = health;  // 플레이어 체력 업데이트
+        Debug.Log("들어옴");
+        hpStat.currentValue -= damage;
+        PlayerHealthUpdate();
+
+        if (playerHealth <= 0)
+        {
+            DieEvent?.Invoke(true); //쥭엇음
+        }
+    }
+
+    public void PlayerHealthUpdate()
+    {       
+        playerHealth = hpStat.currentValue;  // 플레이어 체력 업데이트
+
+        hpUI.value = playerHealth;
     }
 
     private void CheckForEnemy()

@@ -2,18 +2,20 @@
     "StageName": "Forest",
     "monsters": [
         {
-            "instanceID": 25696
+            "instanceID": 0
         },
         {
-            "instanceID": 25830
+            "instanceID": 0
         },
         {
-            "instanceID": 25608
+            "instanceID": 0
         }
     ],
     "enemiesPerBoss": 20.0,
     "TotalSliderSteps": 10,
     "currentStageIndex": 0,
-    "enemyKillCount": 16.0,
-    "midBossIndex": 0
+    "enemyKillCount": 11.0,
+    "sliderEnemyCount": 64.0,
+    "stageSliderValue": 5.599999904632568,
+    "midBossIndex": 1
 }
