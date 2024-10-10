@@ -105,8 +105,8 @@ public class StageManager : MonoBehaviour
     // 슬라이더 업데이트 및 보스 소환 체크
     private void UpdateSlider()
     {
-        stageSlider.value = Mathf.Round((stageSlider.value + sliderIncrementPerKill) * 10f) / 10f;
         curStageData.stageSliderValue = stageSlider.value; // 슬라이더 값 저장
+        stageSlider.value = Mathf.Round((stageSlider.value + sliderIncrementPerKill) * 10f) / 10f;
 
         if (curStageData.IsMidBossStage(stageSlider.value))
         {
