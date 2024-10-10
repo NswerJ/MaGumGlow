@@ -55,8 +55,7 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
 
         HP = _monsterSO.StatSO.Stats.Find(stat => stat.statName == "체력");
 
-        maxHP = HP.baseValue;
-        LV = _monsterSO.MonsterLV;
+        maxHP = HP.currentValue;
 
     }
 
@@ -64,25 +63,22 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
     {
 
         //HP.currentValue = HP.baseValue;
-     
+
 
         CalculateHP();
 
         Dead += CalculateHP;
-    
+
     }
 
-   
+
     private void CalculateHP()
     {
 
-        Debug.Log("WLWLWLWLWLWLL");
         LV = _monsterSO.MonsterLV;
 
-        maxHP = Mathf.Min(maxHP + HP.baseValue * LV, HP.maxValue);
+        maxHP = HP.currentValue = Mathf.Min(maxHP + HP.baseValue * LV, HP.maxValue);
         //_maxHP = HP.currentValue = Mathf.Min(HP.currentValue + HP.baseValue * _LV, HP.maxValue);
-
-        currentHP = maxHP;
 
     }
 
@@ -91,7 +87,7 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
 
         if (IsDead) return;
 
-        currentHP -= dmg;
+        HP.currentValue -= dmg;
         Hit?.Invoke();  // 몬스터가 데미지를 받을 때 실행될 액션 호출 (맞는 이펙트 / 빨갛게 깜빡임 등)
 
 
@@ -106,7 +102,7 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
             damageTextClone = Instantiate(damageTextPrefab);
 
             //자연스럽게 보이게
-            if (currentHP <= 0)
+            if (HP.currentValue <= 0)
             {
                 DeadProcess();
             }

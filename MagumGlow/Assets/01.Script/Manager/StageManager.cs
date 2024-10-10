@@ -90,7 +90,8 @@ public class StageManager : MonoBehaviour
         curStageData.sliderEnemyCount++;
         UpdateSlider();
 
-        monster.SO.MonsterLV = (int)curStageData.enemyKillCount;
+        //LV UP
+        monster.SO.MonsterLV++;
 
         // 적 처치 수가 보스 수와 같아지면 카운트를 리셋
         if (curStageData.enemyKillCount >= curStageData.enemiesPerBoss)

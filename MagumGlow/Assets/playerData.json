@@ -3,29 +3,29 @@
         {
             "statName": "공격력",
             "baseValue": 10000.0,
-            "currentValue": 280000.0,
+            "currentValue": 550000.0,
             "maxValue": 9999999980506448000.0,
-            "statLevel": 7.0,
+            "statLevel": 10.0,
             "baseCost": 30.0,
-            "levelUpCost": 89.57953643798828
+            "levelUpCost": 154.79345703125
         },
         {
             "statName": "생명력",
             "baseValue": 100000.0,
-            "currentValue": 100000.0,
+            "currentValue": 288400.0,
             "maxValue": 9.999999778196309e22,
-            "statLevel": 1.0,
+            "statLevel": 2.0,
             "baseCost": 50.0,
-            "levelUpCost": 50.0
+            "levelUpCost": 60.000003814697269
         },
         {
             "statName": "치명타확률",
             "baseValue": 0.10000000149011612,
-            "currentValue": 0.10000000149011612,
+            "currentValue": 0.30000001192092898,
             "maxValue": 100.0,
-            "statLevel": 1.0,
+            "statLevel": 2.0,
             "baseCost": 100.0,
-            "levelUpCost": 100.0
+            "levelUpCost": 120.00000762939453
         },
         {
             "statName": "치명타데미지",
@@ -38,5 +38,5 @@
         }
     ],
     "playerName": "asd",
-    "playerGold": 27.102371215820314
+    "playerGold": 101.0328369140625
 }
