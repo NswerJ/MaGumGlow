@@ -30,7 +30,12 @@ public class StageManager : MonoBehaviour
         SetupStage(stages[curStageData.currentStageIndex]);
 
         // Slider value initialization
-        stageSlider.value = curStageData.stageSliderValue;
+        if (string.IsNullOrEmpty(GameManager.Instance.playerData.playerName))
+        {
+            curStageData.stageSliderValue = 0;
+            Debug.Log("슬라이더 초기화");
+        }
+
 
         // Event Add
         monster.GetCompo<MonsterHP>().Dead += OnEnemyKilled;

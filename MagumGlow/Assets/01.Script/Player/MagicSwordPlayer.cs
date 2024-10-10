@@ -30,6 +30,7 @@ public class MagicSwordPlayer : MonoBehaviour
         hpStat = swordStats.stats.Find(stat => stat.statName == "생명력");
 
         InitializeSword();
+        
     }
 
     void InitializeSword()
@@ -86,7 +87,8 @@ public class MagicSwordPlayer : MonoBehaviour
     private void CheckForEnemy()
     {
         Stat criticalPercentStat = swordStats.stats.Find(stat => stat.statName == "치명타확률");
-        if (UnityEngine.Random.Range(0,100) < criticalPercentStat.currentValue)
+
+        if (UnityEngine.Random.Range(0, 100) < criticalPercentStat.currentValue)
         {
             criticalCheck = true;
         }
