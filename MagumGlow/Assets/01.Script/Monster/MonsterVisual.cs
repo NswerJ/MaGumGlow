@@ -18,6 +18,6 @@ public class MonsterVisual : MonoBehaviour, IMonsterComponent
 
     public void UpdateSprite()
     {
-        //_spriteRenderer.sprite = _monster.GetCompo<MonsterGetSO>().SO.Sprite;
+        _spriteRenderer.sprite = _monster.GetComponent<MonsterSO>().Sprite;
     }
 }
