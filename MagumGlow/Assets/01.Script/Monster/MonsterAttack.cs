@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class MonsterAttack : MonoBehaviour, IMonsterComponent
 {
@@ -10,7 +11,7 @@ public class MonsterAttack : MonoBehaviour, IMonsterComponent
     private MonsterStat ATK;
     private MonsterRaycast _monsterRay;
 
-    private Stat _playerHP;
+    private MagicSwordPlayer _player;
 
     private Coroutine damageCoroutine;  // 플레이어에게 데미지를 주기 위한 코루틴
 
@@ -24,7 +25,7 @@ public class MonsterAttack : MonoBehaviour, IMonsterComponent
         _monsterSO = _monster.SO;
         ATK = _monsterSO.StatSO.Stats.Find(stat => stat.statName == "공격력");
 
-        _playerHP = GameManager.Instance.playerData.stats.Find(stat => stat.statName == "생명력");        
+        _player = GameObject.Find("Player").GetComponent<MagicSwordPlayer>();   //이런건 어떻게 찾는게 효율적일까
 
     }
 
@@ -57,14 +58,14 @@ public class MonsterAttack : MonoBehaviour, IMonsterComponent
         {
             if (ATK != null)
             {
-                _playerHP.currentValue -= (ATK.currentValue);  // 플레이어에게 데미지 적용
+                _player.OnDamage(ATK.currentValue); // 플레이어에게 데미지 적용
                 Debug.Log($"플레이어에게 {ATK.currentValue} 데미지를 입혔습니다.");
             }
             else
             {
                 Debug.LogWarning("적의 공격력 스탯을 찾을 수 없습니다.");
             }
-            yield return new WaitForSeconds(0.65f);  // 0.65f초 대기 공속을 따로 뺄까 말까
+            yield return new WaitForSeconds(1f);  //공속을 따로 뺄까 말까
         }
     }
 }
