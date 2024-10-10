@@ -19,5 +19,5 @@ MonoBehaviour:
     maxValue: 20000
   - statName: "\uCCB4\uB825"
     baseValue: 20000
-    currentValue: 0
+    currentValue: 20000
     maxValue: 2e+9

@@ -14,8 +14,8 @@
     "enemiesPerBoss": 20.0,
     "TotalSliderSteps": 10,
     "currentStageIndex": 0,
-    "enemyKillCount": 11.0,
-    "sliderEnemyCount": 64.0,
-    "stageSliderValue": 5.599999904632568,
-    "midBossIndex": 1
+    "enemyKillCount": 2.0,
+    "sliderEnemyCount": 94.0,
+    "stageSliderValue": 7.900000095367432,
+    "midBossIndex": 0
 }
