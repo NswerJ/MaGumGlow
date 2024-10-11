@@ -85,6 +85,7 @@ public class StageManager : MonoBehaviour
     private void SpawnMidBoss()
     {
         var curStageData = GameManager.Instance.curStageData;
+
         if (curStageData.midBossIndex < bossStages.Count)
         {
             Debug.Log("Mid Boss Spawned");

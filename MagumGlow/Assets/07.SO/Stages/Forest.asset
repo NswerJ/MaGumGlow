@@ -17,10 +17,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 40946e64e848af64ab42bced0a5e5e8b, type: 2}
   - {fileID: 11400000, guid: 9284387088906bd4aba63e49f2d1789f, type: 2}
   - {fileID: 11400000, guid: 775c00e11a10b804fbd215745d15ead6, type: 2}
+  midBossMonsters:
+  - {fileID: 1978381079735158231, guid: e43f6552b3aa27442b4b3b7d04842dcc, type: 3}
   enemiesPerBoss: 20
   TotalSliderSteps: 10
   currentStageIndex: 0
-  enemyKillCount: 1
-  sliderEnemyCount: 12
-  stageSliderValue: 0.1
-  midBossIndex: 0
+  enemyKillCount: 17
+  sliderEnemyCount: 17
+  stageSliderValue: 1.6
+  midBossIndex: 1

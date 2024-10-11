@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,8 @@ public class MonsterAttack : MonoBehaviour, IMonsterComponent
 
     private Coroutine damageCoroutine;  // 플레이어에게 데미지를 주기 위한 코루틴
 
+    public event Action<bool> AtkEvent;
+
     public void Initialize(Monster monster)
     {
 
@@ -26,6 +29,7 @@ public class MonsterAttack : MonoBehaviour, IMonsterComponent
         ATK = _monsterSO.StatSO.Stats.Find(stat => stat.statName == "공격력");
 
         _player = GameObject.Find("Player").GetComponent<MagicSwordPlayer>();   //이런건 어떻게 찾는게 효율적일까
+
 
     }
 
@@ -40,6 +44,7 @@ public class MonsterAttack : MonoBehaviour, IMonsterComponent
             if (damageCoroutine == null)
             {
                 damageCoroutine = StartCoroutine(DealDamageAfterDelay());  // 딜레이 후 데미지 처리
+                AtkEvent?.Invoke(true);
             }
         }
         else
@@ -48,6 +53,7 @@ public class MonsterAttack : MonoBehaviour, IMonsterComponent
             {
                 StopCoroutine(damageCoroutine);
                 damageCoroutine = null;  // 코루틴 참조를 null로 설정
+                AtkEvent?.Invoke(false);
             }
         }
     }

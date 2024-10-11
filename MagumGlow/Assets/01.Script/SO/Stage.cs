@@ -8,6 +8,7 @@ public class Stage : ScriptableObject
 {
     public string StageName;
     public List<MonsterSO> monsters;
+    public List<Monster> midBossMonsters;
 
     public float enemiesPerBoss = 20f; // 확장성을 위해 적 처치 수 설정
     public int TotalSliderSteps = 10; // 슬라이더 단계 수 (보스 소환 구간)

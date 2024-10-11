@@ -65,7 +65,6 @@ public class MagicSwordPlayer : MonoBehaviour
 
     public void OnDamage(float damage)
     {
-        Debug.Log("µé¾î¿È");
         hpStat.currentValue -= damage;
         PlayerHealthUpdate();
 
