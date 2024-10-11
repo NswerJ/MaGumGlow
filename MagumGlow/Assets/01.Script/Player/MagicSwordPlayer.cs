@@ -19,6 +19,7 @@ public class MagicSwordPlayer : MonoBehaviour
 
     public event Action<bool> AttackEvent;
     public event Action<bool> DieEvent;
+    public bool criticalCheck = false;
 
     private bool enemyIsFront = false;  // 적이 앞에 있는지 여부
     private bool isDie = false;  // 죽음 상태 체크
@@ -29,6 +30,7 @@ public class MagicSwordPlayer : MonoBehaviour
         hpStat = swordStats.stats.Find(stat => stat.statName == "생명력");
 
         InitializeSword();
+        
     }
 
     void InitializeSword()
@@ -75,7 +77,7 @@ public class MagicSwordPlayer : MonoBehaviour
     }
 
     public void PlayerHealthUpdate()
-    {       
+    {
         playerHealth = hpStat.currentValue;  // 플레이어 체력 업데이트
 
         hpUI.value = playerHealth;
@@ -83,6 +85,17 @@ public class MagicSwordPlayer : MonoBehaviour
 
     private void CheckForEnemy()
     {
+        Stat criticalPercentStat = swordStats.stats.Find(stat => stat.statName == "치명타확률");
+
+        if (UnityEngine.Random.Range(0, 100) < criticalPercentStat.currentValue)
+        {
+            criticalCheck = true;
+        }
+        else
+        {
+            criticalCheck = false;
+        }
+
         RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, 1f, 0), Vector2.right, detectionRange, enemyLayer);
 
         if (hit.collider != null)
@@ -114,11 +127,22 @@ public class MagicSwordPlayer : MonoBehaviour
         {
 
             Stat attackPowerStat = swordStats.stats.Find(stat => stat.statName == "공격력");
+            Stat criticalPowerStat = swordStats.stats.Find(stat => stat.statName == "치명타데미지");
+           
 
             if (attackPowerStat != null)
             {
-                enemyHp.OnDamage(attackPowerStat.currentValue);  // 적에게 데미지 적용
-                Debug.Log($"적에게 {attackPowerStat.currentValue} 데미지를 입혔습니다.");
+
+                if (criticalCheck)
+                {
+                    enemyHp.OnDamage(attackPowerStat.currentValue * criticalPowerStat.currentValue);  // 적에게 데미지 적용
+                    Debug.Log($"적에게 {attackPowerStat.currentValue * criticalPowerStat.currentValue} 데미지를 입혔습니다.");
+                }
+                else
+                {
+                    enemyHp.OnDamage(attackPowerStat.currentValue);  // 적에게 데미지 적용
+                    Debug.Log($"적에게 {attackPowerStat.currentValue} 데미지를 입혔습니다.");
+                }
             }
             else
             {

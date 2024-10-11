@@ -99,7 +99,7 @@ public class MagicSwordStatUI : MonoBehaviour
         Stat stat = GetStat(statName);
         if (stat != null)
         {
-            levelStatText.text = $"레벨: {stat.statLevel}";
+            levelStatText.text = $"{stat.statName} Lv.{stat.statLevel}";
             increaseStatText.text = $"수치: {NumberFormatter.FormatWithUnit(stat.currentValue)}";
 
             if (statName == Health)

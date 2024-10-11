@@ -508,6 +508,10 @@ PrefabInstance:
       propertyPath: m_IsOn
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6647598182306976837, guid: 068a34e9be16cb543ad8ceb1cb946171, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6647598182306976839, guid: 068a34e9be16cb543ad8ceb1cb946171, type: 3}
       propertyPath: m_Name
       value: SubStage
@@ -618,6 +622,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6647598182306976837, guid: 068a34e9be16cb543ad8ceb1cb946171, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6647598182306976839, guid: 068a34e9be16cb543ad8ceb1cb946171, type: 3}
       propertyPath: m_Name
       value: SubStage3
@@ -718,6 +726,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6647598182306976836, guid: 068a34e9be16cb543ad8ceb1cb946171, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6647598182306976837, guid: 068a34e9be16cb543ad8ceb1cb946171, type: 3}
+      propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6647598182306976839, guid: 068a34e9be16cb543ad8ceb1cb946171, type: 3}
@@ -822,6 +834,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6647598182306976837, guid: 068a34e9be16cb543ad8ceb1cb946171, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6647598182306976839, guid: 068a34e9be16cb543ad8ceb1cb946171, type: 3}
       propertyPath: m_Name
       value: SubStage5
@@ -924,6 +940,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6647598182306976837, guid: 068a34e9be16cb543ad8ceb1cb946171, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6647598182306976839, guid: 068a34e9be16cb543ad8ceb1cb946171, type: 3}
       propertyPath: m_Name
       value: SubStage1
@@ -1024,6 +1044,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6647598182306976836, guid: 068a34e9be16cb543ad8ceb1cb946171, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6647598182306976837, guid: 068a34e9be16cb543ad8ceb1cb946171, type: 3}
+      propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6647598182306976839, guid: 068a34e9be16cb543ad8ceb1cb946171, type: 3}
