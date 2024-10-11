@@ -14,13 +14,17 @@ public class StageManager : MonoBehaviour
 
     private float sliderIncrementPerKill;
 
+    private void Awake()
+    {
+
+    }
 
     private void Start()
     {
+
+        var curStageData = GameManager.Instance.curStageData;
         collectionGoldTxt.text = GameManager.Instance.collectionGold.ToString() + "∞ÒµÂ∏¶\n»πµÊ «œºÃΩ¿¥œ¥Ÿ.";
         Debug.Log("Persistent Data Path: " + Application.persistentDataPath);
-        var curStageData = GameManager.Instance.curStageData; // Get stage data from GameManager
-        Debug.Log(curStageData.currentStageIndex);
 
         if (curStageData.currentStageIndex >= stages.Count)
         {
@@ -29,17 +33,11 @@ public class StageManager : MonoBehaviour
 
         SetupStage(stages[curStageData.currentStageIndex]);
 
-        // Slider value initialization
-        if (string.IsNullOrEmpty(GameManager.Instance.playerData.playerName))
-        {
-            curStageData.stageSliderValue = 0;
-            Debug.Log("ΩΩ∂Û¿Ã¥ı √ ±‚»≠");
-        }
-
-
+        stageSlider.value = curStageData.stageSliderValue;
         // Event Add
         monster.GetCompo<MonsterHP>().Dead += OnEnemyKilled;
     }
+
 
     private void SetupStage(Stage stage)
     {
@@ -91,12 +89,9 @@ public class StageManager : MonoBehaviour
     private void SpawnMidBoss()
     {
         var curStageData = GameManager.Instance.curStageData;
-        if (curStageData.midBossIndex < bossStages.Count)
-        {
-            Debug.Log("Mid Boss Spawned");
-            bossStages[curStageData.midBossIndex].isOn = true;
-            curStageData.midBossIndex++;
-        }
+        Debug.Log("Mid Boss Spawned");
+        bossStages[curStageData.midBossIndex].isOn = true;
+        curStageData.midBossIndex++;
     }
     public void CollectionGold()
     {
@@ -114,7 +109,7 @@ public class StageManager : MonoBehaviour
         var curStageData = GameManager.Instance.curStageData;
         Debug.Log("Stage Complete");
         curStageData.currentStageIndex++;
-
+        curStageData.stageSliderValue = 0;
         if (curStageData.currentStageIndex < stages.Count)
         {
             SetupStage(stages[curStageData.currentStageIndex]);

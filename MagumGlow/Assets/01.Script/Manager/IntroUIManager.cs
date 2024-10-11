@@ -18,7 +18,7 @@ public class IntroUIManager : MonoBehaviour
         startButton.SetActive(false);
         orginstartButton.SetActive(false);
         warningText.gameObject.SetActive(false);
-
+        var curStageData = GameManager.Instance.curStageData; // Get stage data from GameManager
         // 이미 저장된 플레이어 이름이 있는지 확인
         if (!string.IsNullOrEmpty(GameManager.Instance.playerData.playerName))
         {
@@ -27,8 +27,11 @@ public class IntroUIManager : MonoBehaviour
         }
         else
         {
+            curStageData.stageSliderValue = 0;
             EnableNameInput();
             Debug.Log("이름 써야함");
+            Debug.Log("슬라이더 초기화");
+
         }
     }
 

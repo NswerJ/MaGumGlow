@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1217726dd07f64c46b3c1db0dbedecca, type: 3}
+  m_Name: Ground
+  m_EditorClassIdentifier: 
+  StageName: Ground
+  monsters:
+  - {fileID: 11400000, guid: 40946e64e848af64ab42bced0a5e5e8b, type: 2}
+  - {fileID: 11400000, guid: 9284387088906bd4aba63e49f2d1789f, type: 2}
+  - {fileID: 11400000, guid: 775c00e11a10b804fbd215745d15ead6, type: 2}
+  enemiesPerBoss: 20
+  TotalSliderSteps: 10
+  currentStageIndex: 0
+  enemyKillCount: 1
+  sliderEnemyCount: 12
+  stageSliderValue: 0.1
+  midBossIndex: 0
