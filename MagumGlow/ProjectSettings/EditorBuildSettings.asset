@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/02.Scene/WJ/Ground.unity
     guid: 1a9dc1041d9d0b04482675df8d951723
+  - enabled: 1
+    path: Assets/02.Scene/WJ/Desert.unity
+    guid: 6d8b92ed75bb6c74d9619a91d276ce39
   m_configObjects: {}

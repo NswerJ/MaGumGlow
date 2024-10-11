@@ -5,21 +5,20 @@ using System.Collections;
 
 public class IntroUIManager : MonoBehaviour
 {
-    public TMP_InputField playerNameInputField;  // 플레이어 이름 입력 필드
-    public GameObject playerNameButton;  // 플레이어 이름 입력 필드 부모
-    public GameObject startButton;  // 플레이어 이름 입력 필드 부모
-    public GameObject orginstartButton;  // 플레이어 이름 입력 필드 부모
-    public TMP_Text warningText;  // 경고 메시지를 표시할 텍스트
-    private Coroutine fadeCoroutine;  // 현재 실행 중인 페이드 아웃 코루틴을 관리하기 위한 참조
+    public TMP_InputField playerNameInputField;  
+    public GameObject playerNameButton;  
+    public GameObject startButton;  
+    public GameObject orginstartButton;  
+    public TMP_Text warningText;  
+    private Coroutine fadeCoroutine;  
 
     private void Awake()
     {
-        playerNameInputField.characterLimit = 10;  // 입력 글자수 제한 (10글자)
+        playerNameInputField.characterLimit = 10;  
         startButton.SetActive(false);
         orginstartButton.SetActive(false);
         warningText.gameObject.SetActive(false);
-        var curStageData = GameManager.Instance.curStageData; // Get stage data from GameManager
-        // 이미 저장된 플레이어 이름이 있는지 확인
+        var curStageData = GameManager.Instance.curStageData; 
         if (!string.IsNullOrEmpty(GameManager.Instance.playerData.playerName))
         {
             EnableSceneChangeButton();
@@ -64,7 +63,6 @@ public class IntroUIManager : MonoBehaviour
         }
         else
         {
-            // 플레이어 이름을 저장하고 씬을 변경
             GameManager.Instance.SetPlayerName(playerNameInputField.text);
             LoadingSceneController.Instance.LoadScene(sceneName);
         }
