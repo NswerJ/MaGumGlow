@@ -8,6 +8,9 @@ public class StageManager : MonoBehaviour
 {
     public Slider stageSlider;
     public Monster monster;
+    public Monster midBoss;
+    public bool isBoss;
+
     public List<Stage> stages = new List<Stage>();
     public List<Toggle> bossStages = new List<Toggle>(); // 보스 토글 리스트
     public TextMeshProUGUI collectionGoldTxt;
@@ -34,8 +37,12 @@ public class StageManager : MonoBehaviour
         SetupStage(stages[curStageData.currentStageIndex]);
 
         stageSlider.value = curStageData.stageSliderValue;
-        // Event Add
+        // Event Add,  Pool로 바꾸기
         monster.GetCompo<MonsterHP>().Dead += OnEnemyKilled;
+        midBoss.GetCompo<MonsterHP>().Dead += OnEnemyKilled;
+
+        monster.gameObject.SetActive(!isBoss);
+        midBoss.gameObject.SetActive(isBoss);
     }
 
 
@@ -53,6 +60,10 @@ public class StageManager : MonoBehaviour
 
     public void OnEnemyKilled()
     {
+        //Pool로 바꾸기
+        monster.gameObject.SetActive(!isBoss);
+        midBoss.gameObject.SetActive(isBoss);
+
         var curStageData = GameManager.Instance.curStageData;
         curStageData.enemyKillCount++;
         curStageData.sliderEnemyCount++;
@@ -84,14 +95,25 @@ public class StageManager : MonoBehaviour
         {
             SpawnFinalBoss();
         }
+        //Pool로 바꾸기
+        else
+            isBoss = false;
     }
 
     private void SpawnMidBoss()
     {
+        //Pool로 바꾸기
+        isBoss = true;
+
+        monster.gameObject.SetActive(!isBoss);
+        midBoss.gameObject.SetActive(isBoss);
+
+
         var curStageData = GameManager.Instance.curStageData;
         Debug.Log("Mid Boss Spawned");
         bossStages[curStageData.midBossIndex].isOn = true;
         curStageData.midBossIndex++;
+        midBoss.SO.MonsterLV++;
     }
     public void CollectionGold()
     {
