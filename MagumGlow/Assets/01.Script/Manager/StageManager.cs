@@ -8,6 +8,9 @@ public class StageManager : MonoBehaviour
 {
     public Slider stageSlider;
     public Monster monster;
+    public Monster midBoss;
+    public bool isBoss;
+
     public List<Stage> stages = new List<Stage>();
     public List<Toggle> bossStages = new List<Toggle>();
     public TextMeshProUGUI collectionGoldTxt;
@@ -19,7 +22,17 @@ public class StageManager : MonoBehaviour
     {
         InitializeStage();
         InitializeSlider();
-        monster.GetCompo<MonsterHP>().Dead += OnEnemyKilled;
+        
+        //나중에 수정할거
+        monster.GetCompo<MonsterHP>().Dead += OnEnemyKilled; 
+        midBoss.GetCompo<MonsterHP>().Dead += OnEnemyKilled;
+        MonsterActive();
+    }
+
+    private void MonsterActive()
+    {
+        monster.gameObject.SetActive(!isBoss);
+        midBoss.gameObject.SetActive(isBoss);
     }
 
     private void InitializeStage()
@@ -59,6 +72,8 @@ public class StageManager : MonoBehaviour
 
     public void OnEnemyKilled()
     {
+        MonsterActive();
+
         var curStageData = GameManager.Instance.curStageData;
 
         curStageData.enemyKillCount++;
@@ -90,10 +105,14 @@ public class StageManager : MonoBehaviour
         {
             SpawnFinalBoss();
         }
+        else isBoss = false;
     }
 
     private void SpawnMidBoss()
     {
+        isBoss = true;
+        MonsterActive();
+
         var curStageData = GameManager.Instance.curStageData;
 
         if (curStageData.midBossIndex < bossStages.Count)
@@ -102,6 +121,7 @@ public class StageManager : MonoBehaviour
             bossStages[curStageData.midBossIndex].isOn = true;
             curStageData.midBossIndex++;
         }
+        midBoss.SO.MonsterLV++;
     }
 
     private void SpawnFinalBoss()
