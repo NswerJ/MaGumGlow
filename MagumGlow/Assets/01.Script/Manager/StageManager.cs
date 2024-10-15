@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
@@ -8,26 +8,25 @@ public class StageManager : MonoBehaviour
 {
     public Slider stageSlider;
     public Monster monster;
-    public Monster midBoss;
-    public bool isBoss;
-
     public List<Stage> stages = new List<Stage>();
-    public List<Toggle> bossStages = new List<Toggle>(); // 보스 토글 리스트
+    public List<Toggle> bossStages = new List<Toggle>();
     public TextMeshProUGUI collectionGoldTxt;
 
     private float sliderIncrementPerKill;
 
-    private void Awake()
-    {
-
-    }
 
     private void Start()
     {
+        InitializeStage();
+        InitializeSlider();
+        monster.GetCompo<MonsterHP>().Dead += OnEnemyKilled;
+    }
 
+    private void InitializeStage()
+    {
         var curStageData = GameManager.Instance.curStageData;
-        collectionGoldTxt.text = GameManager.Instance.collectionGold.ToString() + "골드를\n획득 하셨습니다.";
-        Debug.Log("Persistent Data Path: " + Application.persistentDataPath);
+
+        collectionGoldTxt.text = $"{GameManager.Instance.collectionGold} 골드를\n획득 하셨습니다.";
 
         if (curStageData.currentStageIndex >= stages.Count)
         {
@@ -35,57 +34,53 @@ public class StageManager : MonoBehaviour
         }
 
         SetupStage(stages[curStageData.currentStageIndex]);
-
-        stageSlider.value = curStageData.stageSliderValue;
-        // Event Add,  Pool로 바꾸기
-        monster.GetCompo<MonsterHP>().Dead += OnEnemyKilled;
-        midBoss.GetCompo<MonsterHP>().Dead += OnEnemyKilled;
-
-        monster.gameObject.SetActive(!isBoss);
-        midBoss.gameObject.SetActive(isBoss);
     }
 
+    private void InitializeSlider()
+    {
+        var curStageData = GameManager.Instance.curStageData;
+        stageSlider.value = curStageData.stageSliderValue;
+    }
 
     private void SetupStage(Stage stage)
     {
         var curStageData = GameManager.Instance.curStageData;
-        curStageData = stage; // Setting the current stage data
-        Debug.Log(curStageData.StageName);
+        curStageData = stage;
+
+        Debug.Log($"Setting up stage: {curStageData.StageName}");
+
         curStageData.enemyKillCount = 0f;
         curStageData.midBossIndex = 0;
         sliderIncrementPerKill = (10f / 6) / curStageData.enemiesPerBoss;
         stageSlider.value = 0f;
+
         ResetBossToggles();
     }
 
     public void OnEnemyKilled()
     {
-        //Pool로 바꾸기
-        monster.gameObject.SetActive(!isBoss);
-        midBoss.gameObject.SetActive(isBoss);
-
         var curStageData = GameManager.Instance.curStageData;
+
         curStageData.enemyKillCount++;
         curStageData.sliderEnemyCount++;
         UpdateSlider();
 
-        //LV UP
-        monster.SO.MonsterLV++;
+        monster.SO.MonsterLV++; 
 
         if (curStageData.enemyKillCount >= curStageData.enemiesPerBoss)
         {
             curStageData.enemyKillCount = 0f;
         }
 
-        // Save stage data after killing an enemy
-        GameManager.Instance.SaveStageData();
+        GameManager.Instance.SaveStageData(); 
     }
 
     private void UpdateSlider()
     {
         var curStageData = GameManager.Instance.curStageData;
-        curStageData.stageSliderValue = stageSlider.value;
+
         stageSlider.value = Mathf.Round((stageSlider.value + sliderIncrementPerKill) * 10f) / 10f;
+        curStageData.stageSliderValue = stageSlider.value;
 
         if (curStageData.IsMidBossStage(stageSlider.value))
         {
@@ -95,43 +90,39 @@ public class StageManager : MonoBehaviour
         {
             SpawnFinalBoss();
         }
-        //Pool로 바꾸기
-        else
-            isBoss = false;
     }
 
     private void SpawnMidBoss()
     {
-        //Pool로 바꾸기
-        isBoss = true;
-
-        monster.gameObject.SetActive(!isBoss);
-        midBoss.gameObject.SetActive(isBoss);
-
-
         var curStageData = GameManager.Instance.curStageData;
-        Debug.Log("Mid Boss Spawned");
-        bossStages[curStageData.midBossIndex].isOn = true;
-        curStageData.midBossIndex++;
-        midBoss.SO.MonsterLV++;
-    }
-    public void CollectionGold()
-    {
-        GameManager.Instance.GameStartGold();
+
+        if (curStageData.midBossIndex < bossStages.Count)
+        {
+            Debug.Log("Mid Boss Spawned");
+            bossStages[curStageData.midBossIndex].isOn = true;
+            curStageData.midBossIndex++;
+        }
     }
 
     private void SpawnFinalBoss()
     {
         Debug.Log("Final Boss Spawned");
-        OnStageComplete();
+        OnStageComplete(); 
+    }
+
+    public void CollectionGold()
+    {
+        GameManager.Instance.GameStartGold();
     }
 
     public void OnStageComplete()
     {
         var curStageData = GameManager.Instance.curStageData;
+
         Debug.Log("Stage Complete");
         curStageData.currentStageIndex++;
         curStageData.stageSliderValue = 0;
+
         if (curStageData.currentStageIndex < stages.Count)
         {
             SetupStage(stages[curStageData.currentStageIndex]);
@@ -142,7 +133,7 @@ public class StageManager : MonoBehaviour
             Debug.Log("All stages completed!");
         }
 
-        GameManager.Instance.SaveStageData(); // Save after completing a stage
+        GameManager.Instance.SaveStageData();
     }
 
     private void ResetBossToggles()

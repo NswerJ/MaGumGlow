@@ -2607,6 +2607,10 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 1192072444}
+    - target: {fileID: 4032438598729659384, guid: 563da51ce3c4261478fef15267ccb977, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1192072444}
     - target: {fileID: 4185786945802734134, guid: 563da51ce3c4261478fef15267ccb977, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
