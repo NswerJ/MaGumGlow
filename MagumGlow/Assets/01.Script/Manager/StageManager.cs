@@ -163,4 +163,10 @@ public class StageManager : MonoBehaviour
             toggle.isOn = false;
         }
     }
+
+    private void OnDestroy()
+    {
+        monster.GetCompo<MonsterHP>().Dead -= OnEnemyKilled;
+        midBoss.GetCompo<MonsterHP>().Dead -= OnEnemyKilled;
+    }
 }

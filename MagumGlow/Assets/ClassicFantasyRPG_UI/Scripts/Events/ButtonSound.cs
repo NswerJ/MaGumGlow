@@ -7,9 +7,14 @@ namespace Events
         public AudioSource audioSource;
         public AudioClip clickSound;
 
+        private void Awake()
+        {
+            audioSource =GameObject.Find("SoundManager").GetComponent<AudioSource>();   
+        }
+
         public void PlayButtonClick()
         {
-            audioSource.PlayOneShot(clickSound);
+            SoundManager.Instance.SFXPlay("ButtonClick",clickSound);
         }
     }
 }
