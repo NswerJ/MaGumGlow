@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DrawController : MonoBehaviour
 {
     public MagicSwordStats stats; 
     public float drawGold;
+    public TextMeshProUGUI playerGoldTxt;
+    public Button drawButton;
 
     private enum JewelGrade { Normal, Rare, Legendary }
 
@@ -23,6 +27,17 @@ public class DrawController : MonoBehaviour
         }*/
     }
 
+    private void Update()
+    {
+        UpdateGoldUI();
+
+    }
+
+    private void UpdateGoldUI()
+    {
+        playerGoldTxt.text = stats.playerGold.ToString();
+    }
+
     private void DrawJewel()
     {
         float randomNum = Random.Range(0f, 100f); 
@@ -31,17 +46,40 @@ public class DrawController : MonoBehaviour
 
         if (randomNum <= 70f)
         {
-            drawnJewel = JewelGrade.Normal; 
+            drawnJewel = JewelGrade.Normal;
+            NormalWinning();
         }
         else if (randomNum <= 99.5f)
         {
-            drawnJewel = JewelGrade.Rare; 
+            drawnJewel = JewelGrade.Rare;
+            RareWinning();
         }
         else
         {
-            drawnJewel = JewelGrade.Legendary; 
+            drawnJewel = JewelGrade.Legendary;
+            LegendaryWinning();
         }
 
         Debug.Log($"보석 뽑기 결과: {drawnJewel}");
+    }
+
+    public void NormalWinning()
+    {
+        ButtonInteractable(false);
+    }
+
+    public void RareWinning()
+    {
+        ButtonInteractable(false);
+    }
+
+    public void LegendaryWinning()
+    {
+        ButtonInteractable(false);
+    }
+
+    public void ButtonInteractable(bool isInteractable)
+    {
+        drawButton.interactable = isInteractable;
     }
 }
