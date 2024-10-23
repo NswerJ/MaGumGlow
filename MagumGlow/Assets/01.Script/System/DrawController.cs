@@ -1,85 +1,90 @@
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DrawController : MonoBehaviour
 {
-    public MagicSwordStats stats; 
+    public MagicSwordStats stats;
     public float drawGold;
     public TextMeshProUGUI playerGoldTxt;
     public Button drawButton;
+    public DrawAnimationController animationController;
 
-    private enum JewelGrade { Normal, Rare, Legendary }
+    [SerializeField] private JewelResultProcessor resultProcessor;  // 인스펙터에서 할당
 
-    public void DrawJewelButton()
+    public ButtonController buttonController;
+
+    public enum JewelGrade { Normal, Rare, Legendary }
+
+    private void Start()
     {
-        DrawJewel();
-        /*if (stats.playerGold >= drawGold)
+        if (resultProcessor == null)
         {
-           
-            stats.playerGold -= drawGold; 
+            resultProcessor = new JewelResultProcessor();  // Null 체크 후 인스턴스화
         }
-        else
-        {
-            Debug.Log("골드 없음.");
-        }*/
     }
 
     private void Update()
     {
-        UpdateGoldUI();
-
+        GoldUIHelper.UpdateGoldUI(playerGoldTxt, stats.playerGold);
     }
 
-    private void UpdateGoldUI()
+    public void DrawJewelButton()
     {
-        playerGoldTxt.text = stats.playerGold.ToString();
-    }
-
-    private void DrawJewel()
-    {
-        float randomNum = Random.Range(0f, 100f); 
-
-        JewelGrade drawnJewel = JewelGrade.Normal; 
-
-        if (randomNum <= 70f)
+        if (stats.playerGold >= drawGold)
         {
-            drawnJewel = JewelGrade.Normal;
-            NormalWinning();
-        }
-        else if (randomNum <= 99.5f)
-        {
-            drawnJewel = JewelGrade.Rare;
-            RareWinning();
+            stats.playerGold -= drawGold;
+            StartCoroutine(HandleDrawJewel());
         }
         else
         {
-            drawnJewel = JewelGrade.Legendary;
-            LegendaryWinning();
+            Debug.Log("골드가 부족합니다.");
         }
-
-        Debug.Log($"보석 뽑기 결과: {drawnJewel}");
     }
 
-    public void NormalWinning()
+    private IEnumerator HandleDrawJewel()
     {
-        ButtonInteractable(false);
+        buttonController.SetButtonInteractable(drawButton, false);
+
+        JewelGrade drawnJewel = DrawJewel();
+
+        yield return new WaitForSeconds(2.0f);
+
+        resultProcessor.ProcessJewelResult(drawnJewel);  // Null이 아니라면 결과 처리
+
+        buttonController.SetButtonInteractable(drawButton, true);
     }
 
-    public void RareWinning()
+    private JewelGrade DrawJewel()
     {
-        ButtonInteractable(false);
-    }
+        float randomNum = Random.Range(0f, 100f);
 
-    public void LegendaryWinning()
-    {
-        ButtonInteractable(false);
+        if (randomNum <= 70f)
+            return JewelGrade.Normal;
+        else if (randomNum <= 99.5f)
+            return JewelGrade.Rare;
+        else
+            return JewelGrade.Legendary;
     }
+}
 
-    public void ButtonInteractable(bool isInteractable)
+
+public class JewelResultProcessor
+{
+    public void ProcessJewelResult(DrawController.JewelGrade grade)
     {
-        drawButton.interactable = isInteractable;
+        switch (grade)
+        {
+            case DrawController.JewelGrade.Normal:
+                Debug.Log("Normal Jewel Obtained");
+                break;
+            case DrawController.JewelGrade.Rare:
+                Debug.Log("Rare Jewel Obtained");
+                break;
+            case DrawController.JewelGrade.Legendary:
+                Debug.Log("Legendary Jewel Obtained");
+                break;
+        }
     }
 }
