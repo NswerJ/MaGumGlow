@@ -77,13 +77,13 @@ public class JewelResultProcessor
         switch (grade)
         {
             case DrawController.JewelGrade.Normal:
-                Debug.Log("Normal Jewel Obtained");
+                Debug.Log("노말 등급 나옴");
                 break;
             case DrawController.JewelGrade.Rare:
-                Debug.Log("Rare Jewel Obtained");
+                Debug.Log("레어 등급 나옴");
                 break;
             case DrawController.JewelGrade.Legendary:
-                Debug.Log("Legendary Jewel Obtained");
+                Debug.Log("전설 등급 나옴");
                 break;
         }
     }
