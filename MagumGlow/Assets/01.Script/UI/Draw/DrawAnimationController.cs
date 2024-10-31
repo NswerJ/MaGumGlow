@@ -14,4 +14,9 @@ public class DrawAnimationController : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
     }
+
+    public void ShowDrawPanel(bool chk)
+    {
+        jewelAnimator.SetBool("OpenDraw", chk);
+    }
 }

@@ -8,10 +8,11 @@ public class DrawController : MonoBehaviour
     public MagicSwordStats stats;
     public float drawGold;
     public TextMeshProUGUI playerGoldTxt;
+    public TextMeshProUGUI jewelPowerTxt;
     public Button drawButton;
     public DrawAnimationController animationController;
 
-    [SerializeField] private JewelResultProcessor resultProcessor;  // 인스펙터에서 할당
+    [SerializeField] private JewelResultProcessor resultProcessor;  
 
     public ButtonController buttonController;
 
@@ -21,13 +22,18 @@ public class DrawController : MonoBehaviour
     {
         if (resultProcessor == null)
         {
-            resultProcessor = new JewelResultProcessor();  // Null 체크 후 인스턴스화
+            resultProcessor = new JewelResultProcessor(stats);
         }
     }
 
     private void Update()
     {
         GoldUIHelper.UpdateGoldUI(playerGoldTxt, stats.playerGold);
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            animationController.ShowDrawPanel(true);
+        }
     }
 
     public void DrawJewelButton()
@@ -72,19 +78,27 @@ public class DrawController : MonoBehaviour
 
 public class JewelResultProcessor
 {
+    private MagicSwordStats stats;
+
+    public JewelResultProcessor(MagicSwordStats stats)
+    {
+        this.stats = stats;
+    }
+
     public void ProcessJewelResult(DrawController.JewelGrade grade)
     {
-        switch (grade)
+        float multiplier = grade switch
         {
-            case DrawController.JewelGrade.Normal:
-                Debug.Log("노말 등급 나옴");
-                break;
-            case DrawController.JewelGrade.Rare:
-                Debug.Log("레어 등급 나옴");
-                break;
-            case DrawController.JewelGrade.Legendary:
-                Debug.Log("전설 등급 나옴");
-                break;
+            DrawController.JewelGrade.Legendary => 2f,
+            DrawController.JewelGrade.Rare => 1f,
+            DrawController.JewelGrade.Normal => 0.5f,
+            _ => 1f
+        };
+
+        foreach (var stat in stats.stats)
+        {
+            stat.currentValue *= multiplier;
         }
+        Debug.Log($"{grade} 등급 보석 획득으로 스탯이 {multiplier}배 증가했습니다.");
     }
 }
