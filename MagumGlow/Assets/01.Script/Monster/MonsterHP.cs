@@ -21,6 +21,7 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
     public int LV;
 
     public bool IsDead;
+    public bool IsDropItem;
     #endregion
 
 
@@ -114,6 +115,12 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
     {
 
         IsDead = true;
+
+        if(IsDropItem)
+        {
+            //Item Drop
+
+        }
 
         // 마검 스탯이 존재할 경우 골드 추가
         if (magicSwordStats != null)
