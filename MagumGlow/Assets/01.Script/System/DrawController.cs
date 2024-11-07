@@ -95,10 +95,19 @@ public class JewelResultProcessor
             _ => 1f
         };
 
-        foreach (var stat in stats.stats)
+        if (stats.stats.Count > 0)
         {
-            stat.currentValue *= multiplier;
+            int randomIndex = Random.Range(0, stats.stats.Count);
+            Stat selectedStat = stats.stats[randomIndex];
+
+            selectedStat.currentValue += selectedStat.currentValue * multiplier;
+
+            Debug.Log($"{grade} 등급 보석 획득으로 {selectedStat.statName} 스탯이 {multiplier}배 증가했습니다.");
         }
-        Debug.Log($"{grade} 등급 보석 획득으로 스탯이 {multiplier}배 증가했습니다.");
+        else
+        {
+            Debug.LogWarning("스탯 목록이 비어있습니다.");
+        }
     }
+
 }
