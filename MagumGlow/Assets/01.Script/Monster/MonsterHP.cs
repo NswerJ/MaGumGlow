@@ -24,6 +24,7 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
     public bool IsDropItem;
     #endregion
 
+    [SerializeField] private GameObject chestPrefab;    
 
     #region Event
     public event Action Hit;
@@ -119,7 +120,7 @@ public class MonsterHP : MonoBehaviour, IMonsterComponent
         if(IsDropItem)
         {
             //Item Drop
-
+            Instantiate(chestPrefab, null);
         }
 
         // 마검 스탯이 존재할 경우 골드 추가

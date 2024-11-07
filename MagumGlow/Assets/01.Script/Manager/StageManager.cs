@@ -122,6 +122,7 @@ public class StageManager : MonoBehaviour
             curStageData.midBossIndex++;
         }
         midBoss.SO.MonsterLV++;
+        isBoss = false;
     }
 
     private void SpawnFinalBoss()
