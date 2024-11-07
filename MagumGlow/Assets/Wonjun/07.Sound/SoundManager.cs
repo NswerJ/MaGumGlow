@@ -29,7 +29,6 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject); 
         }
     }
-
     private void Start()
     {
         if (bgSlider != null)

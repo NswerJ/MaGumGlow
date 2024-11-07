@@ -111,7 +111,7 @@ public class MagicSwordStatUI : MonoBehaviour
 
     void UpdateGoldUI()
     {
-        playerGoldText.text = $"°ñµå: {NumberFormatter.FormatWithUnit(magicSwordStats.playerGold)}";
+        GoldUIHelper.UpdateGoldUI(playerGoldText, magicSwordStats.playerGold);
     }
 
     Transform GetStatParent(string statName)
